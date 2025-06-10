@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BotaoEstatParametrica.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="BotaoEstatParametrica.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 7</value>
+  </data>
+  <data name="BotaoEstatParametrica.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 22</value>
+  </data>
+  <data name="BotaoEstatParametrica.Text" xml:space="preserve">
+    <value>• Estatística Paramétrica</value>
+  </data>
+  <data name="BotaoVAC.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BotaoVAC.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BotaoVAC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 34</value>
+  </data>
+  <data name="BotaoVAC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 22</value>
+  </data>
+  <data name="BotaoVAC.Text" xml:space="preserve">
+    <value>• Variáveis Aleatórias Contínuas</value>
+  </data>
+  <data name="SubFerramentas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 110</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SubFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="SubFerramentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 83</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SubFerramentas.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 642</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 93</value>
+  </data>
+  <data name="SairIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAlCAYAAAAqXEs9AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAl9JREFUWEftmN9x4jAQxikhHRwl0MGlg1wHpAPogOvgSqAESqAESuDxZoilnUhC
+        6/DimxWSbK1lx0dik4d8M98wY0vLT3+90mz2AZmTWegX/Ui//N0kqqB60C/4aET5R0sLWmAVbCQeDVyW
+        vM6ny0FAudIS9xwi51dh1zzGh0W9oAX+dhCZPw1WwoIucK8EHuvnFgCqhxjLxck3RFGvCtwi4DwlCD3R
+        U7l2edACNxrwZ6gLf3GupXseyqzCu3b9vJPhJhiTBKwdekELu0KofsRKTAQRgwvchueK5lsmbs5xcVAA
+        DmEK3Cp4e4Jj3f19UoV5zgH1CU5m0Rxugp/ReDPSDa84RLcAkfx89UB4TB7Q0PAKQ3UrEADOv4H6dJ0y
+        fmXT/98biETbhgJcugX0FYASTQ1Ee152Zw6aEsgUGMtQlsDfO00FlMBcnd/vpgDiMLS8aSI3y0SNDcRh
+        nCXuqQy3m1tjA7Vg+iztYXSgNFd6x4XdjQ7kNj0GRV912gi5J9sY21AWOg8GUwCR2lB3XPZBLtV1KXB5
+        uNuy/299A2VkhF1raXduot8bqJnTf5GMkaWwBi6LCCQs8ApD9WlApJjTkqXddeYqPboVSDU/vmGEXk92
+        XfeSD+rP3ao4/6Isjwfi6gKiuvQu5/bRvT6Cz7R423CoxJQywGXZlX66874v606gXtSwVqyMszmS3963
+        /GPYsiwP7o7ID61bGI2WnovzU4iZTIcOZ2G46Nx9bXX+EqLLcWJ60ZDTPUGX6f6gWX6QXM+dzDPlKxyA
+        w7zb0jFEraKhDb3nh3gz9KakT/8AEhfcKw38LCQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="SairIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SairIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 32</value>
+  </data>
+  <data name="SairIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="SairTexto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16pt, style=Bold</value>
+  </data>
+  <data name="SairTexto.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SairTexto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 0</value>
+  </data>
+  <data name="SairTexto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="SairTexto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 38</value>
+  </data>
+  <data name="SairTexto.Text" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="SairTexto.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BotaoSair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 305</value>
+  </data>
+  <data name="BotaoSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="BotaoSair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 38</value>
+  </data>
+  <data name="SobreIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACcAAAAmCAYAAABH/4KQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAA9ZJREFUWEe1WO1t4zgQdQnp4LaEdLDuIOlg04HTgbcDXwcuYUtwCS7BPw+4gzWW
+        RHGGVA48PMZyqLFsUfLeA4gg8nA4nO/hYjETIYSnltulLf3KkGya0m3NkbfxL8lGar+qiZeg03v/F+Ag
+        sX5lT7IzhYT6yKMLdJZkx5X/EUL4pnk+jEDhqT7yz7qwpA+fshqS4Bq//W1CivHvhuSuUKYQakgOl1Xe
+        16op+GDI/9BnZQMmtJXsNGOs6mgJfsUmmuoPvReAdprKvRhy2+rIB80jCkk8XYuBw7fmJFcMoRX43Bwn
+        r/42b0NCGuIDM+cJGAWjvmBwalPKZo5QGk3p1jqYsgSMpixd/3aFUODwXdM+AqQgrUVDsr97eUP2z3QD
+        GNBfIzeaCfDVAtrSbzRdhPcfb1pjuYLhxly3y4aa1ymJ1xv/fJUJiJeabqEDwJay0jQaYI6I1j6EfIZq
+        wTR+OTHy3tt7kkOPgCvf1xrJrx7BAJj9mxbqahVChvyz3quBitMTsPp4ufnjmDmhkStz3FiIxDEzt21Y
+        9i5KvIs/IIT7zOTzhzuwld+oPXsk3JbDd674TaciJGvNQwPnXvgVEmJyN8Q9k+YwggAdPSJOa8Z7/6yE
+        H47CBGL/XaV7bO1XCIRf6cfcchI1VLr1UPJEoEwVjig8paZFaYM6990HmENvmoqhRiHHGgD880s4t18Y
+        cl+MirMjzgDKXuo3cy7cC8xCCJpLGY2mkFvQQdAJNhb5KdDBJHtDT7ho5xlwjXtNhYLvNOTWOlDGMCTc
+        xaw5aWQIcOZLncxMvENIzQp3W9jTVxdiinz/0OiaSzpM01aKNDhNITEgLqo8J7/ZzB8Bzk1TSfR/FPju
+        A1Zu2GtgCEJnkpsnNXR9j0lYly9b+cl+11TutZvM4MiePyZfUNf3S3JHfus+QrVt2173VHeQ+spZwEm+
+        i0Yi3R8T8OXHpFZ+am9a1OocF515AtD7pfuvXEsfwCbfNGnDGCf8jEa1A5u+r2Gm1TSL+h9epkTIVzmd
+        bAdUgvMcmz0MDfWFH/6GUuzJ9TqUrJFtJmItLvoDDh6BNN0FyDXavGAwRYM5iIONEgz/j+ZYaEqPbEgP
+        DbmfmnYObCnv+kFo0gg6NFNiodTNyWEAfFqnnE5j2YJ1gAZt6a6YRU2e5CCYI+7MqPj++bgom+aU9Iyp
+        YCfZPeTTXLt12lbpFdsjzLwF73CYOcnekBzujY14pUJLpc+aBaj9/Jx6ddCUFS9Suu1D2roFpgAhoclB
+        cw+tz8YTj4pu/Ug7NQlR0Mq94FB00Hj37Rb+x5PZvcfFHPwHBA/YGX8nSBoAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="SobreIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SobreIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 32</value>
+  </data>
+  <data name="SobreIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="SobreTexto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16pt, style=Bold</value>
+  </data>
+  <data name="SobreTexto.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SobreTexto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="SobreTexto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 38</value>
+  </data>
+  <data name="SobreTexto.Text" xml:space="preserve">
+    <value>Sobre</value>
+  </data>
+  <data name="SobreTexto.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BotaoSobre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 252</value>
+  </data>
+  <data name="BotaoSobre.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="BotaoSobre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 38</value>
+  </data>
+  <data name="ConfiguracoesIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACcAAAAmCAYAAABH/4KQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAxFJREFUWEe1mI1x00AQhVNCOiAl0EHoADoIHYQOQgfQQeggJaQESkgFYEhsy7Z+
+        HvPOu2K12pNlWfpmPKPxne7e7d+tfXW1AAA+ALgH8AjgCcCzPD9wzM9fHADXAL4CWEFo6gZ12aAq6/Rs
+        eAHwxa+xCGIpbtjSNEdhxesBb7+K9Fn/3mH7ulehK7/O7Ii1PLQe3ZgEb/7sWoH7balzvvm1ZiUQRjG3
+        Zpyuxm5ztF7xdtB5j92VZoYx05F1tNR1MG91KKrkXuGnnzMrAG5s4OdcBOAzB/ebMsUghUUHmBWxkvLi
+        x4kcIMWcCOPzjZ9nkfJz578fjWxq6W1ohQmDwiQ2aVVlWi1UVwlPwXgSVldtXTsljPOTMCaMWHlawkjF
+        V3oukJqHcl9l5yh6EAra/t2njC536b1pNdCZ/30wnsqHWICECWCF2TrIsjP03iD6JvFjiou3XvzwUJrt
+        dd2011yxPmC3bsW98++dxGw6JC5lsykfbcxJzNoypLdJ8oi5QdpiPhq3cGh6KQl2I1pSuxNLJ1nc2pMs
+        dzLlxW3JZdWhbifzeSiL24kDXhmELjDB/uDHFXEfLWWtofRuCgCfzPizHRsNxSWLlMkio1JeLPmR15w0
+        nL1wcLfOvR8fBU9F95gOI1vHxqJhYMgW7SxqegY6U184P6sMwVV3/u0gwlL8aCd7qdWCO7WXJCcJejcu
+        Et0OoxeOWvuzvQDgu1sgPB2AHzLODM1aVET5ekey7/QQk9tLnnDRKNNSu37YVWj+1zGdzzX0BojKCr8b
+        bzHbxhhy3e5RWFGmSzsJ7P4MHCJs7bNIWvtYCIut7e1MYaYl/PsWjoW1bhCbkUI2I21nIdDSHffInFv5
+        8Pk8QcrYjCRBbeLztI1PkRHWy0iSERbOvZhgszAjFZcodOsywoj7wRL+zFNMLVNCt88GS8TIFsj/9TCt
+        czgHFScCB2uZIXuIWdGWWujFkGsCSXiARZBramWsx+S4E1GdPwMnd6iXoKXE9PcRy9WyU8iVkjAJorC8
+        LFcyxiA1j30+xeifzOM7hpn5BxUur3cEXDcvAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ConfiguracoesIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ConfiguracoesIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="ConfiguracoesIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 32</value>
+  </data>
+  <data name="ConfiguracoesIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="ConfiguracaoTexto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16pt, style=Bold</value>
+  </data>
+  <data name="ConfiguracaoTexto.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ConfiguracaoTexto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 0</value>
+  </data>
+  <data name="ConfiguracaoTexto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ConfiguracaoTexto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 38</value>
+  </data>
+  <data name="ConfiguracaoTexto.Text" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="ConfiguracaoTexto.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BotaoConfiguracoes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 200</value>
+  </data>
+  <data name="BotaoConfiguracoes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="BotaoConfiguracoes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 38</value>
+  </data>
+  <data name="BotaoConfiguracoes.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="FerramentasIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACQAAAAjCAYAAAD8BaggAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAXJJREFUWEft2NFtgzAQBmBGyAiM0A2aEToCG2SEZoOMkBHSDTJCR+AxUoKxZBMO
+        pQ9UR+UUHzYHpTIv/qV7CLbRB3Js5CRJkkQVkFWiOYCEFH+vGlXc37SAFqsqIaftwaMFvBsQFm0Pngji
+        EkFcIohLSJAWsNclnIdVn56LcihQfwF2Vlmfuo6hQPoG2wGiXwWcfzouAMEF0jn7n7xAquXXqyrqj38H
+        VQVkv+Pue9ruSzePKGYpyMZMRw0wZfO5GOTG8CiKUQKO1rz6C4hilIDcekoPyoXB61K2G3ptMsiFwUna
+        3XQE5cOYyOvjRYt6J/N2YwawIB/GtPtQHMYZDsRhTNyomRjMGAjXmCkYEx9qMgYzBur/CziMCUXNwmDG
+        QBh1rTIlmsMUjAmicAzem7ax4UDBE0FcIohLBHHRotn1Qfqmt7RP0EiyPeAJCH5wVwKO4YocBSHAeksr
+        lHUURPefteoJMsF9Cz8lcSMNXTiX0fANGuo7snEwCScAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="FerramentasIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="FerramentasIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>29, 28</value>
+  </data>
+  <data name="FerramentasIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="FerramentasTexto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16pt, style=Bold</value>
+  </data>
+  <data name="FerramentasTexto.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="FerramentasTexto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, -1</value>
+  </data>
+  <data name="FerramentasTexto.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="FerramentasTexto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 38</value>
+  </data>
+  <data name="FerramentasTexto.Text" xml:space="preserve">
+    <value>Ferramentas</value>
+  </data>
+  <data name="FerramentasTexto.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BotaoFerramentas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 72</value>
+  </data>
+  <data name="BotaoFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="BotaoFerramentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 38</value>
+  </data>
+  <data name="InicioIcon.ErrorImage" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="InicioIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACkAAAApCAYAAACoYAD2AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAo9JREFUWEftmN1x4yAQx1NCSkgJ6SDpIO7A6cDuwOnA10GuA5fgElSCH28mEWIC
+        GOS86GaxZMMuMujDiR78n9mX1Ur6CdjVwt3diKp4da8+1KPh5gFfm4QUV4+y0FwyUx1t/4ZjflUqN69n
+        uLMpZt5JLNPL08cUZQYjj2NGl2TmDcN5VpRZM/0i+DGaX3V5SKb/uC8UzOz4P/Mg2WHl+lVhdgACwBTS
+        2go/e7AgQWRhtt6LcrPlu+q+iQmBwqi5YKdrgWUxSDAixxe6I1iucRwoPL1XhoQMxoCxqYLEgGXwI5A2
+        g50SI5jmKv+e47iQYJ1iUOWsz1EgcQbbBOlYOkKgo0G2ZTCOSxEPJdwQyGAGszJzM7ivINE8yLpE4biL
+        Cmdwz69tUahEJYP2yeC++vrQSwwa/U2K/DDzmwQ7xQscN6ZEvp/5RV5zxVuqhv3xe9OrueTmCcddQ+HM
+        R10UBeyfwX0VAv1iemkv0l9Xmf00YCPbnKAmZM8PL1CoT1kmCr0Zo8QM0bGW6o0DuvIgr5XFXUWYiGMC
+        IkzEMQERJuKYgAgTcUxAhIk4EiU/zbNi5Ro6mLiVa/kpn/Ez2kSYiCNBgu3/Ovckm2I6uM3AIkzEEREt
+        /t2s9b/siDARR0Rujwl9oeBmHjOvOBd6g5+JRZiIIyKvEU5sQGD9nu7JzRZfxyJMxBHRDbIWYSKOiG6Q
+        tQgTcUR0g6xFmIgjosGQTGf4OhZhIo4LsmeM59gqdZvBvfvih6aEyXVAMwCNQMhErl79/Xh8RFy5M2D3
+        1/x7jt/RmOXwIcuFOzqp1vXAyp/ydFO5mduND95KXrIuR35Y9CDgsnlb63rP+w6Z1262SVgN3U0ez9T1
+        gj7fN2heGsD/bWXvmnDXyCEAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="InicioIcon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="InicioIcon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 4</value>
+  </data>
+  <data name="InicioIcon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 29</value>
+  </data>
+  <data name="InicioIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="InicioIcon.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="InicioTexto.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16pt, style=Bold</value>
+  </data>
+  <data name="InicioTexto.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="InicioTexto.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 2</value>
+  </data>
+  <data name="InicioTexto.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 33</value>
+  </data>
+  <data name="InicioTexto.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="InicioTexto.Text" xml:space="preserve">
+    <value>Início</value>
+  </data>
+  <data name="InicioTexto.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="BotaoInicio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 20</value>
+  </data>
+  <data name="BotaoInicio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="BotaoInicio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 38</value>
+  </data>
+  <data name="Barra_lateral_menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <data name="Barra_lateral_menu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="Barra_lateral_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 746</value>
+  </data>
+  <data name="EstatsIMG.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="EstatsIMG.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EstatsIMG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 14</value>
+  </data>
+  <data name="EstatsIMG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 25</value>
+  </data>
+  <data name="EstatsIMG.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="Botao_Tres_Barras.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="Botao_Tres_Barras.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="Botao_Tres_Barras.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="Botao_Tres_Barras.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 25pt, style=Bold</value>
+  </data>
+  <data name="Botao_Tres_Barras.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACcAAAAeCAYAAACv1gdQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAALBJREFUWEftlbENwjAQRT1CNoARsgGMkA1ghGwAm6ZEmDin+MydgMLoXDpUgJQr
+        7knPsvSb39jfxfHR4USAgbMW08RDgufByaUOdUjg5FgGGiRws6d+Gajw5ASE106T4FNbihmGYfyJDLnh
+        C2+1KH1KMQx8/vA7r+4cqLfh/8YYeNA//DDkhiFvtCh9qjdrGIbxE8mnFm+412Qppnr4tW6r/uGPIx/l
+        UodrGgNBvN67NzXMvHBDfYR5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="Botao_Tres_Barras.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Botao_Tres_Barras.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 11</value>
+  </data>
+  <data name="Botao_Tres_Barras.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="Botao_Tres_Barras.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 31</value>
+  </data>
+  <data name="TituloEstatPar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 25pt, style=Bold</value>
+  </data>
+  <data name="TituloEstatPar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>262, 100</value>
+  </data>
+  <data name="TituloEstatPar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="TituloEstatPar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>352, 43</value>
+  </data>
+  <data name="TituloEstatPar.Text" xml:space="preserve">
+    <value>Bem vindo, Usuário!</value>
+  </data>
+  <data name="TituloEstatPar.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="TituloEstatPar.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="DescEstatPar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="DescEstatPar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="DescEstatPar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>343, 71</value>
+  </data>
+  <data name="DescEstatPar.Text" xml:space="preserve">
+    <value>Este é o Estats, um software didático de estatistica. Utilize o menu ao lado para navegar entre as telas.</value>
+  </data>
+  <data name="DescEstatPar.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="DescEstatPar.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="link4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12.5pt, style=Bold</value>
+  </data>
+  <data name="link4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="link4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="link4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="link4.Text" xml:space="preserve">
+    <value>📘 Khan Academy - Estatística</value>
+  </data>
+  <data name="link4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 180</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="link3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12.5pt, style=Bold</value>
+  </data>
+  <data name="link3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="link3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="link3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="link3.Text" xml:space="preserve">
+    <value>📄 Scielo Brasil – Artigos</value>
+  </data>
+  <data name="link3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 135</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="link2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12.5pt, style=Bold</value>
+  </data>
+  <data name="link2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="link2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="link2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="link2.Text" xml:space="preserve">
+    <value>🧠 Wikipedia – Estatística </value>
+  </data>
+  <data name="link2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 90</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="link1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12.5pt, style=Bold</value>
+  </data>
+  <data name="link1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="link1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="link1.Text" xml:space="preserve">
+    <value>🌐 IBGE Explica Estatística</value>
+  </data>
+  <data name="link1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 45</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>249, 32</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 11</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 21</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Aprofunde seus conhecimentos:</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>955, 90</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 223</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="panel6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>398, 1234</value>
+  </data>
+  <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>783, 49</value>
+  </data>
+  <data name="panel6.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="nightControlBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="nightControlBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1141, 0</value>
+  </data>
+  <data name="nightControlBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 31</value>
+  </data>
+  <data name="BarraSuperior.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="BarraSuperior.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1280, 50</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1280, 800</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1280, 800</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1280, 800</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Estats</value>
+  </data>
+</root>
