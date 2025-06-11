@@ -118,6 +118,353 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnInicio.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="btnInicio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACwSURBVEhL7dLhCYJgFIVhR2gER3AUR3Cj2qA2qhHaoDZ4Q/AjfW+ZXvtXDwSR55wQblX9DKAG
+        zsNn5+ebAA1w46n/3jiXArQaH/9J6/wqQOfVFzr3FgEOXpqxd38WcPLCAkfvBP11DFeS9f7CRme4Vb9R
+        e9xnuNX0jIG7E19wnbxF4dRa3gtcWMt7gQtFNhe4UGRzgQtFNhe4UGRzgQtFNhe4UGRzAXBxqf8tm/v7
+        6AGRQdz0bZRAvwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnInicio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnInicio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnInicio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnInicio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnInicio.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 2</value>
+  </data>
+  <data name="btnInicio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 75</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnInicio.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnInicio.Text" xml:space="preserve">
+    <value>    Início</value>
+  </data>
+  <data name="btnInicio.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnInicio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 13</value>
+  </data>
+  <data name="pnInicio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnInicio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 75</value>
+  </data>
+  <data name="pnInicio.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="btnSobre.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="btnSobre.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAM5JREFUSEvd
+        lNENgzAQQxmho3STMkI3KhuUjWAD2MTIVUKDgdwpER/tkyJFkbHF3SVN8/cAeAJ4AxjwhXuePVTvBkAL
+        YEpMz6Cm1e+zAOjUxcFLfQ4pNI906rchlKWW83IBmFUt3MLKManvhzAtFp4Asv8LAL2qKujVnwGjqioY
+        1J8BHu5hmai/K6BEu+IpUaK1GLfuziYnWovDJptjmmgt9mNKHBfN0+RZfVcufyrIpY9dpDDEZx4J5bJ6
+        QqjJlyVHCOIIp/eEe56VG/8MCzo68ItfrYPHAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnSobre.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSobre.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSobre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 0</value>
+  </data>
+  <data name="btnSobre.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnSobre.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 2</value>
+  </data>
+  <data name="btnSobre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 75</value>
+  </data>
+  <data name="btnSobre.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnSobre.Text" xml:space="preserve">
+    <value>    Sobre</value>
+  </data>
+  <data name="btnSobre.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnSobre.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnSobre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 75</value>
+  </data>
+  <data name="btnConfig.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="btnConfig.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQZJREFUSEvl
+        ldENgkAQRC3BEiyBEuxAO9AS7ERKoAPtSDvQDp4ZskQYFglEfvQlJJvL3Ozd7d6xWv0FwB548Ebx3nWz
+        AaqWeUPlulkAG+Dm7jG2cf0oQAlcgANwdtcEaaTVnLP7dQCOPnsGR/etAdZWyLnIY+3+SnByZYt7dJLq
+        oU+xxoY4ub8SbIGnK8Oot6LYcZZEHlvX1wCFqz/1e+zEKVzXwdXZ6hviuDq4podP+GqCRY8oipy1qW5s
+        bxdR5OyGy6Nf5JE2ldGu1aaKM/OGtE21oqxNp5K2dc2iT0VDPHbXSKZ4DGlUbM0p3W+UOPPsxmps+nOd
+        segPR8QRtBtA8eD9+C1eBFrr1QI7P5UAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnConfig.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnConfig.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnConfig.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 0</value>
+  </data>
+  <data name="btnConfig.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnConfig.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 2</value>
+  </data>
+  <data name="btnConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 75</value>
+  </data>
+  <data name="btnConfig.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnConfig.Text" xml:space="preserve">
+    <value>    Configurações</value>
+  </data>
+  <data name="btnConfig.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnConfig.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnConfig.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 75</value>
+  </data>
+  <data name="btnSair.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="btnSair.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQhJREFUSEvt
+        lW0NAjEMhpGABCQgASk4QQJIwAE4AAcgAQeHg4e8STdKWXdH4CdPsuSyfq1vt9xs9udXAHPgYmse7V8D
+        rHiyivaPAJZ20q3baxYA1sBJMTVBD5NiKJncflbgZnuKGZcOOLpEa7efFVAHhUNN1MKkKRyDrVnAbP5Q
+        uVTAzjm+tDtSYOFsO297ATib07lh02ykt9ab1r3YCnAfPUWC636ItsqPCtyjrTKpzYRJsb0h97D5FPLu
+        w03JHQPhYPk1Fa5VUR9aRnhouTwFu9Nl2GLTkstkka2gmEX0a2Iv2hcRB0uopW+PfPvSRKwTL1eGfKad
+        vIUNfg9cXVJ9a++7/8If8QDL/FyB1jA9cwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSair.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSair.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 0</value>
+  </data>
+  <data name="btnSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnSair.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 2</value>
+  </data>
+  <data name="btnSair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 75</value>
+  </data>
+  <data name="btnSair.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnSair.Text" xml:space="preserve">
+    <value>    Sair</value>
+  </data>
+  <data name="btnSair.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnSair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 376</value>
+  </data>
+  <data name="pnSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnSair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 75</value>
+  </data>
+  <data name="pnSair.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 657</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="Rodape_Barra_Lateral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 93</value>
+  </data>
+  <data name="Barra_lateral_menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="Barra_lateral_menu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="Barra_lateral_menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 761</value>
+  </data>
+  <data name="btnFerramentas.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold</value>
+  </data>
+  <data name="btnFerramentas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAADHSURBVEhL7ZThDYIwEIUZgREcwQ10E9lERmADHcERuoFsgCO4wTOPXMn1SQzY/jHyJZdw9Ppe
+        udJW1cYaADQAzplxUt0RAC3K0ao+DR5alcGg+jQoiur/h0HvansdVFL1ZQbB1QYdVFL1Lw1czvOTMAm7
+        IoW/LYViOz4ZHNOpywymw2L5ZvDGxd7vLb8DqC34THZW07l5I6o/Z5CFF45XdGmo2cR+3uy6LhnUDLF/
+        7OmhcFCzowE37Qrgqd+YAbW48DrZ6J/kBWydaihEdQ4vAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnFerramentas.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnFerramentas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFerramentas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, 0</value>
+  </data>
+  <data name="btnFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnFerramentas.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 2</value>
+  </data>
+  <data name="btnFerramentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 74</value>
+  </data>
+  <data name="btnFerramentas.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnFerramentas.Text" xml:space="preserve">
+    <value>    Ferramentas</value>
+  </data>
+  <data name="btnFerramentas.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="flowLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 152</value>
+  </data>
+  <data name="pnFerramentas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 2</value>
+  </data>
+  <data name="pnFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnFerramentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 75</value>
+  </data>
+  <data name="pnFerramentas.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="btnEstatPar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="btnEstatPar.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnEstatPar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEstatPar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnEstatPar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 52</value>
+  </data>
+  <data name="btnEstatPar.Text" xml:space="preserve">
+    <value>•  Estatística Paramétrica</value>
+  </data>
+  <data name="btnEstatPar.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnEstatPar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 81</value>
+  </data>
+  <data name="pnEstatPar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnEstatPar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 52</value>
+  </data>
+  <data name="btnVAC.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="btnVAC.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnVAC.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnVAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnVAC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 52</value>
+  </data>
+  <data name="btnVAC.Text" xml:space="preserve">
+    <value>•  V. A. C.</value>
+  </data>
+  <data name="btnVAC.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnVAC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 137</value>
+  </data>
+  <data name="pnVAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnVAC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 52</value>
+  </data>
+  <data name="MenuFerramentas.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="MenuFerramentas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 270</value>
+  </data>
+  <data name="MenuFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="MenuFerramentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 200</value>
+  </data>
   <data name="BotaoEstatParametrica.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
@@ -133,7 +480,6 @@
   <data name="BotaoVAC.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="BotaoVAC.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -147,30 +493,16 @@
     <value>• Variáveis Aleatórias Contínuas</value>
   </data>
   <data name="SubFerramentas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 110</value>
+    <value>579, 355</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SubFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="SubFerramentas.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 83</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="SubFerramentas.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 642</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 93</value>
   </data>
   <data name="SairIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -219,7 +551,7 @@
     <value>MiddleLeft</value>
   </data>
   <data name="BotaoSair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 305</value>
+    <value>582, 578</value>
   </data>
   <data name="BotaoSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -277,7 +609,7 @@
     <value>MiddleLeft</value>
   </data>
   <data name="BotaoSobre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 252</value>
+    <value>582, 525</value>
   </data>
   <data name="BotaoSobre.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -338,7 +670,7 @@
     <value>MiddleLeft</value>
   </data>
   <data name="BotaoConfiguracoes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 200</value>
+    <value>585, 464</value>
   </data>
   <data name="BotaoConfiguracoes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -392,7 +724,7 @@
     <value>MiddleLeft</value>
   </data>
   <data name="BotaoFerramentas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 72</value>
+    <value>579, 317</value>
   </data>
   <data name="BotaoFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -457,22 +789,13 @@
     <value>MiddleLeft</value>
   </data>
   <data name="BotaoInicio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 20</value>
+    <value>579, 275</value>
   </data>
   <data name="BotaoInicio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="BotaoInicio.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 38</value>
-  </data>
-  <data name="Barra_lateral_menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 50</value>
-  </data>
-  <data name="Barra_lateral_menu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Barra_lateral_menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 746</value>
   </data>
   <data name="EstatsIMG.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -511,46 +834,13 @@
     <value>NoControl</value>
   </data>
   <data name="EstatsIMG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>62, 14</value>
+    <value>55, 8</value>
   </data>
   <data name="EstatsIMG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 25</value>
+    <value>83, 20</value>
   </data>
   <data name="EstatsIMG.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
-  </data>
-  <data name="Botao_Tres_Barras.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="Botao_Tres_Barras.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="Botao_Tres_Barras.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="Botao_Tres_Barras.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 25pt, style=Bold</value>
-  </data>
-  <data name="Botao_Tres_Barras.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACcAAAAeCAYAAACv1gdQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAALBJREFUWEftlbENwjAQRT1CNoARsgGMkA1ghGwAm6ZEmDin+MydgMLoXDpUgJQr
-        7knPsvSb39jfxfHR4USAgbMW08RDgufByaUOdUjg5FgGGiRws6d+Gajw5ASE106T4FNbihmGYfyJDLnh
-        C2+1KH1KMQx8/vA7r+4cqLfh/8YYeNA//DDkhiFvtCh9qjdrGIbxE8mnFm+412Qppnr4tW6r/uGPIx/l
-        UodrGgNBvN67NzXMvHBDfYR5AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="Botao_Tres_Barras.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Botao_Tres_Barras.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 11</value>
-  </data>
-  <data name="Botao_Tres_Barras.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Botao_Tres_Barras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 31</value>
   </data>
   <data name="TituloEstatPar.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 25pt, style=Bold</value>
@@ -730,7 +1020,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>398, 1234</value>
+    <value>430, 1390</value>
   </data>
   <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -740,6 +1030,27 @@
   </data>
   <data name="panel6.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACcAAAAeCAYAAACv1gdQAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAAALBJREFUWEftlbENwjAQRT1CNoARsgGMkA1ghGwAm6ZEmDin+MydgMLoXDpUgJQr
+        7knPsvSb39jfxfHR4USAgbMW08RDgufByaUOdUjg5FgGGiRws6d+Gajw5ASE106T4FNbihmGYfyJDLnh
+        C2+1KH1KMQx8/vA7r+4cqLfh/8YYeNA//DDkhiFvtCh9qjdrGIbxE8mnFm+412Qppnr4tW6r/uGPIx/l
+        UodrGgNBvN67NzXMvHBDfYR5AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 5</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 23</value>
+  </data>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="nightControlBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -754,7 +1065,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="BarraSuperior.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1280, 50</value>
+    <value>1280, 33</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>

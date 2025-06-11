@@ -30,10 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base));
             Barra_lateral_menu = new Panel();
+            pnInicio = new Panel();
+            btnInicio = new Button();
+            pnSobre = new Panel();
+            btnSobre = new Button();
+            pnConfig = new Panel();
+            btnConfig = new Button();
+            pnSair = new Panel();
+            btnSair = new Button();
+            MenuFerramentas = new FlowLayoutPanel();
+            pnFerramentas = new Panel();
+            btnFerramentas = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            pnEstatPar = new Panel();
+            btnEstatPar = new Button();
+            pnVAC = new Panel();
+            btnVAC = new Button();
+            Rodape_Barra_Lateral = new Panel();
             SubFerramentas = new Panel();
             BotaoEstatParametrica = new Label();
             BotaoVAC = new Label();
-            Rodape_Barra_Lateral = new Panel();
             BotaoSair = new Panel();
             SairIcon = new PictureBox();
             SairTexto = new Label();
@@ -50,7 +66,6 @@
             InicioIcon = new PictureBox();
             InicioTexto = new Label();
             EstatsIMG = new PictureBox();
-            Botao_Tres_Barras = new Button();
             TituloEstatPar = new Label();
             DescEstatPar = new Label();
             panel1 = new Panel();
@@ -65,8 +80,17 @@
             label3 = new Label();
             panel6 = new Panel();
             BarraSuperior = new Panel();
+            pictureBox1 = new PictureBox();
             nightControlBox2 = new ReaLTaiizor.Controls.NightControlBox();
             Barra_lateral_menu.SuspendLayout();
+            pnInicio.SuspendLayout();
+            pnSobre.SuspendLayout();
+            pnConfig.SuspendLayout();
+            pnSair.SuspendLayout();
+            MenuFerramentas.SuspendLayout();
+            pnFerramentas.SuspendLayout();
+            pnEstatPar.SuspendLayout();
+            pnVAC.SuspendLayout();
             SubFerramentas.SuspendLayout();
             BotaoSair.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SairIcon).BeginInit();
@@ -85,21 +109,159 @@
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             BarraSuperior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // Barra_lateral_menu
             // 
             resources.ApplyResources(Barra_lateral_menu, "Barra_lateral_menu");
             Barra_lateral_menu.BackColor = Color.FromArgb(30, 0, 0, 0);
-            Barra_lateral_menu.Controls.Add(SubFerramentas);
+            Barra_lateral_menu.Controls.Add(pnInicio);
+            Barra_lateral_menu.Controls.Add(pnSobre);
+            Barra_lateral_menu.Controls.Add(pnConfig);
+            Barra_lateral_menu.Controls.Add(pnSair);
             Barra_lateral_menu.Controls.Add(Rodape_Barra_Lateral);
-            Barra_lateral_menu.Controls.Add(BotaoSair);
-            Barra_lateral_menu.Controls.Add(BotaoSobre);
-            Barra_lateral_menu.Controls.Add(BotaoConfiguracoes);
-            Barra_lateral_menu.Controls.Add(BotaoFerramentas);
-            Barra_lateral_menu.Controls.Add(BotaoInicio);
             Barra_lateral_menu.Name = "Barra_lateral_menu";
             Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
+            // 
+            // pnInicio
+            // 
+            resources.ApplyResources(pnInicio, "pnInicio");
+            pnInicio.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnInicio.Controls.Add(btnInicio);
+            pnInicio.Cursor = Cursors.Hand;
+            pnInicio.Name = "pnInicio";
+            // 
+            // btnInicio
+            // 
+            resources.ApplyResources(btnInicio, "btnInicio");
+            btnInicio.BackColor = Color.DarkSlateBlue;
+            btnInicio.ForeColor = Color.White;
+            btnInicio.Name = "btnInicio";
+            btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.MouseClick += BotaoInicio_MouseClick;
+            // 
+            // pnSobre
+            // 
+            resources.ApplyResources(pnSobre, "pnSobre");
+            pnSobre.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnSobre.Controls.Add(btnSobre);
+            pnSobre.Cursor = Cursors.Hand;
+            pnSobre.Name = "pnSobre";
+            // 
+            // btnSobre
+            // 
+            resources.ApplyResources(btnSobre, "btnSobre");
+            btnSobre.BackColor = Color.DarkSlateBlue;
+            btnSobre.ForeColor = Color.White;
+            btnSobre.Name = "btnSobre";
+            btnSobre.UseVisualStyleBackColor = false;
+            btnSobre.Click += BotaoSobre_Click;
+            // 
+            // pnConfig
+            // 
+            resources.ApplyResources(pnConfig, "pnConfig");
+            pnConfig.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnConfig.Controls.Add(btnConfig);
+            pnConfig.Cursor = Cursors.Hand;
+            pnConfig.Name = "pnConfig";
+            // 
+            // btnConfig
+            // 
+            resources.ApplyResources(btnConfig, "btnConfig");
+            btnConfig.BackColor = Color.DarkSlateBlue;
+            btnConfig.ForeColor = Color.White;
+            btnConfig.Name = "btnConfig";
+            btnConfig.UseVisualStyleBackColor = false;
+            btnConfig.Click += BotaoConfiguracoes_Click;
+            // 
+            // pnSair
+            // 
+            resources.ApplyResources(pnSair, "pnSair");
+            pnSair.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnSair.Controls.Add(btnSair);
+            pnSair.Cursor = Cursors.Hand;
+            pnSair.Name = "pnSair";
+            // 
+            // btnSair
+            // 
+            resources.ApplyResources(btnSair, "btnSair");
+            btnSair.BackColor = Color.DarkSlateBlue;
+            btnSair.ForeColor = Color.White;
+            btnSair.Name = "btnSair";
+            btnSair.UseVisualStyleBackColor = false;
+            btnSair.Click += BotaoSair_Click;
+            // 
+            // MenuFerramentas
+            // 
+            resources.ApplyResources(MenuFerramentas, "MenuFerramentas");
+            MenuFerramentas.Controls.Add(pnFerramentas);
+            MenuFerramentas.Controls.Add(pnEstatPar);
+            MenuFerramentas.Controls.Add(pnVAC);
+            MenuFerramentas.Name = "MenuFerramentas";
+            // 
+            // pnFerramentas
+            // 
+            resources.ApplyResources(pnFerramentas, "pnFerramentas");
+            pnFerramentas.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnFerramentas.Controls.Add(btnFerramentas);
+            pnFerramentas.Controls.Add(flowLayoutPanel1);
+            pnFerramentas.Cursor = Cursors.Hand;
+            pnFerramentas.Name = "pnFerramentas";
+            // 
+            // btnFerramentas
+            // 
+            resources.ApplyResources(btnFerramentas, "btnFerramentas");
+            btnFerramentas.BackColor = Color.DarkSlateBlue;
+            btnFerramentas.ForeColor = Color.White;
+            btnFerramentas.Name = "btnFerramentas";
+            btnFerramentas.UseVisualStyleBackColor = false;
+            btnFerramentas.Click += BotaoFerramentas_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(flowLayoutPanel1, "flowLayoutPanel1");
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            // 
+            // pnEstatPar
+            // 
+            resources.ApplyResources(pnEstatPar, "pnEstatPar");
+            pnEstatPar.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnEstatPar.Controls.Add(btnEstatPar);
+            pnEstatPar.Cursor = Cursors.Hand;
+            pnEstatPar.Name = "pnEstatPar";
+            // 
+            // btnEstatPar
+            // 
+            resources.ApplyResources(btnEstatPar, "btnEstatPar");
+            btnEstatPar.BackColor = Color.DarkSlateBlue;
+            btnEstatPar.ForeColor = Color.White;
+            btnEstatPar.Name = "btnEstatPar";
+            btnEstatPar.UseVisualStyleBackColor = false;
+            // 
+            // pnVAC
+            // 
+            resources.ApplyResources(pnVAC, "pnVAC");
+            pnVAC.BackColor = Color.FromArgb(100, 39, 37, 59);
+            pnVAC.Controls.Add(btnVAC);
+            pnVAC.Cursor = Cursors.Hand;
+            pnVAC.Name = "pnVAC";
+            // 
+            // btnVAC
+            // 
+            resources.ApplyResources(btnVAC, "btnVAC");
+            btnVAC.BackColor = Color.DarkSlateBlue;
+            btnVAC.ForeColor = Color.White;
+            btnVAC.Name = "btnVAC";
+            btnVAC.UseVisualStyleBackColor = false;
+            btnVAC.Click += btnVAC_Click;
+            // 
+            // Rodape_Barra_Lateral
+            // 
+            resources.ApplyResources(Rodape_Barra_Lateral, "Rodape_Barra_Lateral");
+            Rodape_Barra_Lateral.Name = "Rodape_Barra_Lateral";
+            Rodape_Barra_Lateral.Paint += Rodape_Barra_Lateral_Paint;
             // 
             // SubFerramentas
             // 
@@ -121,12 +283,6 @@
             resources.ApplyResources(BotaoVAC, "BotaoVAC");
             BotaoVAC.Name = "BotaoVAC";
             BotaoVAC.Click += BotaoVAC_Click;
-            // 
-            // Rodape_Barra_Lateral
-            // 
-            resources.ApplyResources(Rodape_Barra_Lateral, "Rodape_Barra_Lateral");
-            Rodape_Barra_Lateral.Name = "Rodape_Barra_Lateral";
-            Rodape_Barra_Lateral.Paint += Rodape_Barra_Lateral_Paint;
             // 
             // BotaoSair
             // 
@@ -251,17 +407,6 @@
             EstatsIMG.Name = "EstatsIMG";
             EstatsIMG.TabStop = false;
             // 
-            // Botao_Tres_Barras
-            // 
-            resources.ApplyResources(Botao_Tres_Barras, "Botao_Tres_Barras");
-            Botao_Tres_Barras.BackColor = Color.FromArgb(79, 55, 139);
-            Botao_Tres_Barras.Cursor = Cursors.Hand;
-            Botao_Tres_Barras.FlatAppearance.BorderSize = 0;
-            Botao_Tres_Barras.ForeColor = Color.White;
-            Botao_Tres_Barras.Name = "Botao_Tres_Barras";
-            Botao_Tres_Barras.UseVisualStyleBackColor = false;
-            Botao_Tres_Barras.Click += Botao_Tres_Barras_Click;
-            // 
             // TituloEstatPar
             // 
             resources.ApplyResources(TituloEstatPar, "TituloEstatPar");
@@ -357,10 +502,17 @@
             // 
             resources.ApplyResources(BarraSuperior, "BarraSuperior");
             BarraSuperior.BackColor = Color.FromArgb(79, 55, 139);
+            BarraSuperior.Controls.Add(pictureBox1);
             BarraSuperior.Controls.Add(EstatsIMG);
-            BarraSuperior.Controls.Add(Botao_Tres_Barras);
             BarraSuperior.Controls.Add(nightControlBox2);
             BarraSuperior.Name = "BarraSuperior";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(pictureBox1, "pictureBox1");
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += Botao_Tres_Barras_Click;
             // 
             // nightControlBox2
             // 
@@ -388,7 +540,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 33, 34);
             ControlBox = false;
+            Controls.Add(SubFerramentas);
             Controls.Add(BarraSuperior);
+            Controls.Add(BotaoSair);
+            Controls.Add(BotaoConfiguracoes);
+            Controls.Add(MenuFerramentas);
+            Controls.Add(BotaoSobre);
+            Controls.Add(BotaoInicio);
+            Controls.Add(BotaoFerramentas);
             Controls.Add(panel6);
             Controls.Add(panel1);
             Controls.Add(DescEstatPar);
@@ -400,6 +559,14 @@
             Name = "Base";
             Load += Base_Load;
             Barra_lateral_menu.ResumeLayout(false);
+            pnInicio.ResumeLayout(false);
+            pnSobre.ResumeLayout(false);
+            pnConfig.ResumeLayout(false);
+            pnSair.ResumeLayout(false);
+            MenuFerramentas.ResumeLayout(false);
+            pnFerramentas.ResumeLayout(false);
+            pnEstatPar.ResumeLayout(false);
+            pnVAC.ResumeLayout(false);
             SubFerramentas.ResumeLayout(false);
             BotaoSair.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)SairIcon).EndInit();
@@ -419,6 +586,7 @@
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             BarraSuperior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -430,7 +598,6 @@
         private Panel BotaoConfiguracoes;
         private Panel BotaoFerramentas;
         private Panel Rodape_Barra_Lateral;
-        private Button Botao_Tres_Barras;
         private Label BotaoVAC;
         private Label BotaoEstatParametrica;
         private Panel SubFerramentas;
@@ -460,5 +627,23 @@
         private ReaLTaiizor.Controls.NightControlBox nightControlBox2;
         private PictureBox InicioIcon;
         private Label InicioTexto;
+        private PictureBox pictureBox1;
+        private Panel pnSair;
+        private Button btnSair;
+        private Panel panel8;
+        private Button btnSobre;
+        private Panel pnConfig;
+        private Button btnConfig;
+        private Panel pnFerramentas;
+        private Button btnFerramentas;
+        private Panel pnInicio;
+        private Button btnInicio;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel MenuFerramentas;
+        private Panel pnEstatPar;
+        private Panel pnVAC;
+        private Button btnVAC;
+        private Button btnEstatPar;
+        private Panel pnSobre;
     }
 }
