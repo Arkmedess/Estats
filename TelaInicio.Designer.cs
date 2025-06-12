@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Base));
             Barra_lateral_menu = new Panel();
             pnInicio = new Panel();
@@ -38,6 +39,7 @@
             btnConfig = new Button();
             pnSair = new Panel();
             btnSair = new Button();
+            Rodape_Barra_Lateral = new Panel();
             MenuFerramentas = new FlowLayoutPanel();
             pnFerramentas = new Panel();
             btnFerramentas = new Button();
@@ -46,7 +48,6 @@
             btnEstatPar = new Button();
             pnVAC = new Panel();
             btnVAC = new Button();
-            Rodape_Barra_Lateral = new Panel();
             SubFerramentas = new Panel();
             BotaoEstatParametrica = new Label();
             BotaoVAC = new Label();
@@ -82,6 +83,7 @@
             BarraSuperior = new Panel();
             pictureBox1 = new PictureBox();
             nightControlBox2 = new ReaLTaiizor.Controls.NightControlBox();
+            MenuTransicao = new System.Windows.Forms.Timer(components);
             Barra_lateral_menu.SuspendLayout();
             pnInicio.SuspendLayout();
             pnSobre.SuspendLayout();
@@ -115,11 +117,12 @@
             // Barra_lateral_menu
             // 
             resources.ApplyResources(Barra_lateral_menu, "Barra_lateral_menu");
-            Barra_lateral_menu.BackColor = Color.FromArgb(30, 0, 0, 0);
+            Barra_lateral_menu.BackColor = Color.FromArgb(15, 15, 15);
             Barra_lateral_menu.Controls.Add(pnInicio);
             Barra_lateral_menu.Controls.Add(pnSobre);
             Barra_lateral_menu.Controls.Add(pnConfig);
             Barra_lateral_menu.Controls.Add(pnSair);
+            Barra_lateral_menu.Controls.Add(MenuFerramentas);
             Barra_lateral_menu.Controls.Add(Rodape_Barra_Lateral);
             Barra_lateral_menu.Name = "Barra_lateral_menu";
             Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
@@ -135,7 +138,7 @@
             // btnInicio
             // 
             resources.ApplyResources(btnInicio, "btnInicio");
-            btnInicio.BackColor = Color.DarkSlateBlue;
+            btnInicio.BackColor = Color.FromArgb(15, 15, 15);
             btnInicio.ForeColor = Color.White;
             btnInicio.Name = "btnInicio";
             btnInicio.UseVisualStyleBackColor = false;
@@ -152,7 +155,7 @@
             // btnSobre
             // 
             resources.ApplyResources(btnSobre, "btnSobre");
-            btnSobre.BackColor = Color.DarkSlateBlue;
+            btnSobre.BackColor = Color.FromArgb(15, 15, 15);
             btnSobre.ForeColor = Color.White;
             btnSobre.Name = "btnSobre";
             btnSobre.UseVisualStyleBackColor = false;
@@ -169,7 +172,7 @@
             // btnConfig
             // 
             resources.ApplyResources(btnConfig, "btnConfig");
-            btnConfig.BackColor = Color.DarkSlateBlue;
+            btnConfig.BackColor = Color.FromArgb(15, 15, 15);
             btnConfig.ForeColor = Color.White;
             btnConfig.Name = "btnConfig";
             btnConfig.UseVisualStyleBackColor = false;
@@ -186,15 +189,22 @@
             // btnSair
             // 
             resources.ApplyResources(btnSair, "btnSair");
-            btnSair.BackColor = Color.DarkSlateBlue;
+            btnSair.BackColor = Color.FromArgb(15, 15, 15);
             btnSair.ForeColor = Color.White;
             btnSair.Name = "btnSair";
             btnSair.UseVisualStyleBackColor = false;
             btnSair.Click += BotaoSair_Click;
             // 
+            // Rodape_Barra_Lateral
+            // 
+            resources.ApplyResources(Rodape_Barra_Lateral, "Rodape_Barra_Lateral");
+            Rodape_Barra_Lateral.Name = "Rodape_Barra_Lateral";
+            Rodape_Barra_Lateral.Paint += Rodape_Barra_Lateral_Paint;
+            // 
             // MenuFerramentas
             // 
             resources.ApplyResources(MenuFerramentas, "MenuFerramentas");
+            MenuFerramentas.BackColor = Color.FromArgb(15, 15, 15);
             MenuFerramentas.Controls.Add(pnFerramentas);
             MenuFerramentas.Controls.Add(pnEstatPar);
             MenuFerramentas.Controls.Add(pnVAC);
@@ -212,7 +222,7 @@
             // btnFerramentas
             // 
             resources.ApplyResources(btnFerramentas, "btnFerramentas");
-            btnFerramentas.BackColor = Color.DarkSlateBlue;
+            btnFerramentas.BackColor = Color.FromArgb(15, 15, 15);
             btnFerramentas.ForeColor = Color.White;
             btnFerramentas.Name = "btnFerramentas";
             btnFerramentas.UseVisualStyleBackColor = false;
@@ -235,7 +245,7 @@
             // btnEstatPar
             // 
             resources.ApplyResources(btnEstatPar, "btnEstatPar");
-            btnEstatPar.BackColor = Color.DarkSlateBlue;
+            btnEstatPar.BackColor = Color.FromArgb(15, 15, 15);
             btnEstatPar.ForeColor = Color.White;
             btnEstatPar.Name = "btnEstatPar";
             btnEstatPar.UseVisualStyleBackColor = false;
@@ -251,17 +261,11 @@
             // btnVAC
             // 
             resources.ApplyResources(btnVAC, "btnVAC");
-            btnVAC.BackColor = Color.DarkSlateBlue;
+            btnVAC.BackColor = Color.FromArgb(15, 15, 15);
             btnVAC.ForeColor = Color.White;
             btnVAC.Name = "btnVAC";
             btnVAC.UseVisualStyleBackColor = false;
             btnVAC.Click += btnVAC_Click;
-            // 
-            // Rodape_Barra_Lateral
-            // 
-            resources.ApplyResources(Rodape_Barra_Lateral, "Rodape_Barra_Lateral");
-            Rodape_Barra_Lateral.Name = "Rodape_Barra_Lateral";
-            Rodape_Barra_Lateral.Paint += Rodape_Barra_Lateral_Paint;
             // 
             // SubFerramentas
             // 
@@ -534,6 +538,11 @@
             nightControlBox2.MinimizeHoverForeColor = Color.White;
             nightControlBox2.Name = "nightControlBox2";
             // 
+            // MenuTransicao
+            // 
+            MenuTransicao.Interval = 2;
+            MenuTransicao.Tick += MenuTransicao_Tick;
+            // 
             // Base
             // 
             resources.ApplyResources(this, "$this");
@@ -544,7 +553,6 @@
             Controls.Add(BarraSuperior);
             Controls.Add(BotaoSair);
             Controls.Add(BotaoConfiguracoes);
-            Controls.Add(MenuFerramentas);
             Controls.Add(BotaoSobre);
             Controls.Add(BotaoInicio);
             Controls.Add(BotaoFerramentas);
@@ -645,5 +653,6 @@
         private Button btnVAC;
         private Button btnEstatPar;
         private Panel pnSobre;
+        private System.Windows.Forms.Timer MenuTransicao;
     }
 }

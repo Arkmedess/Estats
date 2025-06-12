@@ -17,6 +17,7 @@
         private double _Largura_Barra_lateral;
         private bool _menuAberto = true;
         private bool _BotaoFerrAberto = false;
+        private bool MenuExpansao = false;
         private GerenciadorTelas _gerenciadorTelas;
 
         #endregion
@@ -155,6 +156,8 @@
             _BotaoFerrAberto = !_BotaoFerrAberto;
             SubFerramentas.Visible = _BotaoFerrAberto;
             AjustarPosicaoBotoes();
+
+            MenuTransicao.Start();
         }
 
         private void BotaoEstatParametrica_Click(object sender, EventArgs e)
@@ -224,6 +227,28 @@
         private void btnVAC_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void MenuTransicao_Tick(object sender, EventArgs e)
+        {
+            if (MenuExpansao == false)
+            {
+                MenuFerramentas.Height += 20;
+                if (MenuFerramentas.Height >= 173)
+                {
+                    MenuTransicao.Stop();
+                    MenuExpansao = true;
+                }
+            }
+            else
+            {
+                MenuFerramentas.Height -= 20;
+                if (MenuFerramentas.Height <= 75)
+                {
+                    MenuTransicao.Stop();
+                    MenuExpansao = false;
+                }
+            }
         }
     }
 }
