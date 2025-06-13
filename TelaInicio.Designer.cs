@@ -43,7 +43,6 @@
             MenuFerramentas = new FlowLayoutPanel();
             pnFerramentas = new Panel();
             btnFerramentas = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             pnEstatPar = new Panel();
             btnEstatPar = new Button();
             pnVAC = new Panel();
@@ -121,8 +120,8 @@
             Barra_lateral_menu.Controls.Add(pnInicio);
             Barra_lateral_menu.Controls.Add(pnSobre);
             Barra_lateral_menu.Controls.Add(pnConfig);
-            Barra_lateral_menu.Controls.Add(pnSair);
             Barra_lateral_menu.Controls.Add(MenuFerramentas);
+            Barra_lateral_menu.Controls.Add(pnSair);
             Barra_lateral_menu.Controls.Add(Rodape_Barra_Lateral);
             Barra_lateral_menu.Name = "Barra_lateral_menu";
             Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
@@ -209,13 +208,13 @@
             MenuFerramentas.Controls.Add(pnEstatPar);
             MenuFerramentas.Controls.Add(pnVAC);
             MenuFerramentas.Name = "MenuFerramentas";
+            MenuFerramentas.Click += BotaoFerramentas_Click;
             // 
             // pnFerramentas
             // 
             resources.ApplyResources(pnFerramentas, "pnFerramentas");
             pnFerramentas.BackColor = Color.FromArgb(100, 39, 37, 59);
             pnFerramentas.Controls.Add(btnFerramentas);
-            pnFerramentas.Controls.Add(flowLayoutPanel1);
             pnFerramentas.Cursor = Cursors.Hand;
             pnFerramentas.Name = "pnFerramentas";
             // 
@@ -227,12 +226,6 @@
             btnFerramentas.Name = "btnFerramentas";
             btnFerramentas.UseVisualStyleBackColor = false;
             btnFerramentas.Click += BotaoFerramentas_Click;
-            // 
-            // flowLayoutPanel1
-            // 
-            resources.ApplyResources(flowLayoutPanel1, "flowLayoutPanel1");
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // pnEstatPar
             // 
@@ -265,7 +258,6 @@
             btnVAC.ForeColor = Color.White;
             btnVAC.Name = "btnVAC";
             btnVAC.UseVisualStyleBackColor = false;
-            btnVAC.Click += btnVAC_Click;
             // 
             // SubFerramentas
             // 
@@ -642,17 +634,21 @@
         private Button btnSobre;
         private Panel pnConfig;
         private Button btnConfig;
-        private Panel pnFerramentas;
-        private Button btnFerramentas;
+        private Panel pnFerramentas1;
         private Panel pnInicio;
         private Button btnInicio;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private FlowLayoutPanel MenuFerramentas;
+        private FlowLayoutPanel MenuFerramentas1;
         private Panel pnEstatPar;
         private Panel pnVAC;
-        private Button btnVAC;
         private Button btnEstatPar;
         private Panel pnSobre;
         private System.Windows.Forms.Timer MenuTransicao;
+        private Button btnFerramentas1;
+        private FlowLayoutPanel MenuFerramentas;
+        private Panel pnFerramentas;
+        private Button btnFerramentas;
+        private Button btnEstatParamet;
+        private Panel panel9;
+        private Button btnVAC;
     }
 }

@@ -253,54 +253,20 @@
   <data name="pnConfig.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 69</value>
   </data>
-  <data name="btnSair.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 16pt</value>
-  </data>
-  <data name="btnSair.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQhJREFUSEvt
-        lW0NAjEMhpGABCQgASk4QQJIwAE4AAcgAQeHg4e8STdKWXdH4CdPsuSyfq1vt9xs9udXAHPgYmse7V8D
-        rHiyivaPAJZ20q3baxYA1sBJMTVBD5NiKJncflbgZnuKGZcOOLpEa7efFVAHhUNN1MKkKRyDrVnAbP5Q
-        uVTAzjm+tDtSYOFsO297ATib07lh02ykt9ab1r3YCnAfPUWC636ItsqPCtyjrTKpzYRJsb0h97D5FPLu
-        w03JHQPhYPk1Fa5VUR9aRnhouTwFu9Nl2GLTkstkka2gmEX0a2Iv2hcRB0uopW+PfPvSRKwTL1eGfKad
-        vIUNfg9cXVJ9a++7/8If8QDL/FyB1jA9cwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnSair.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSair.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, -3</value>
-  </data>
-  <data name="btnSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="btnSair.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 2</value>
-  </data>
-  <data name="btnSair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 75</value>
-  </data>
-  <data name="btnSair.Text" xml:space="preserve">
-    <value>     Sair</value>
-  </data>
-  <data name="btnSair.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="pnSair.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 285</value>
-  </data>
-  <data name="pnSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="pnSair.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 69</value>
+  <data name="pnFerramentas.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="btnFerramentas.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 16pt</value>
+  </data>
+  <data name="btnFerramentas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAMdJREFUSEvt
+        lOENgjAQhRmBERzBDXQT2URGYAMdwRG6gWyAI7jBM49cyfVJDNj+MfIll3D0+l650lbVxhoANADOmXFS
+        3REALcrRqj4NHlqVwaD6NCiK6v+HQe9qex1UUvVlBsHVBh1UUvUvDVzO85MwCbsihb8thWI7Phkc06nL
+        DKbDYvlm8MbF3u8tvwOoLfhMdlbTuXkjqj9nkIUXjld0aajZxH7e7LouGdQMsX/s6aFwULOjATftCuCp
+        35gBtbjwOtnon+QFbJ1qKER1Di8AAAAASUVORK5CYII=
+</value>
   </data>
   <data name="btnFerramentas.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -329,12 +295,6 @@
   </data>
   <data name="btnFerramentas.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="flowLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 152</value>
   </data>
   <data name="pnFerramentas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -382,13 +342,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnVAC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, -5</value>
+    <value>-4, -4</value>
   </data>
   <data name="btnVAC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnVAC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 58</value>
+    <value>218, 55</value>
   </data>
   <data name="btnVAC.Text" xml:space="preserve">
     <value>•  V. A. C.</value>
@@ -400,7 +360,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="pnVAC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 50</value>
+    <value>210, 48</value>
   </data>
   <data name="MenuFerramentas.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
@@ -412,7 +372,56 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="MenuFerramentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 71</value>
+    <value>210, 71</value>
+  </data>
+  <data name="MenuFerramentas.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btnSair.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 16pt</value>
+  </data>
+  <data name="btnSair.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAQhJREFUSEvt
+        lW0NAjEMhpGABCQgASk4QQJIwAE4AAcgAQeHg4e8STdKWXdH4CdPsuSyfq1vt9xs9udXAHPgYmse7V8D
+        rHiyivaPAJZ20q3baxYA1sBJMTVBD5NiKJncflbgZnuKGZcOOLpEa7efFVAHhUNN1MKkKRyDrVnAbP5Q
+        uVTAzjm+tDtSYOFsO297ATib07lh02ykt9ab1r3YCnAfPUWC636ItsqPCtyjrTKpzYRJsb0h97D5FPLu
+        w03JHQPhYPk1Fa5VUR9aRnhouTwFu9Nl2GLTkstkka2gmEX0a2Iv2hcRB0uopW+PfPvSRKwTL1eGfKad
+        vIUNfg9cXVJ9a++7/8If8QDL/FyB1jA9cwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSair.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSair.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-4, -3</value>
+  </data>
+  <data name="btnSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="btnSair.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 2</value>
+  </data>
+  <data name="btnSair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 75</value>
+  </data>
+  <data name="btnSair.Text" xml:space="preserve">
+    <value>     Sair</value>
+  </data>
+  <data name="btnSair.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="pnSair.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 285</value>
+  </data>
+  <data name="pnSair.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pnSair.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 69</value>
   </data>
   <data name="Rodape_Barra_Lateral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
@@ -993,7 +1002,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 1858</value>
+    <value>710, 2755</value>
   </data>
   <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>

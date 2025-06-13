@@ -1,11 +1,7 @@
     namespace Interface_e_sistema_em_C_
-    {
-    using System.Diagnostics.Eventing.Reader;
+{
     using System.Drawing;
-        using System.Drawing.Drawing2D;
-        using System.Drawing.Text;
-        using System.Reflection.Emit;
-        using System.Windows.Forms;
+    using System.Windows.Forms;
 
     public partial class Base : Form
     {
@@ -17,7 +13,6 @@
         private double _Largura_Barra_lateral;
         private bool _menuAberto = true;
         private bool _BotaoFerrAberto = false;
-        private bool MenuExpansao = false;
         private GerenciadorTelas _gerenciadorTelas;
 
         #endregion
@@ -99,40 +94,40 @@
 
         private void AjustarPosicaoBotoes()
         {
-            int posicaoY = BotaoFerramentas.Bottom + 10;
+            // Garante que o FlowLayoutPanel esteja com altura correta e atualizada
+            MenuFerramentas.PerformLayout();
+            Barra_lateral_menu.SuspendLayout();
 
-            if (SubFerramentas.Visible)
-            {
-                SubFerramentas.Location = new Point(BotaoFerramentas.Location.X, BotaoFerramentas.Bottom);
-                posicaoY = SubFerramentas.Bottom + 10;
-            }
-            else
-            {
-                SubFerramentas.Visible = false;
-            }
+            int posicaoY = MenuFerramentas.Bottom;
 
-            if (BotaoConfiguracoes != null)
+            // Botão Configurações
+            if (pnConfig != null)
             {
-                BotaoConfiguracoes.Visible = true;
-                BotaoConfiguracoes.Top = posicaoY;
-                posicaoY = BotaoConfiguracoes.Bottom + 10;
+                pnConfig.Visible = true;
+                pnConfig.Top = posicaoY - 3;
+                posicaoY = pnConfig.Bottom - 1;
             }
 
-            if (BotaoSobre != null)
+            // Botão Sobre
+            if (pnSobre != null)
             {
-                BotaoSobre.Visible = true;
-                BotaoSobre.Top = posicaoY;
-                posicaoY = BotaoSobre.Bottom + 10;
+                pnSobre.Visible = true;
+                pnSobre.Top = posicaoY - 1;
+                posicaoY = pnSobre.Bottom - 1;
             }
 
-            if (BotaoSair != null)
+            // Botão Sair
+            if (pnSair != null)
             {
-                BotaoSair.Visible = true;
-                BotaoSair.Top = posicaoY;
+                pnSair.Visible = true;
+                pnSair.Top = posicaoY;
             }
 
+            Barra_lateral_menu.ResumeLayout();
             Barra_lateral_menu.Refresh();
         }
+
+
 
         #endregion
 
@@ -153,11 +148,10 @@
 
         private void BotaoFerramentas_Click(object sender, EventArgs e)
         {
-            _BotaoFerrAberto = !_BotaoFerrAberto;
-            SubFerramentas.Visible = _BotaoFerrAberto;
-            AjustarPosicaoBotoes();
-
+            //_BotaoFerrAberto = !_BotaoFerrAberto;
+            //SubFerramentas.Visible = _BotaoFerrAberto;
             MenuTransicao.Start();
+
         }
 
         private void BotaoEstatParametrica_Click(object sender, EventArgs e)
@@ -229,12 +223,13 @@
 
         }
 
+        private bool MenuExpansao = false;
         private void MenuTransicao_Tick(object sender, EventArgs e)
         {
             if (MenuExpansao == false)
             {
                 MenuFerramentas.Height += 20;
-                if (MenuFerramentas.Height >= 173)
+                if (MenuFerramentas.Height >= 171)
                 {
                     MenuTransicao.Stop();
                     MenuExpansao = true;
@@ -243,12 +238,13 @@
             else
             {
                 MenuFerramentas.Height -= 20;
-                if (MenuFerramentas.Height <= 75)
+                if (MenuFerramentas.Height <= 71)
                 {
                     MenuTransicao.Stop();
                     MenuExpansao = false;
                 }
             }
+            AjustarPosicaoBotoes();
         }
     }
 }
