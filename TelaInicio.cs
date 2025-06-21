@@ -1,4 +1,4 @@
-    namespace Interface_e_sistema_em_C_
+namespace Interface_e_sistema_em_C_
 {
     using System.Drawing;
     using System.Windows.Forms;
@@ -8,12 +8,11 @@
         #region Campos e Propriedades
 
         private Dictionary<string, ITela> telas = new Dictionary<string, ITela>();
-        private ITela telaAtual;
         public Panel panelContainer;
-        private double _Largura_Barra_lateral;
-        private bool _menuAberto = true;
-        private bool _BotaoFerrAberto = false;
+        private bool _menuAberto = false;
         private GerenciadorTelas _gerenciadorTelas;
+        private bool _menuAlvoAberto;  // True aberto, false fechado
+
 
         #endregion
 
@@ -25,13 +24,10 @@
             SetupContainer();
             AjustarPosicaoBotoes();
             _gerenciadorTelas = new GerenciadorTelas(panelContainer);
-            _gerenciadorTelas.MostrarTela("Início");
+            _gerenciadorTelas.MostrarTela("Inicial");
 
-            _Largura_Barra_lateral = 260;
-            Barra_lateral_menu.Width = (int)_Largura_Barra_lateral;
-            Barra_lateral_menu.BringToFront();
 
-            Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
+            // Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
         }
 
         private void SetupContainer()
@@ -48,13 +44,9 @@
 
         #region Eventos do Formulário
 
-        private void Form_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Base_Load(object sender, EventArgs e)
         {
+            RemoverBordasBotoes();
         }
 
         #endregion
@@ -63,33 +55,44 @@
 
         private void Barra_lateral_menu_Paint(object sender, PaintEventArgs e)
         {
-            if (!_menuAberto) return;
+            /*if (!_menuAberto) return;
 
             using (Pen pen = new Pen(Color.FromArgb(100, 79, 55, 139), 5))
             {
                 e.Graphics.DrawLine(pen, Barra_lateral_menu.Width - 3, 0, Barra_lateral_menu.Width - 3, Barra_lateral_menu.Height);
-            }
+            }*/
         }
 
         private void Botao_Tres_Barras_Click(object sender, EventArgs e)
         {
-            _menuAberto = !_menuAberto;
+            /*_menuAberto = !_menuAberto;
 
-            Barra_lateral_menu.Width = _menuAberto
-                ? (int)_Largura_Barra_lateral
-                : (int)(_Largura_Barra_lateral / 3.15);
-
-            foreach (Control controle in Barra_lateral_menu.Controls)
+            if (_menuAberto)
             {
-                if (controle == SubFerramentas)
-                {
-                    controle.Visible = _menuAberto && _BotaoFerrAberto;
-                }
-                else if (controle is Panel)
-                {
-                    controle.Visible = _menuAberto;
-                }
+                Barra_lateral_menu.Width = 255;
+                RestaurarBotoesOriginais();
+
+
+                btnFerramentas.Enabled = true;
             }
+            else
+            {
+                Barra_lateral_menu.Width = 61;
+                RemoverBordasBotoes();
+
+                btnFerramentas.Enabled = false;
+
+                // IMPORTANTE: Quando fecha o menu, fecha a expansão
+                MenuExpansao = false;
+                MenuFerramentas.Height = 71;  // Altura mínima para esconder os botões dentro do painel
+                MenuTransicao.Stop();
+            }
+
+                AjustarPosicaoBotoes();
+            }*/
+
+            _menuAlvoAberto = !_menuAberto;
+            BarraLateralTransicao.Start();
         }
 
         private void AjustarPosicaoBotoes()
@@ -127,31 +130,18 @@
             Barra_lateral_menu.Refresh();
         }
 
-
-
-        #endregion
-
-        #region Barra Superior
-
-        private void Barra_superior_roxa_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
         #endregion
 
         #region Botões do Menu
 
         private void BotaoInicio_MouseClick(object sender, MouseEventArgs e)
         {
-            _gerenciadorTelas.MostrarTela("Início");
+            _gerenciadorTelas.MostrarTela("Inicial");
         }
 
         private void BotaoFerramentas_Click(object sender, EventArgs e)
         {
-            //_BotaoFerrAberto = !_BotaoFerrAberto;
-            //SubFerramentas.Visible = _BotaoFerrAberto;
             MenuTransicao.Start();
-
         }
 
         private void BotaoEstatParametrica_Click(object sender, EventArgs e)
@@ -180,13 +170,7 @@
             Application.Exit();
         }
 
-        private void BotaoPesquisar_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
         #endregion
-
-        #region Rodapé
 
         private void Rodape_Barra_Lateral_Paint(object sender, PaintEventArgs e)
         {
@@ -194,33 +178,6 @@
             {
                 e.Graphics.DrawLine(pen, 0, 0, Rodape_Barra_Lateral.Width, 0);
             }
-        }
-
-        #endregion
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void nightControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnVAC_Click(object sender, EventArgs e)
-        {
-
         }
 
         private bool MenuExpansao = false;
@@ -246,5 +203,98 @@
             }
             AjustarPosicaoBotoes();
         }
+
+        private void BarraLateralTransicao_Tick(object sender, EventArgs e)
+        {
+            if (_menuAlvoAberto)
+            {
+                // Abrindo o menu
+                Barra_lateral_menu.Width += 20;
+                if (Barra_lateral_menu.Width >= 255)
+                {
+                    BarraLateralTransicao.Stop();
+                    _menuAberto = true;
+
+                    RestaurarBotoesOriginais();
+                    btnFerramentas.Enabled = true;
+                }
+            }
+            else
+            {
+                // Fechando o menu
+                Barra_lateral_menu.Width -= 20;
+                if (Barra_lateral_menu.Width <= 61)
+                {
+                    BarraLateralTransicao.Stop();
+                    _menuAberto = false;
+
+                    RemoverBordasBotoes();
+                    btnFerramentas.Enabled = false;
+
+                    // Fecha expansão também
+                    MenuExpansao = false;
+                    MenuFerramentas.Height = 71;
+                    MenuTransicao.Stop();
+                }
+            }
+
+            AjustarPosicaoBotoes();
+        }
+
+
+        private void RestaurarBotoesOriginais()
+        {
+            foreach (Control ctrl in Barra_lateral_menu.Controls)
+            {
+                if (ctrl is Button botao)
+                {
+                    botao.FlatStyle = FlatStyle.Standard;
+                    botao.FlatAppearance.BorderSize = 1;
+                    botao.TabStop = true;
+                }
+                else if (ctrl is Panel painel)
+                {
+                    foreach (Control inner in painel.Controls)
+                    {
+                        if (inner is Button botaoInner)
+                        {
+                            botaoInner.FlatStyle = FlatStyle.Standard;
+                            botaoInner.FlatAppearance.BorderSize = 1;
+                            botaoInner.TabStop = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void RemoverBordasBotoes()
+        {
+            foreach (Control ctrl in Barra_lateral_menu.Controls)
+            {
+                if (ctrl is Button botao)
+                {
+                    botao.FlatStyle = FlatStyle.Flat;
+                    botao.FlatAppearance.BorderSize = 0;
+                    botao.TabStop = false;
+                    botao.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 15, 15);
+                    botao.MouseDown += (s, e) => { /* Faz nada */ };
+                }
+                else if (ctrl is Panel painel)
+                {
+                    foreach (Control inner in painel.Controls)
+                    {
+                        if (inner is Button botaoInner)
+                        {
+                            botaoInner.FlatStyle = FlatStyle.Flat;
+                            botaoInner.FlatAppearance.BorderSize = 0;
+                            botaoInner.TabStop = false;
+                            botaoInner.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 15, 15);
+                            botaoInner.MouseDown += (s, e) => { /* Faz nada */ };
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

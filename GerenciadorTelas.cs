@@ -20,6 +20,7 @@
         private void RegistrarTelas()
         {
             _telas.Add("Início", new FormTelaAdapter(new Form()));
+            _telas.Add("Inicial", new TelaInicial(_container, this));
             _telas.Add("Estatística Paramétrica", new TelaEstatisticaParametrica(this));
             _telas.Add("Média de Posição Central", new TelaMediaPosicaoCentral(_container, this));
             _telas.Add("Variação Aleatória Contínua", new TelaVAC(_container, this));

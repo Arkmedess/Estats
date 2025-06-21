@@ -212,17 +212,16 @@ namespace Interface_e_sistema_em_C_
                 }
             }
 
-            // Cria a distribuição normal
-            // Assumindo que 'Normal' é de uma biblioteca como MathNet.Numerics
-            var distribuicaoNormal = new Normal(mediaVAC2, desvioVAC2); // CORREÇÃO AQUI: usando desvioVAC2
 
-            // Calcula as probabilidades acumuladas
+            var distribuicaoNormal = new Normal(mediaVAC2, desvioVAC2);
+
+
             double probA = distribuicaoNormal.CumulativeDistribution(valorDeA2);
             double probB = distribuicaoNormal.CumulativeDistribution(valorDeB2);
             double probMenosA = distribuicaoNormal.CumulativeDistribution(-valorDeA2);
             double probMenosB = distribuicaoNormal.CumulativeDistribution(-valorDeB2);
 
-            double caso0 = 0; // Probabilidade de um ponto em distribuição contínua é sempre 0
+            double caso0 = 0;
             double caso1 = 1 - probA;
             double caso2 = probA;
             double caso3 = probB - probA;
