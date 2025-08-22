@@ -1,6 +1,5 @@
 ﻿namespace Interface_e_sistema_em_C_
 {
-    using System;
     using System.Collections.Generic;
     using System.Windows.Forms;
 
@@ -15,6 +14,7 @@
         {
             _container = container;
             RegistrarTelas();
+
         }
 
         private void RegistrarTelas()

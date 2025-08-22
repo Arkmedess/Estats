@@ -1,16 +1,5 @@
 ﻿#region Usings
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.Intrinsics.X86;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Globalization;
 #endregion
 
@@ -29,8 +18,12 @@ namespace Interface_e_sistema_em_C_
         private GerenciadorTelas _gerenciadorTelas;
         private bool DeveAdicionarNovoPar = false;
         private bool podeAdicionar = true;
-        private bool scrollVinculado = false;
         private Panel _panelContainer;
+        private List<string> listaPassos;
+        private int indiceAtualGeral = 0;
+        private List<string> textosSequenciais;
+        private List<string> resultadosSequenciais;
+        private List<string> titulosSequenciais;
         #endregion
 
         #region Construtor
@@ -249,7 +242,7 @@ namespace Interface_e_sistema_em_C_
 
         private void BotaoProximoPassoVAC_Click(object sender, EventArgs e)
         {
-            _gerenciadorTelas.MostrarTela("Média de Posição Central");
+            _gerenciadorTelas.MostrarTela("Variação Aleatória Contínua");
         }
 
         #endregion
@@ -314,13 +307,7 @@ namespace Interface_e_sistema_em_C_
                 return;
             }
 
-            ResultadoMedia.Text = resultados.media.ToString("F2");
-            ResultadoVariancia.Text = resultados.variancia.ToString("F2");
-            ResultadoDesvio.Text = resultados.desvio.ToString("F2");
-
-            PassosMedia.Text = resultados.passosMedia;
-            PassosVariancia.Text = resultados.passosVariancia;
-            PassosDesvioPadrao.Text = resultados.passosDesvio;
+            InicializarSequenciaGeral(resultados.passosMedia, resultados.passosVariancia, resultados.passosDesvio, resultados.media.ToString("F2"), resultados.variancia.ToString("F2"), resultados.desvio.ToString("F2"));
 
             try
             {
@@ -355,12 +342,6 @@ namespace Interface_e_sistema_em_C_
                     MultiplicacaoXiFi += valorXi * valorFi;
                 }
             }
-
-            /*if (somaFi == 0)
-            {
-                MessageBox.Show("A soma das frequências é 0");
-                return (double.NaN, double.NaN, double.NaN, double.NaN, "Sem dados válidos para calcular.", "", "");
-            }*/
 
             double media = MultiplicacaoXiFi / somaFi;
 
@@ -418,6 +399,44 @@ namespace Interface_e_sistema_em_C_
 
             return (media, variancia, desvio, somaFi, passosMedia, passosVar, passosDesvio);
         }
+
+        private void NavegarGeral(bool proximo)
+        {
+            if (textosSequenciais == null || titulosSequenciais == null) return;
+
+            int total = Math.Min(textosSequenciais.Count, titulosSequenciais.Count);
+
+            if (proximo)
+                indiceAtualGeral = (indiceAtualGeral + 1) % total;
+            else
+                indiceAtualGeral = (indiceAtualGeral - 1 + total) % total;
+
+            lbPassosGeral.Text = textosSequenciais[indiceAtualGeral];
+            lbTituloGeral.Text = titulosSequenciais[indiceAtualGeral];
+            lbResultadoGeral.Text = resultadosSequenciais[indiceAtualGeral];
+        }
+
+        private void InicializarSequenciaGeral(string passosMedia, string passosVariancia, string passosDesvio, string resultadoMedia, string resultadoVariancia, string resultadoDesvio)
+        {
+            textosSequenciais = new List<string> { passosMedia, passosVariancia, passosDesvio };
+
+            resultadosSequenciais = new List<string> { resultadoMedia, resultadoVariancia, resultadoDesvio };
+
+            titulosSequenciais = new List<string>
+            {
+                "Média: x̄ = (ΣXi·Fi) / ΣFi",
+                "Variância: σ² = ΣFi·(Xi - x̄)² / ΣFi",
+                "Desvio Padrão: σ = √σ²"
+            };
+
+            indiceAtualGeral = 0;
+
+            lbPassosGeral.Text = textosSequenciais[indiceAtualGeral];
+            lbTituloGeral.Text = titulosSequenciais[indiceAtualGeral];
+            lbResultadoGeral.Text = resultadosSequenciais[indiceAtualGeral];  // Só se você quiser exibir isso
+        }
+
+
 
         private List<(double Xi, int Fi)> ObterValoresXiFi()
         {
@@ -498,9 +517,6 @@ namespace Interface_e_sistema_em_C_
 
         public UserControl GetView() { return this; }
 
-        private void TituloEstatPar_Click(object sender, EventArgs e) { }
-        private void BlocoEstatPar_Paint(object sender, PaintEventArgs e) { }
-
         private void TelaMediaPosicaoCentral_Load(object sender, EventArgs e)
         {
             RedimensaoFilaExpandida();
@@ -509,7 +525,36 @@ namespace Interface_e_sistema_em_C_
 
         #endregion
 
-    }
+        private void btnProxTxt_Click(object sender, EventArgs e)
+        {
+            NavegarGeral(true);
+        }
 
+        private void btnAntTxt_Click(object sender, EventArgs e)
+        {
+            NavegarGeral(false);
+        }
+
+        private void btnListaOuFila_CheckedChanged(object sender, EventArgs e) // não funciona, veriricar o por que isso ocore
+        {
+            if (btnListaOuFila.Checked)
+            {
+                Panel pnlBlock = new Panel();
+                pnlBlock.Location = new Point(73, 168);
+                pnlBlock.Size = new Size(169, 172);
+                pnlBlock.BackColor = Color.FromArgb(60, 128, 128, 128);
+
+                this.Controls.Add(pnlBlock);
+            }
+            else
+            {
+                RichTextBox txtFilaExpandida = new RichTextBox();
+                txtFilaExpandida.Location = new Point(307, 168);
+                txtFilaExpandida.Size = new Size(300, 160);
+
+                this.Controls.Add(txtFilaExpandida);
+            }
+        }
+    }
 }
 

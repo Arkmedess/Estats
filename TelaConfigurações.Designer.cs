@@ -28,32 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            TituloVAC = new Label();
             SuspendLayout();
             // 
-            // panel1
+            // TituloVAC
             // 
-            panel1.BackColor = Color.DimGray;
-            panel1.Location = new Point(37, 36);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(263, 194);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            TituloVAC.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
+            TituloVAC.ForeColor = Color.White;
+            TituloVAC.Location = new Point(373, 294);
+            TituloVAC.Margin = new Padding(0);
+            TituloVAC.Name = "TituloVAC";
+            TituloVAC.Size = new Size(336, 43);
+            TituloVAC.TabIndex = 8;
+            TituloVAC.Text = "Tela em Construção";
+            TituloVAC.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // TelaConfig
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkGray;
-            Controls.Add(panel1);
+            BackColor = Color.FromArgb(30, 33, 34);
+            Controls.Add(TituloVAC);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "TelaConfig";
-            Size = new Size(1280, 960);
+            Size = new Size(1120, 720);
             Load += TelaConfig_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Label TituloVAC;
     }
 }

@@ -85,7 +85,7 @@
             // 
             TituloVAC.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
             TituloVAC.ForeColor = Color.White;
-            TituloVAC.Location = new Point(86, 83);
+            TituloVAC.Location = new Point(60, 83);
             TituloVAC.Margin = new Padding(0);
             TituloVAC.Name = "TituloVAC";
             TituloVAC.Size = new Size(632, 43);
@@ -97,7 +97,7 @@
             // 
             SubTextoVAC.Font = new Font("Segoe UI", 12F);
             SubTextoVAC.ForeColor = Color.White;
-            SubTextoVAC.Location = new Point(94, 130);
+            SubTextoVAC.Location = new Point(68, 130);
             SubTextoVAC.Margin = new Padding(0);
             SubTextoVAC.Name = "SubTextoVAC";
             SubTextoVAC.Size = new Size(557, 28);
@@ -108,7 +108,7 @@
             // MediaVAC
             // 
             MediaVAC.Cursor = Cursors.IBeam;
-            MediaVAC.Location = new Point(327, 177);
+            MediaVAC.Location = new Point(301, 177);
             MediaVAC.Margin = new Padding(3, 2, 3, 2);
             MediaVAC.Name = "MediaVAC";
             MediaVAC.Size = new Size(35, 23);
@@ -119,7 +119,7 @@
             // DesvioVAC
             // 
             DesvioVAC.Cursor = Cursors.IBeam;
-            DesvioVAC.Location = new Point(327, 208);
+            DesvioVAC.Location = new Point(301, 208);
             DesvioVAC.Margin = new Padding(3, 2, 3, 2);
             DesvioVAC.Multiline = true;
             DesvioVAC.Name = "DesvioVAC";
@@ -132,7 +132,7 @@
             // 
             ValorMediaVACText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             ValorMediaVACText.ForeColor = Color.White;
-            ValorMediaVACText.Location = new Point(96, 178);
+            ValorMediaVACText.Location = new Point(70, 178);
             ValorMediaVACText.Margin = new Padding(0);
             ValorMediaVACText.Name = "ValorMediaVACText";
             ValorMediaVACText.Size = new Size(154, 23);
@@ -144,7 +144,7 @@
             // 
             DesvioPadraoVACText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             DesvioPadraoVACText.ForeColor = Color.White;
-            DesvioPadraoVACText.Location = new Point(96, 207);
+            DesvioPadraoVACText.Location = new Point(70, 207);
             DesvioPadraoVACText.Margin = new Padding(0);
             DesvioPadraoVACText.Name = "DesvioPadraoVACText";
             DesvioPadraoVACText.Size = new Size(228, 22);
@@ -161,7 +161,7 @@
             BotaoVoltarMedia.FlatStyle = FlatStyle.Flat;
             BotaoVoltarMedia.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             BotaoVoltarMedia.ForeColor = Color.White;
-            BotaoVoltarMedia.Location = new Point(94, 676);
+            BotaoVoltarMedia.Location = new Point(68, 676);
             BotaoVoltarMedia.Margin = new Padding(0);
             BotaoVoltarMedia.Name = "BotaoVoltarMedia";
             BotaoVoltarMedia.Size = new Size(122, 47);
@@ -173,7 +173,7 @@
             // 
             AmostraVACText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             AmostraVACText.ForeColor = Color.White;
-            AmostraVACText.Location = new Point(96, 237);
+            AmostraVACText.Location = new Point(70, 237);
             AmostraVACText.Margin = new Padding(0);
             AmostraVACText.Name = "AmostraVACText";
             AmostraVACText.Size = new Size(209, 24);
@@ -185,7 +185,7 @@
             // 
             BotaoDesvioVAC.BackColor = Color.FromArgb(79, 55, 139);
             BotaoDesvioVAC.Controls.Add(IconeImportarDesvio);
-            BotaoDesvioVAC.Location = new Point(368, 208);
+            BotaoDesvioVAC.Location = new Point(342, 208);
             BotaoDesvioVAC.Name = "BotaoDesvioVAC";
             BotaoDesvioVAC.Size = new Size(33, 23);
             BotaoDesvioVAC.TabIndex = 23;
@@ -205,7 +205,7 @@
             // TamanhoDaAmostraVAC
             // 
             TamanhoDaAmostraVAC.Cursor = Cursors.IBeam;
-            TamanhoDaAmostraVAC.Location = new Point(327, 239);
+            TamanhoDaAmostraVAC.Location = new Point(301, 239);
             TamanhoDaAmostraVAC.Margin = new Padding(3, 2, 3, 2);
             TamanhoDaAmostraVAC.Multiline = true;
             TamanhoDaAmostraVAC.Name = "TamanhoDaAmostraVAC";
@@ -222,7 +222,7 @@
             Caso0.FlatAppearance.BorderSize = 0;
             Caso0.FlatStyle = FlatStyle.Flat;
             Caso0.ForeColor = Color.White;
-            Caso0.Location = new Point(94, 345);
+            Caso0.Location = new Point(68, 345);
             Caso0.Margin = new Padding(0);
             Caso0.Name = "Caso0";
             Caso0.Size = new Size(177, 48);
@@ -239,7 +239,7 @@
             Caso1.FlatAppearance.BorderSize = 0;
             Caso1.FlatStyle = FlatStyle.Flat;
             Caso1.ForeColor = Color.White;
-            Caso1.Location = new Point(94, 410);
+            Caso1.Location = new Point(68, 410);
             Caso1.Margin = new Padding(0);
             Caso1.Name = "Caso1";
             Caso1.Size = new Size(177, 48);
@@ -256,7 +256,7 @@
             Caso2.FlatAppearance.BorderSize = 0;
             Caso2.FlatStyle = FlatStyle.Flat;
             Caso2.ForeColor = Color.White;
-            Caso2.Location = new Point(94, 475);
+            Caso2.Location = new Point(68, 475);
             Caso2.Margin = new Padding(0);
             Caso2.Name = "Caso2";
             Caso2.Size = new Size(177, 48);
@@ -273,7 +273,7 @@
             Caso3.FlatAppearance.BorderSize = 0;
             Caso3.FlatStyle = FlatStyle.Flat;
             Caso3.ForeColor = Color.White;
-            Caso3.Location = new Point(94, 540);
+            Caso3.Location = new Point(68, 540);
             Caso3.Margin = new Padding(0);
             Caso3.Name = "Caso3";
             Caso3.Size = new Size(177, 48);
@@ -290,7 +290,7 @@
             Caso4.FlatAppearance.BorderSize = 0;
             Caso4.FlatStyle = FlatStyle.Flat;
             Caso4.ForeColor = Color.White;
-            Caso4.Location = new Point(306, 345);
+            Caso4.Location = new Point(280, 345);
             Caso4.Margin = new Padding(0);
             Caso4.Name = "Caso4";
             Caso4.Size = new Size(172, 48);
@@ -307,7 +307,7 @@
             Caso5.FlatAppearance.BorderSize = 0;
             Caso5.FlatStyle = FlatStyle.Flat;
             Caso5.ForeColor = Color.White;
-            Caso5.Location = new Point(306, 410);
+            Caso5.Location = new Point(280, 410);
             Caso5.Margin = new Padding(0);
             Caso5.Name = "Caso5";
             Caso5.Size = new Size(172, 48);
@@ -324,7 +324,7 @@
             Caso6.FlatAppearance.BorderSize = 0;
             Caso6.FlatStyle = FlatStyle.Flat;
             Caso6.ForeColor = Color.White;
-            Caso6.Location = new Point(306, 475);
+            Caso6.Location = new Point(280, 475);
             Caso6.Margin = new Padding(0);
             Caso6.Name = "Caso6";
             Caso6.Size = new Size(172, 48);
@@ -341,7 +341,7 @@
             Caso7.FlatAppearance.BorderSize = 0;
             Caso7.FlatStyle = FlatStyle.Flat;
             Caso7.ForeColor = Color.White;
-            Caso7.Location = new Point(306, 540);
+            Caso7.Location = new Point(280, 540);
             Caso7.Margin = new Padding(0);
             Caso7.Name = "Caso7";
             Caso7.Size = new Size(172, 48);
@@ -356,7 +356,7 @@
             LinhaHorizontEstatPar.Controls.Add(panel16);
             LinhaHorizontEstatPar.Controls.Add(panel20);
             LinhaHorizontEstatPar.Controls.Add(panel22);
-            LinhaHorizontEstatPar.Location = new Point(755, 138);
+            LinhaHorizontEstatPar.Location = new Point(725, 138);
             LinhaHorizontEstatPar.Margin = new Padding(3, 2, 3, 2);
             LinhaHorizontEstatPar.Name = "LinhaHorizontEstatPar";
             LinhaHorizontEstatPar.Size = new Size(1, 488);
@@ -433,7 +433,7 @@
             // 
             SubTextoVAC2.Font = new Font("Segoe UI", 12F);
             SubTextoVAC2.ForeColor = Color.White;
-            SubTextoVAC2.Location = new Point(91, 300);
+            SubTextoVAC2.Location = new Point(65, 300);
             SubTextoVAC2.Margin = new Padding(0);
             SubTextoVAC2.Name = "SubTextoVAC2";
             SubTextoVAC2.Size = new Size(180, 28);
@@ -446,7 +446,7 @@
             ResultadoVAC.BackColor = Color.FromArgb(0, 0, 0, 0);
             ResultadoVAC.Font = new Font("Segoe UI", 10F);
             ResultadoVAC.ForeColor = Color.White;
-            ResultadoVAC.Location = new Point(812, 175);
+            ResultadoVAC.Location = new Point(758, 175);
             ResultadoVAC.Name = "ResultadoVAC";
             ResultadoVAC.Size = new Size(422, 348);
             ResultadoVAC.TabIndex = 37;
@@ -456,7 +456,7 @@
             // 
             MediaLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             MediaLabel.ForeColor = Color.White;
-            MediaLabel.Location = new Point(812, 130);
+            MediaLabel.Location = new Point(758, 130);
             MediaLabel.Margin = new Padding(0);
             MediaLabel.Name = "MediaLabel";
             MediaLabel.Size = new Size(199, 32);
@@ -468,7 +468,7 @@
             // 
             TituloVAC2.Font = new Font("Segoe UI", 25F, FontStyle.Bold);
             TituloVAC2.ForeColor = Color.White;
-            TituloVAC2.Location = new Point(806, 83);
+            TituloVAC2.Location = new Point(752, 83);
             TituloVAC2.Margin = new Padding(0);
             TituloVAC2.Name = "TituloVAC2";
             TituloVAC2.Size = new Size(382, 43);
@@ -480,7 +480,7 @@
             // 
             BotaoAmostraVAC.BackColor = Color.FromArgb(79, 55, 139);
             BotaoAmostraVAC.Controls.Add(IconeImportarAmostra);
-            BotaoAmostraVAC.Location = new Point(368, 239);
+            BotaoAmostraVAC.Location = new Point(342, 239);
             BotaoAmostraVAC.Name = "BotaoAmostraVAC";
             BotaoAmostraVAC.Size = new Size(33, 23);
             BotaoAmostraVAC.TabIndex = 24;
@@ -501,7 +501,7 @@
             // 
             BotaoMediaVAC.BackColor = Color.FromArgb(79, 55, 139);
             BotaoMediaVAC.Controls.Add(IconeImportarMedia);
-            BotaoMediaVAC.Location = new Point(368, 177);
+            BotaoMediaVAC.Location = new Point(342, 177);
             BotaoMediaVAC.Name = "BotaoMediaVAC";
             BotaoMediaVAC.Size = new Size(33, 23);
             BotaoMediaVAC.TabIndex = 24;
@@ -521,7 +521,7 @@
             // ValorDeA
             // 
             ValorDeA.Cursor = Cursors.IBeam;
-            ValorDeA.Location = new Point(585, 177);
+            ValorDeA.Location = new Point(559, 177);
             ValorDeA.Margin = new Padding(3, 2, 3, 2);
             ValorDeA.Name = "ValorDeA";
             ValorDeA.Size = new Size(35, 23);
@@ -534,7 +534,7 @@
             // 
             ValorDeAText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             ValorDeAText.ForeColor = Color.White;
-            ValorDeAText.Location = new Point(484, 175);
+            ValorDeAText.Location = new Point(458, 175);
             ValorDeAText.Margin = new Padding(0);
             ValorDeAText.Name = "ValorDeAText";
             ValorDeAText.Size = new Size(95, 23);
@@ -547,7 +547,7 @@
             // 
             ValorDeBText.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             ValorDeBText.ForeColor = Color.White;
-            ValorDeBText.Location = new Point(484, 208);
+            ValorDeBText.Location = new Point(458, 208);
             ValorDeBText.Margin = new Padding(0);
             ValorDeBText.Name = "ValorDeBText";
             ValorDeBText.Size = new Size(95, 23);
@@ -559,7 +559,7 @@
             // ValorDeB
             // 
             ValorDeB.Cursor = Cursors.IBeam;
-            ValorDeB.Location = new Point(585, 209);
+            ValorDeB.Location = new Point(559, 209);
             ValorDeB.Margin = new Padding(3, 2, 3, 2);
             ValorDeB.Name = "ValorDeB";
             ValorDeB.Size = new Size(35, 23);
@@ -576,7 +576,7 @@
             CalculoVAC.FlatAppearance.BorderSize = 0;
             CalculoVAC.FlatStyle = FlatStyle.Flat;
             CalculoVAC.ForeColor = Color.White;
-            CalculoVAC.Location = new Point(501, 253);
+            CalculoVAC.Location = new Point(475, 253);
             CalculoVAC.Margin = new Padding(0);
             CalculoVAC.Name = "CalculoVAC";
             CalculoVAC.Size = new Size(105, 48);

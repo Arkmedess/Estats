@@ -25,9 +25,6 @@ namespace Interface_e_sistema_em_C_
             AjustarPosicaoBotoes();
             _gerenciadorTelas = new GerenciadorTelas(panelContainer);
             _gerenciadorTelas.MostrarTela("Inicial");
-
-
-            // Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
         }
 
         private void SetupContainer()
@@ -55,49 +52,17 @@ namespace Interface_e_sistema_em_C_
 
         private void Barra_lateral_menu_Paint(object sender, PaintEventArgs e)
         {
-            /*if (!_menuAberto) return;
 
-            using (Pen pen = new Pen(Color.FromArgb(100, 79, 55, 139), 5))
-            {
-                e.Graphics.DrawLine(pen, Barra_lateral_menu.Width - 3, 0, Barra_lateral_menu.Width - 3, Barra_lateral_menu.Height);
-            }*/
         }
 
         private void Botao_Tres_Barras_Click(object sender, EventArgs e)
         {
-            /*_menuAberto = !_menuAberto;
-
-            if (_menuAberto)
-            {
-                Barra_lateral_menu.Width = 255;
-                RestaurarBotoesOriginais();
-
-
-                btnFerramentas.Enabled = true;
-            }
-            else
-            {
-                Barra_lateral_menu.Width = 61;
-                RemoverBordasBotoes();
-
-                btnFerramentas.Enabled = false;
-
-                // IMPORTANTE: Quando fecha o menu, fecha a expansão
-                MenuExpansao = false;
-                MenuFerramentas.Height = 71;  // Altura mínima para esconder os botões dentro do painel
-                MenuTransicao.Stop();
-            }
-
-                AjustarPosicaoBotoes();
-            }*/
-
             _menuAlvoAberto = !_menuAberto;
             BarraLateralTransicao.Start();
         }
 
         private void AjustarPosicaoBotoes()
         {
-            // Garante que o FlowLayoutPanel esteja com altura correta e atualizada
             MenuFerramentas.PerformLayout();
             Barra_lateral_menu.SuspendLayout();
 
@@ -295,6 +260,6 @@ namespace Interface_e_sistema_em_C_
                 }
             }
         }
-
     }
 }
+

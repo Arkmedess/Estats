@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Interface_e_sistema_em_C_
+﻿namespace Interface_e_sistema_em_C_
 {
-    // Esta função é responsável por configurar as telas
+
     public class FormTelaAdapter : ITela
     {
         // Isto faz com que a tela seja um Form
@@ -29,7 +23,6 @@ namespace Interface_e_sistema_em_C_
             }
         }
 
-        // Esta função é responsável por descarregar a tela
         public void OnDescarregar()
         {
             // Esconde todos os controles originais
@@ -40,7 +33,6 @@ namespace Interface_e_sistema_em_C_
             }
         }
 
-        // Esta função é responsável por retornar a view
         public UserControl GetView() => null; // Não aplicável para Forms
     }
 }

@@ -63,6 +63,16 @@ namespace Interface_e_sistema_em_C_.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gemini_User {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lixeira {
             get {
                 object obj = ResourceManager.GetObject("Lixeira", resourceCulture);

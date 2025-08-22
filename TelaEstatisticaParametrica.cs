@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Interface_e_sistema_em_C_
+﻿namespace Interface_e_sistema_em_C_
 {
     public partial class TelaEstatisticaParametrica : UserControl, ITela
     {
@@ -29,7 +19,7 @@ namespace Interface_e_sistema_em_C_
 
         // Este método é chamado quando a tela é descarregada para ocultação
         public void OnDescarregar()
-        { 
+        {
             this.Visible = false;
             LimparRecursos();
         }
@@ -56,7 +46,7 @@ namespace Interface_e_sistema_em_C_
         }
         private void BotaoMediaPosCentral_Click(object sender, EventArgs e)
         {
-          _gerenciadorTelas.MostrarTela("Média de Posição Central");
+            _gerenciadorTelas.MostrarTela("Média de Posição Central");
         }
 
         private void TelaEstatisticaParametrica_Load(object sender, EventArgs e)

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35913.81 d17.13
+VisualStudioVersion = 17.13.35913.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface e sistema em C#", "Interface e sistema em C#.csproj", "{D78C106E-F8CF-4472-9033-95AAA55D4121}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStats", "eStats.csproj", "{D78C106E-F8CF-4472-9033-95AAA55D4121}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -274,7 +274,7 @@
             // 
             // MenuTransicao
             // 
-            MenuTransicao.Interval = 2;
+            MenuTransicao.Interval = 4;
             MenuTransicao.Tick += MenuTransicao_Tick;
             // 
             // BarraLateralTransicao
