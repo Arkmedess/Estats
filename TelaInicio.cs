@@ -1,7 +1,9 @@
 namespace Interface_e_sistema_em_C_
 {
+    using System.Diagnostics;
     using System.Drawing;
     using System.Windows.Forms;
+    using System.Windows.Forms.Design;
 
     public partial class Base : Form
     {
@@ -44,7 +46,54 @@ namespace Interface_e_sistema_em_C_
         private void Base_Load(object sender, EventArgs e)
         {
             RemoverBordasBotoes();
+
+            string chaveAPI = ApiKeyManager.CarregarChaveAPI();
+
+            if (string.IsNullOrEmpty(chaveAPI))
+            {
+                _gerenciadorTelas.MostrarTela("Configurações");
+
+                // Verifica novamente após mostrar configurações (caso o usuário já tenha colocado)
+                chaveAPI = ApiKeyManager.CarregarChaveAPI();
+
+                if (string.IsNullOrEmpty(chaveAPI))
+                {
+                    var resultado = MessageBox.Show(
+                        "Parece que você ainda não configurou sua chave de API do Groq.\n\n" +
+                        "Com ela, você terá acesso a recursos avançados como geração de texto, visão, áudio e muito mais.\n\n" +
+                        "Você pode adicionar a chave agora na tela de Configurações ou clicar em 'Obter chave gratuita' para criar uma conta no Groq.",
+                        "Chave de API recomendada",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button2);
+
+                    if (resultado == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = "https://console.groq.com/",
+                                UseShellExecute = true
+                            });
+                        }
+                        catch
+                        {
+                            MessageBox.Show(
+                                "Não foi possível abrir o navegador. Acesse: https://console.groq.com/",
+                                "Aviso",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                        }
+                    }
+                    // Se o usuário clicar em "Não, obrigado", o app continua normalmente (sem bloqueio)
+                }
+            }
+
+            // Aqui o app continua carregando — talvez desative certos recursos se não houver API
+            //AtualizarEstadoFuncionalidades(chaveAPI);
         }
+
 
         #endregion
 
