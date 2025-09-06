@@ -34,6 +34,8 @@
             pnBoasVindas = new ReaLTaiizor.Controls.Panel();
             picUser = new PictureBox();
             pnTelaInicial = new Panel();
+            panel4 = new ReaLTaiizor.Controls.Panel();
+            label3 = new Label();
             panel3 = new ReaLTaiizor.Controls.Panel();
             button3 = new Button();
             button2 = new Button();
@@ -49,18 +51,16 @@
             picChapeuGraduacao = new PictureBox();
             picYoutube = new PictureBox();
             lblLinks = new Label();
-            panel4 = new ReaLTaiizor.Controls.Panel();
-            label3 = new Label();
             pnBoasVindas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUser).BeginInit();
             pnTelaInicial.SuspendLayout();
+            panel4.SuspendLayout();
             panel3.SuspendLayout();
             pnLinks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picChapeuGraduacao).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picYoutube).BeginInit();
-            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // lblSubTitulo
@@ -122,6 +122,31 @@
             pnTelaInicial.Size = new Size(1190, 730);
             pnTelaInicial.TabIndex = 10;
             // 
+            // panel4
+            // 
+            panel4.BackColor = Color.WhiteSmoke;
+            panel4.Controls.Add(label3);
+            panel4.EdgeColor = Color.FromArgb(32, 41, 50);
+            panel4.Location = new Point(616, 488);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(5);
+            panel4.Size = new Size(525, 199);
+            panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            panel4.TabIndex = 15;
+            panel4.Text = "-+";
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            label3.ForeColor = Color.FromArgb(26, 31, 52);
+            label3.Location = new Point(11, 8);
+            label3.Margin = new Padding(0);
+            label3.Name = "label3";
+            label3.Size = new Size(179, 30);
+            label3.TabIndex = 12;
+            label3.Text = "Vazio";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // panel3
             // 
             panel3.BackColor = Color.WhiteSmoke;
@@ -171,6 +196,7 @@
             button1.Text = "\r\nEstatística Paramétrica\r\n";
             button1.TextAlign = ContentAlignment.BottomCenter;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -304,31 +330,6 @@
             lblLinks.Text = "Links úteis:";
             lblLinks.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel4
-            // 
-            panel4.BackColor = Color.WhiteSmoke;
-            panel4.Controls.Add(label3);
-            panel4.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel4.Location = new Point(616, 488);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(5);
-            panel4.Size = new Size(525, 199);
-            panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel4.TabIndex = 15;
-            panel4.Text = "-+";
-            // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
-            label3.ForeColor = Color.FromArgb(26, 31, 52);
-            label3.Location = new Point(11, 8);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(179, 30);
-            label3.TabIndex = 12;
-            label3.Text = "Vazio";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // TelaInicial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -340,13 +341,13 @@
             pnBoasVindas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picUser).EndInit();
             pnTelaInicial.ResumeLayout(false);
+            panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
             pnLinks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picChapeuGraduacao).EndInit();
             ((System.ComponentModel.ISupportInitialize)picYoutube).EndInit();
-            panel4.ResumeLayout(false);
             ResumeLayout(false);
         }
 
