@@ -189,4 +189,30 @@
         RK5CYII=
 </value>
   </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>1. MODO DE ENTRADA:
+   • Botão de alternar entre:
+        [ ] Pares Xi/Fi  &amp;  [ ] Fila Expandida
+
+2. MODO PARES (Xi/Fi):
+   • Adicione valores:
+        - Automático: ao preencher, novo par aparece
+        - Manual: clique em "+"
+
+3. MODO FILA EXPANDIDA:
+   • Digite valores separados por ; ou -
+   • Ex: 5;10;15 ou 5-10-15
+   • Validação: clique em "Validar Fila"</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>1. ATIVE O MODO REVERSO:
+   • Clique em "Modo Reverso" (ao lado de "Modo Padrão")
+
+2. INSIRA OS DADOS:
+   • Campo OBRIGATÓRIO: CV (%)
+   • Campo OPCIONAL (escolha PELO MENOS UM):
+        - Média (x̄) ou
+        - Desvio Padrão (s) ou
+        - Variância (s²)</value>
+  </data>
 </root>

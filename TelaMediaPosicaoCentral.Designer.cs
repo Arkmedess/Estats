@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaMediaPosicaoCentral));
             lblTituloEstatPar = new Label();
             lblDescTela = new Label();
-            lblValorXI = new Label();
-            lblValorFI = new Label();
             lblFilaExpandida = new Label();
             Fi1 = new TextBox();
             Xi1 = new TextBox();
@@ -69,14 +67,6 @@
             chkParesAuto = new CheckBox();
             txtboxFilaExp = new ReaLTaiizor.Controls.DungeonRichTextBox();
             btnValidarFilaExp = new Button();
-            pnLinhaSeparar = new Panel();
-            panel16 = new Panel();
-            panel17 = new Panel();
-            panel18 = new Panel();
-            panel19 = new Panel();
-            panel20 = new Panel();
-            panel21 = new Panel();
-            panel22 = new Panel();
             txtBoxCvReverso = new TextBox();
             lblChaveAPI = new Label();
             label1 = new Label();
@@ -90,7 +80,13 @@
             hopeBtnMetodoReverso = new ReaLTaiizor.Controls.HopeRoundButton();
             hopeBtnMetodoPadrao = new ReaLTaiizor.Controls.HopeRoundButton();
             pnModoReverso = new ReaLTaiizor.Controls.Panel();
+            pnSubModoReverso = new ReaLTaiizor.Controls.Panel();
+            lblCampoObrigatorio = new Label();
+            label4 = new Label();
             pnModoPadrao = new ReaLTaiizor.Controls.Panel();
+            pnSubModoPadrao = new ReaLTaiizor.Controls.Panel();
+            label2 = new Label();
+            label3 = new Label();
             pnResultadosEstatisticos.SuspendLayout();
             flowLayoutPanelPares.SuspendLayout();
             Par0.SuspendLayout();
@@ -98,12 +94,10 @@
             Par2.SuspendLayout();
             Par3.SuspendLayout();
             Par4.SuspendLayout();
-            pnLinhaSeparar.SuspendLayout();
-            panel16.SuspendLayout();
-            panel17.SuspendLayout();
-            panel20.SuspendLayout();
             pnModoReverso.SuspendLayout();
+            pnSubModoReverso.SuspendLayout();
             pnModoPadrao.SuspendLayout();
+            pnSubModoPadrao.SuspendLayout();
             SuspendLayout();
             // 
             // lblTituloEstatPar
@@ -130,40 +124,16 @@
             lblDescTela.Text = "Insira os valores da Frequência Acumulada (Xi) e Frequência Absoluta (Fi):";
             lblDescTela.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblValorXI
-            // 
-            lblValorXI.Font = new Font("Berlin Sans FB", 14F);
-            lblValorXI.ForeColor = Color.White;
-            lblValorXI.Location = new Point(38, 5);
-            lblValorXI.Margin = new Padding(0);
-            lblValorXI.Name = "lblValorXI";
-            lblValorXI.Size = new Size(35, 23);
-            lblValorXI.TabIndex = 8;
-            lblValorXI.Text = "Xi";
-            lblValorXI.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblValorFI
-            // 
-            lblValorFI.Font = new Font("Berlin Sans FB", 14F);
-            lblValorFI.ForeColor = Color.White;
-            lblValorFI.Location = new Point(133, 5);
-            lblValorFI.Margin = new Padding(0);
-            lblValorFI.Name = "lblValorFI";
-            lblValorFI.Size = new Size(35, 23);
-            lblValorFI.TabIndex = 9;
-            lblValorFI.Text = "Fi";
-            lblValorFI.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // lblFilaExpandida
             // 
             lblFilaExpandida.Font = new Font("Berlin Sans FB", 14F);
             lblFilaExpandida.ForeColor = Color.White;
-            lblFilaExpandida.Location = new Point(20, 277);
+            lblFilaExpandida.Location = new Point(192, 91);
             lblFilaExpandida.Margin = new Padding(0);
             lblFilaExpandida.Name = "lblFilaExpandida";
-            lblFilaExpandida.Size = new Size(162, 28);
+            lblFilaExpandida.Size = new Size(33, 28);
             lblFilaExpandida.TabIndex = 12;
-            lblFilaExpandida.Text = "ou Fila Expandida:";
+            lblFilaExpandida.Text = "ou";
             lblFilaExpandida.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Fi1
@@ -195,14 +165,14 @@
             AdicionarFila.FlatAppearance.BorderColor = Color.FromArgb(79, 55, 139);
             AdicionarFila.FlatAppearance.BorderSize = 0;
             AdicionarFila.FlatStyle = FlatStyle.Flat;
-            AdicionarFila.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            AdicionarFila.Font = new Font("Berlin Sans FB", 12F);
             AdicionarFila.ForeColor = Color.White;
-            AdicionarFila.Location = new Point(233, 193);
+            AdicionarFila.Location = new Point(231, 224);
             AdicionarFila.Margin = new Padding(0);
             AdicionarFila.Name = "AdicionarFila";
-            AdicionarFila.Size = new Size(26, 52);
+            AdicionarFila.Size = new Size(156, 37);
             AdicionarFila.TabIndex = 15;
-            AdicionarFila.Text = ">";
+            AdicionarFila.Text = "Realizar Cálculos";
             AdicionarFila.UseVisualStyleBackColor = false;
             AdicionarFila.Click += AdicionarFila_Click;
             // 
@@ -221,12 +191,14 @@
             // lbPassosGeral
             // 
             lbPassosGeral.BackColor = Color.FromArgb(0, 0, 0, 0);
-            lbPassosGeral.Font = new Font("Segoe UI", 12F);
+            lbPassosGeral.Font = new Font("Berlin Sans FB", 10F);
             lbPassosGeral.ForeColor = Color.White;
-            lbPassosGeral.Location = new Point(34, 25);
+            lbPassosGeral.ImageAlign = ContentAlignment.MiddleLeft;
+            lbPassosGeral.Location = new Point(46, 48);
             lbPassosGeral.Name = "lbPassosGeral";
-            lbPassosGeral.Size = new Size(469, 525);
+            lbPassosGeral.Size = new Size(443, 491);
             lbPassosGeral.TabIndex = 1;
+            lbPassosGeral.TextAlign = ContentAlignment.TopCenter;
             // 
             // lbResultadoGeral
             // 
@@ -267,10 +239,10 @@
             pnResultadosEstatisticos.Controls.Add(lbResultadoGeral);
             pnResultadosEstatisticos.Controls.Add(lbPassosGeral);
             pnResultadosEstatisticos.EdgeColor = Color.FromArgb(32, 41, 50);
-            pnResultadosEstatisticos.Location = new Point(724, 112);
+            pnResultadosEstatisticos.Location = new Point(739, 112);
             pnResultadosEstatisticos.Name = "pnResultadosEstatisticos";
             pnResultadosEstatisticos.Padding = new Padding(5);
-            pnResultadosEstatisticos.Size = new Size(536, 574);
+            pnResultadosEstatisticos.Size = new Size(521, 574);
             pnResultadosEstatisticos.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnResultadosEstatisticos.TabIndex = 27;
             // 
@@ -302,7 +274,7 @@
             btnProxTxt.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             btnProxTxt.ForeColor = Color.White;
             btnProxTxt.Image = (Image)resources.GetObject("btnProxTxt.Image");
-            btnProxTxt.Location = new Point(505, 259);
+            btnProxTxt.Location = new Point(492, 259);
             btnProxTxt.Margin = new Padding(0);
             btnProxTxt.Name = "btnProxTxt";
             btnProxTxt.Size = new Size(25, 24);
@@ -312,26 +284,26 @@
             // 
             // lbTituloGeral
             // 
-            lbTituloGeral.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lbTituloGeral.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lbTituloGeral.ForeColor = Color.White;
-            lbTituloGeral.Location = new Point(111, 5);
+            lbTituloGeral.Location = new Point(34, 5);
             lbTituloGeral.Margin = new Padding(0);
             lbTituloGeral.Name = "lbTituloGeral";
-            lbTituloGeral.Size = new Size(268, 30);
+            lbTituloGeral.Size = new Size(345, 30);
             lbTituloGeral.TabIndex = 28;
             lbTituloGeral.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // TglBtnListaOuFila
             // 
-            TglBtnListaOuFila.BackColor = Color.FromArgb(57, 45, 120);
-            TglBtnListaOuFila.BaseColor = Color.FromArgb(57, 45, 120);
+            TglBtnListaOuFila.BackColor = Color.FromArgb(26, 31, 52);
+            TglBtnListaOuFila.BaseColor = Color.FromArgb(26, 31, 52);
             TglBtnListaOuFila.BaseColorA = Color.FromArgb(220, 223, 230);
             TglBtnListaOuFila.BaseColorB = Color.FromArgb(100, 64, 158, 255);
             TglBtnListaOuFila.HeadColorA = Color.FromArgb(220, 223, 230);
             TglBtnListaOuFila.HeadColorB = Color.White;
             TglBtnListaOuFila.HeadColorC = Color.FromArgb(64, 158, 255);
             TglBtnListaOuFila.HeadColorD = Color.FromArgb(64, 158, 255);
-            TglBtnListaOuFila.Location = new Point(195, 63);
+            TglBtnListaOuFila.Location = new Point(216, 185);
             TglBtnListaOuFila.Name = "TglBtnListaOuFila";
             TglBtnListaOuFila.Size = new Size(48, 20);
             TglBtnListaOuFila.TabIndex = 28;
@@ -343,9 +315,9 @@
             lblModoFilaExpandida.BackColor = Color.FromArgb(0, 0, 0, 0);
             lblModoFilaExpandida.Font = new Font("Berlin Sans FB", 10F);
             lblModoFilaExpandida.ForeColor = Color.White;
-            lblModoFilaExpandida.Location = new Point(240, 54);
+            lblModoFilaExpandida.Location = new Point(261, 186);
             lblModoFilaExpandida.Name = "lblModoFilaExpandida";
-            lblModoFilaExpandida.Size = new Size(78, 40);
+            lblModoFilaExpandida.Size = new Size(130, 18);
             lblModoFilaExpandida.TabIndex = 1;
             lblModoFilaExpandida.Text = "Modo Fila Expandida";
             lblModoFilaExpandida.TextAlign = ContentAlignment.MiddleLeft;
@@ -358,7 +330,7 @@
             flowLayoutPanelPares.Controls.Add(Par3);
             flowLayoutPanelPares.Controls.Add(Par4);
             flowLayoutPanelPares.Controls.Add(btnAdicionarNovoPar);
-            flowLayoutPanelPares.Location = new Point(14, 31);
+            flowLayoutPanelPares.Location = new Point(10, 9);
             flowLayoutPanelPares.Name = "flowLayoutPanelPares";
             flowLayoutPanelPares.Size = new Size(174, 237);
             flowLayoutPanelPares.TabIndex = 29;
@@ -382,7 +354,7 @@
             Xi0.Name = "Xi0";
             Xi0.PlaceholderText = "Xi";
             Xi0.Size = new Size(35, 23);
-            Xi0.TabIndex = 12;
+            Xi0.TabIndex = 10;
             Xi0.TextAlign = HorizontalAlignment.Center;
             // 
             // Fi0
@@ -393,7 +365,7 @@
             Fi0.Name = "Fi0";
             Fi0.PlaceholderText = "Fi";
             Fi0.Size = new Size(35, 23);
-            Fi0.TabIndex = 13;
+            Fi0.TabIndex = 11;
             Fi0.TextAlign = HorizontalAlignment.Center;
             // 
             // Par1
@@ -474,7 +446,7 @@
             Xi2.Name = "Xi2";
             Xi2.PlaceholderText = "Xi";
             Xi2.Size = new Size(35, 23);
-            Xi2.TabIndex = 12;
+            Xi2.TabIndex = 14;
             Xi2.TextAlign = HorizontalAlignment.Center;
             // 
             // Fi2
@@ -485,7 +457,7 @@
             Fi2.Name = "Fi2";
             Fi2.PlaceholderText = "Fi";
             Fi2.Size = new Size(35, 23);
-            Fi2.TabIndex = 13;
+            Fi2.TabIndex = 15;
             Fi2.TextAlign = HorizontalAlignment.Center;
             // 
             // Par3
@@ -531,7 +503,7 @@
             Xi3.Name = "Xi3";
             Xi3.PlaceholderText = "Xi";
             Xi3.Size = new Size(35, 23);
-            Xi3.TabIndex = 12;
+            Xi3.TabIndex = 16;
             Xi3.TextAlign = HorizontalAlignment.Center;
             // 
             // Fi3
@@ -542,7 +514,7 @@
             Fi3.Name = "Fi3";
             Fi3.PlaceholderText = "Fi";
             Fi3.Size = new Size(35, 23);
-            Fi3.TabIndex = 13;
+            Fi3.TabIndex = 17;
             Fi3.TextAlign = HorizontalAlignment.Center;
             // 
             // Par4
@@ -588,7 +560,7 @@
             Xi4.Name = "Xi4";
             Xi4.PlaceholderText = "Xi";
             Xi4.Size = new Size(35, 23);
-            Xi4.TabIndex = 12;
+            Xi4.TabIndex = 18;
             Xi4.TextAlign = HorizontalAlignment.Center;
             // 
             // Fi4
@@ -599,7 +571,7 @@
             Fi4.Name = "Fi4";
             Fi4.PlaceholderText = "Fi";
             Fi4.Size = new Size(35, 23);
-            Fi4.TabIndex = 13;
+            Fi4.TabIndex = 19;
             Fi4.TextAlign = HorizontalAlignment.Center;
             // 
             // btnAdicionarNovoPar
@@ -621,7 +593,7 @@
             chkParesAuto.CheckState = CheckState.Checked;
             chkParesAuto.Font = new Font("Berlin Sans FB", 10F);
             chkParesAuto.ForeColor = Color.White;
-            chkParesAuto.Location = new Point(200, 31);
+            chkParesAuto.Location = new Point(15, 251);
             chkParesAuto.Name = "chkParesAuto";
             chkParesAuto.Size = new Size(111, 20);
             chkParesAuto.TabIndex = 31;
@@ -637,106 +609,27 @@
             txtboxFilaExp.Enabled = false;
             txtboxFilaExp.Font = new Font("Tahoma", 10F);
             txtboxFilaExp.ForeColor = Color.FromArgb(76, 76, 76);
-            txtboxFilaExp.Location = new Point(14, 315);
+            txtboxFilaExp.Location = new Point(231, 11);
             txtboxFilaExp.Name = "txtboxFilaExp";
             txtboxFilaExp.ReadOnly = false;
-            txtboxFilaExp.Size = new Size(172, 131);
+            txtboxFilaExp.Size = new Size(155, 131);
             txtboxFilaExp.TabIndex = 32;
             txtboxFilaExp.TextBackColor = Color.White;
             txtboxFilaExp.WordWrap = true;
             // 
             // btnValidarFilaExp
             // 
-            btnValidarFilaExp.Location = new Point(44, 456);
+            btnValidarFilaExp.Location = new Point(231, 149);
             btnValidarFilaExp.Name = "btnValidarFilaExp";
-            btnValidarFilaExp.Size = new Size(112, 41);
+            btnValidarFilaExp.Size = new Size(155, 27);
             btnValidarFilaExp.TabIndex = 33;
             btnValidarFilaExp.Text = "Validar Lista";
             btnValidarFilaExp.UseVisualStyleBackColor = true;
             btnValidarFilaExp.Click += btnValidarFilaExp_Click;
             // 
-            // pnLinhaSeparar
-            // 
-            pnLinhaSeparar.BackColor = Color.White;
-            pnLinhaSeparar.Controls.Add(panel16);
-            pnLinhaSeparar.Controls.Add(panel20);
-            pnLinhaSeparar.Controls.Add(panel22);
-            pnLinhaSeparar.Location = new Point(389, 196);
-            pnLinhaSeparar.Margin = new Padding(3, 2, 3, 2);
-            pnLinhaSeparar.Name = "pnLinhaSeparar";
-            pnLinhaSeparar.Size = new Size(1, 420);
-            pnLinhaSeparar.TabIndex = 34;
-            // 
-            // panel16
-            // 
-            panel16.BackColor = Color.White;
-            panel16.Controls.Add(panel17);
-            panel16.Controls.Add(panel19);
-            panel16.Location = new Point(19, 2);
-            panel16.Margin = new Padding(3, 2, 3, 2);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(18, 2);
-            panel16.TabIndex = 9;
-            // 
-            // panel17
-            // 
-            panel17.BackColor = Color.White;
-            panel17.Controls.Add(panel18);
-            panel17.Location = new Point(24, 0);
-            panel17.Margin = new Padding(3, 2, 3, 2);
-            panel17.Name = "panel17";
-            panel17.Size = new Size(18, 2);
-            panel17.TabIndex = 8;
-            // 
-            // panel18
-            // 
-            panel18.BackColor = Color.White;
-            panel18.Location = new Point(102, 0);
-            panel18.Margin = new Padding(3, 2, 3, 2);
-            panel18.Name = "panel18";
-            panel18.Size = new Size(18, 2);
-            panel18.TabIndex = 7;
-            // 
-            // panel19
-            // 
-            panel19.BackColor = Color.White;
-            panel19.Location = new Point(102, 0);
-            panel19.Margin = new Padding(3, 2, 3, 2);
-            panel19.Name = "panel19";
-            panel19.Size = new Size(18, 2);
-            panel19.TabIndex = 7;
-            // 
-            // panel20
-            // 
-            panel20.BackColor = Color.White;
-            panel20.Controls.Add(panel21);
-            panel20.Location = new Point(24, 0);
-            panel20.Margin = new Padding(3, 2, 3, 2);
-            panel20.Name = "panel20";
-            panel20.Size = new Size(18, 2);
-            panel20.TabIndex = 8;
-            // 
-            // panel21
-            // 
-            panel21.BackColor = Color.White;
-            panel21.Location = new Point(102, 0);
-            panel21.Margin = new Padding(3, 2, 3, 2);
-            panel21.Name = "panel21";
-            panel21.Size = new Size(18, 2);
-            panel21.TabIndex = 7;
-            // 
-            // panel22
-            // 
-            panel22.BackColor = Color.White;
-            panel22.Location = new Point(102, 0);
-            panel22.Margin = new Padding(3, 2, 3, 2);
-            panel22.Name = "panel22";
-            panel22.Size = new Size(18, 2);
-            panel22.TabIndex = 7;
-            // 
             // txtBoxCvReverso
             // 
-            txtBoxCvReverso.Location = new Point(134, 13);
+            txtBoxCvReverso.Location = new Point(150, 38);
             txtBoxCvReverso.Name = "txtBoxCvReverso";
             txtBoxCvReverso.Size = new Size(32, 23);
             txtBoxCvReverso.TabIndex = 37;
@@ -745,7 +638,7 @@
             // 
             lblChaveAPI.Font = new Font("Berlin Sans FB", 12F);
             lblChaveAPI.ForeColor = Color.White;
-            lblChaveAPI.Location = new Point(9, 5);
+            lblChaveAPI.Location = new Point(26, 29);
             lblChaveAPI.Margin = new Padding(0);
             lblChaveAPI.Name = "lblChaveAPI";
             lblChaveAPI.Size = new Size(109, 36);
@@ -757,17 +650,17 @@
             // 
             label1.Font = new Font("Berlin Sans FB", 12.5F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(9, 92);
+            label1.Location = new Point(11, 84);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(281, 28);
+            label1.Size = new Size(150, 21);
             label1.TabIndex = 38;
-            label1.Text = "Informe ao menos um dos parâmetros:";
+            label1.Text = "Campos Opcionais:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtBoxMediaReverso
             // 
-            txtBoxMediaReverso.Location = new Point(134, 46);
+            txtBoxMediaReverso.Location = new Point(150, 138);
             txtBoxMediaReverso.Name = "txtBoxMediaReverso";
             txtBoxMediaReverso.PlaceholderText = "x̄";
             txtBoxMediaReverso.Size = new Size(32, 23);
@@ -778,7 +671,7 @@
             // 
             lblMediaReverso.Font = new Font("Berlin Sans FB", 12F);
             lblMediaReverso.ForeColor = Color.White;
-            lblMediaReverso.Location = new Point(10, 48);
+            lblMediaReverso.Location = new Point(26, 140);
             lblMediaReverso.Margin = new Padding(0);
             lblMediaReverso.Name = "lblMediaReverso";
             lblMediaReverso.Size = new Size(109, 18);
@@ -788,7 +681,7 @@
             // 
             // txtBoxDesvioReverso
             // 
-            txtBoxDesvioReverso.Location = new Point(134, 161);
+            txtBoxDesvioReverso.Location = new Point(150, 204);
             txtBoxDesvioReverso.Name = "txtBoxDesvioReverso";
             txtBoxDesvioReverso.PlaceholderText = "s";
             txtBoxDesvioReverso.Size = new Size(32, 23);
@@ -799,7 +692,7 @@
             // 
             lblDesvioReverso.Font = new Font("Berlin Sans FB", 12F);
             lblDesvioReverso.ForeColor = Color.White;
-            lblDesvioReverso.Location = new Point(10, 163);
+            lblDesvioReverso.Location = new Point(26, 206);
             lblDesvioReverso.Margin = new Padding(0);
             lblDesvioReverso.Name = "lblDesvioReverso";
             lblDesvioReverso.Size = new Size(109, 18);
@@ -809,7 +702,7 @@
             // 
             // txtBoxVarianciaReverso
             // 
-            txtBoxVarianciaReverso.Location = new Point(134, 128);
+            txtBoxVarianciaReverso.Location = new Point(150, 171);
             txtBoxVarianciaReverso.Name = "txtBoxVarianciaReverso";
             txtBoxVarianciaReverso.PlaceholderText = "s²";
             txtBoxVarianciaReverso.Size = new Size(32, 23);
@@ -820,7 +713,7 @@
             // 
             lblVarianciaReverso.Font = new Font("Berlin Sans FB", 12F);
             lblVarianciaReverso.ForeColor = Color.White;
-            lblVarianciaReverso.Location = new Point(10, 130);
+            lblVarianciaReverso.Location = new Point(26, 173);
             lblVarianciaReverso.Margin = new Padding(0);
             lblVarianciaReverso.Name = "lblVarianciaReverso";
             lblVarianciaReverso.Size = new Size(109, 18);
@@ -837,11 +730,11 @@
             btnCalcReverso.Font = new Font("Berlin Sans FB", 12F);
             btnCalcReverso.HoverTextColor = Color.FromArgb(48, 49, 51);
             btnCalcReverso.InfoColor = Color.FromArgb(144, 147, 153);
-            btnCalcReverso.Location = new Point(99, 209);
+            btnCalcReverso.Location = new Point(98, 243);
             btnCalcReverso.Margin = new Padding(10);
             btnCalcReverso.Name = "btnCalcReverso";
             btnCalcReverso.PrimaryColor = Color.FromArgb(79, 55, 139);
-            btnCalcReverso.Size = new Size(108, 44);
+            btnCalcReverso.Size = new Size(108, 34);
             btnCalcReverso.SuccessColor = Color.FromArgb(103, 194, 58);
             btnCalcReverso.TabIndex = 46;
             btnCalcReverso.Text = "Realizar cálculos";
@@ -855,14 +748,14 @@
             hopeBtnMetodoReverso.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             hopeBtnMetodoReverso.DangerColor = Color.FromArgb(245, 108, 108);
             hopeBtnMetodoReverso.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeBtnMetodoReverso.Font = new Font("Berlin Sans FB Demi", 17F, FontStyle.Bold);
+            hopeBtnMetodoReverso.Font = new Font("Berlin Sans FB Demi", 16F, FontStyle.Bold);
             hopeBtnMetodoReverso.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeBtnMetodoReverso.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeBtnMetodoReverso.Location = new Point(403, 146);
+            hopeBtnMetodoReverso.Location = new Point(72, 473);
             hopeBtnMetodoReverso.Margin = new Padding(10);
             hopeBtnMetodoReverso.Name = "hopeBtnMetodoReverso";
             hopeBtnMetodoReverso.PrimaryColor = Color.FromArgb(79, 55, 139);
-            hopeBtnMetodoReverso.Size = new Size(216, 44);
+            hopeBtnMetodoReverso.Size = new Size(207, 44);
             hopeBtnMetodoReverso.SuccessColor = Color.FromArgb(103, 194, 58);
             hopeBtnMetodoReverso.TabIndex = 47;
             hopeBtnMetodoReverso.Text = "Método Reverso";
@@ -876,14 +769,14 @@
             hopeBtnMetodoPadrao.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             hopeBtnMetodoPadrao.DangerColor = Color.FromArgb(245, 108, 108);
             hopeBtnMetodoPadrao.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeBtnMetodoPadrao.Font = new Font("Berlin Sans FB Demi", 17F, FontStyle.Bold);
+            hopeBtnMetodoPadrao.Font = new Font("Berlin Sans FB Demi", 16F, FontStyle.Bold);
             hopeBtnMetodoPadrao.HoverTextColor = Color.FromArgb(48, 49, 51);
             hopeBtnMetodoPadrao.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeBtnMetodoPadrao.Location = new Point(51, 146);
+            hopeBtnMetodoPadrao.Location = new Point(72, 146);
             hopeBtnMetodoPadrao.Margin = new Padding(10);
             hopeBtnMetodoPadrao.Name = "hopeBtnMetodoPadrao";
             hopeBtnMetodoPadrao.PrimaryColor = Color.FromArgb(79, 55, 139);
-            hopeBtnMetodoPadrao.Size = new Size(216, 44);
+            hopeBtnMetodoPadrao.Size = new Size(207, 44);
             hopeBtnMetodoPadrao.SuccessColor = Color.FromArgb(103, 194, 58);
             hopeBtnMetodoPadrao.TabIndex = 48;
             hopeBtnMetodoPadrao.Text = "Método Padrão";
@@ -894,55 +787,126 @@
             // pnModoReverso
             // 
             pnModoReverso.BackColor = Color.FromArgb(57, 45, 120);
-            pnModoReverso.Controls.Add(lblChaveAPI);
-            pnModoReverso.Controls.Add(txtBoxCvReverso);
-            pnModoReverso.Controls.Add(label1);
-            pnModoReverso.Controls.Add(btnCalcReverso);
-            pnModoReverso.Controls.Add(lblMediaReverso);
-            pnModoReverso.Controls.Add(txtBoxVarianciaReverso);
-            pnModoReverso.Controls.Add(txtBoxMediaReverso);
-            pnModoReverso.Controls.Add(lblVarianciaReverso);
-            pnModoReverso.Controls.Add(lblDesvioReverso);
-            pnModoReverso.Controls.Add(txtBoxDesvioReverso);
+            pnModoReverso.Controls.Add(pnSubModoReverso);
             pnModoReverso.EdgeColor = Color.FromArgb(32, 41, 50);
-            pnModoReverso.Location = new Point(403, 203);
+            pnModoReverso.Location = new Point(295, 473);
             pnModoReverso.Name = "pnModoReverso";
             pnModoReverso.Padding = new Padding(5);
-            pnModoReverso.Size = new Size(308, 410);
+            pnModoReverso.Size = new Size(308, 288);
             pnModoReverso.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnModoReverso.TabIndex = 30;
+            // 
+            // pnSubModoReverso
+            // 
+            pnSubModoReverso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnSubModoReverso.BackColor = Color.FromArgb(26, 31, 52);
+            pnSubModoReverso.Controls.Add(lblCampoObrigatorio);
+            pnSubModoReverso.Controls.Add(label4);
+            pnSubModoReverso.Controls.Add(lblChaveAPI);
+            pnSubModoReverso.Controls.Add(txtBoxDesvioReverso);
+            pnSubModoReverso.Controls.Add(txtBoxCvReverso);
+            pnSubModoReverso.Controls.Add(lblDesvioReverso);
+            pnSubModoReverso.Controls.Add(label1);
+            pnSubModoReverso.Controls.Add(lblVarianciaReverso);
+            pnSubModoReverso.Controls.Add(btnCalcReverso);
+            pnSubModoReverso.Controls.Add(txtBoxMediaReverso);
+            pnSubModoReverso.Controls.Add(lblMediaReverso);
+            pnSubModoReverso.Controls.Add(txtBoxVarianciaReverso);
+            pnSubModoReverso.EdgeColor = Color.FromArgb(32, 41, 50);
+            pnSubModoReverso.Location = new Point(3, 3);
+            pnSubModoReverso.Name = "pnSubModoReverso";
+            pnSubModoReverso.Padding = new Padding(5);
+            pnSubModoReverso.Size = new Size(302, 282);
+            pnSubModoReverso.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            pnSubModoReverso.TabIndex = 47;
+            // 
+            // lblCampoObrigatorio
+            // 
+            lblCampoObrigatorio.Font = new Font("Berlin Sans FB", 12.5F);
+            lblCampoObrigatorio.ForeColor = Color.White;
+            lblCampoObrigatorio.Location = new Point(12, 5);
+            lblCampoObrigatorio.Margin = new Padding(0);
+            lblCampoObrigatorio.Name = "lblCampoObrigatorio";
+            lblCampoObrigatorio.Size = new Size(159, 21);
+            lblCampoObrigatorio.TabIndex = 48;
+            lblCampoObrigatorio.Text = "Campo Obrigatório:";
+            lblCampoObrigatorio.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Berlin Sans FB", 9F);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(13, 105);
+            label4.Margin = new Padding(0);
+            label4.Name = "label4";
+            label4.Size = new Size(123, 30);
+            label4.TabIndex = 47;
+            label4.Text = "Informe ao menos um dos parâmetros:";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnModoPadrao
             // 
             pnModoPadrao.BackColor = Color.FromArgb(57, 45, 120);
-            pnModoPadrao.Controls.Add(lblValorXI);
-            pnModoPadrao.Controls.Add(lblValorFI);
-            pnModoPadrao.Controls.Add(lblFilaExpandida);
-            pnModoPadrao.Controls.Add(AdicionarFila);
-            pnModoPadrao.Controls.Add(TglBtnListaOuFila);
-            pnModoPadrao.Controls.Add(btnValidarFilaExp);
-            pnModoPadrao.Controls.Add(lblModoFilaExpandida);
-            pnModoPadrao.Controls.Add(txtboxFilaExp);
-            pnModoPadrao.Controls.Add(flowLayoutPanelPares);
-            pnModoPadrao.Controls.Add(chkParesAuto);
+            pnModoPadrao.Controls.Add(pnSubModoPadrao);
             pnModoPadrao.EdgeColor = Color.FromArgb(32, 41, 50);
-            pnModoPadrao.Location = new Point(51, 203);
+            pnModoPadrao.Location = new Point(292, 146);
             pnModoPadrao.Name = "pnModoPadrao";
             pnModoPadrao.Padding = new Padding(5);
-            pnModoPadrao.Size = new Size(326, 521);
+            pnModoPadrao.Size = new Size(414, 282);
             pnModoPadrao.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             pnModoPadrao.TabIndex = 47;
+            // 
+            // pnSubModoPadrao
+            // 
+            pnSubModoPadrao.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnSubModoPadrao.BackColor = Color.FromArgb(26, 31, 52);
+            pnSubModoPadrao.Controls.Add(chkParesAuto);
+            pnSubModoPadrao.Controls.Add(lblFilaExpandida);
+            pnSubModoPadrao.Controls.Add(flowLayoutPanelPares);
+            pnSubModoPadrao.Controls.Add(AdicionarFila);
+            pnSubModoPadrao.Controls.Add(txtboxFilaExp);
+            pnSubModoPadrao.Controls.Add(TglBtnListaOuFila);
+            pnSubModoPadrao.Controls.Add(lblModoFilaExpandida);
+            pnSubModoPadrao.Controls.Add(btnValidarFilaExp);
+            pnSubModoPadrao.EdgeColor = Color.FromArgb(32, 41, 50);
+            pnSubModoPadrao.Location = new Point(3, 3);
+            pnSubModoPadrao.Name = "pnSubModoPadrao";
+            pnSubModoPadrao.Padding = new Padding(5);
+            pnSubModoPadrao.Size = new Size(408, 276);
+            pnSubModoPadrao.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            pnSubModoPadrao.TabIndex = 48;
+            // 
+            // label2
+            // 
+            label2.Font = new Font("Berlin Sans FB", 9.5F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(74, 200);
+            label2.Name = "label2";
+            label2.Size = new Size(205, 228);
+            label2.TabIndex = 49;
+            label2.Text = resources.GetString("label2.Text");
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Berlin Sans FB", 9.5F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(74, 527);
+            label3.Name = "label3";
+            label3.Size = new Size(205, 184);
+            label3.TabIndex = 50;
+            label3.Text = resources.GetString("label3.Text");
             // 
             // TelaMediaPosicaoCentral
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 31, 52);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(pnModoPadrao);
             Controls.Add(pnModoReverso);
             Controls.Add(hopeBtnMetodoPadrao);
             Controls.Add(hopeBtnMetodoReverso);
-            Controls.Add(pnLinhaSeparar);
             Controls.Add(pnResultadosEstatisticos);
             Controls.Add(BotaoProximoPassoVAC);
             Controls.Add(lblResultadosEstatisticos);
@@ -964,21 +928,17 @@
             Par3.PerformLayout();
             Par4.ResumeLayout(false);
             Par4.PerformLayout();
-            pnLinhaSeparar.ResumeLayout(false);
-            panel16.ResumeLayout(false);
-            panel17.ResumeLayout(false);
-            panel20.ResumeLayout(false);
             pnModoReverso.ResumeLayout(false);
-            pnModoReverso.PerformLayout();
+            pnSubModoReverso.ResumeLayout(false);
+            pnSubModoReverso.PerformLayout();
             pnModoPadrao.ResumeLayout(false);
+            pnSubModoPadrao.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private Label lblTituloEstatPar;
         private Label lblDescTela;
-        private Label lblValorXI;
-        private Label lblValorFI;
         private Label lblFilaExpandida;
         private TextBox Fi1;
         private TextBox Xi1;
@@ -1015,14 +975,6 @@
         private ReaLTaiizor.Controls.Button btnRmvPar4;
         private ReaLTaiizor.Controls.DungeonRichTextBox txtboxFilaExp;
         private Button btnValidarFilaExp;
-        private Panel pnLinhaSeparar;
-        private Panel panel16;
-        private Panel panel17;
-        private Panel panel18;
-        private Panel panel19;
-        private Panel panel20;
-        private Panel panel21;
-        private Panel panel22;
         private TextBox txtBoxCvReverso;
         private Label lblChaveAPI;
         private Label label1;
@@ -1037,5 +989,11 @@
         private ReaLTaiizor.Controls.HopeRoundButton hopeBtnMetodoPadrao;
         private ReaLTaiizor.Controls.Panel pnModoReverso;
         private ReaLTaiizor.Controls.Panel pnModoPadrao;
+        private ReaLTaiizor.Controls.Panel pnSubModoReverso;
+        private ReaLTaiizor.Controls.Panel pnSubModoPadrao;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label lblCampoObrigatorio;
     }
 }

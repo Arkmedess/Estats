@@ -70,14 +70,15 @@ namespace Interface_e_sistema_em_C_
         #region Gerenciamento de Pares Xi/Fi (Adição e Remoção)
         private void InicializarPares()
         {
-            // Inicializa a lista de painéis
+
             _painelPares = new List<Panel> { Par0, Par1, Par2, Par3, Par4 };
-            // Garante que apenas o primeiro painel esteja visível inicialmente
+
+            // Garante que apenas o primeiro painel esteja visível já no início.
             for (int i = 0; i < _painelPares.Count; i++)
             {
                 _painelPares[i].Visible = (i == 0);
                 _painelPares[i].Enabled = (i == 0);
-                // Limpa os campos dos painéis invisíveis
+
                 if (i > 0)
                 {
                     var textBoxes = _painelPares[i].Controls.OfType<TextBox>();
@@ -88,7 +89,6 @@ namespace Interface_e_sistema_em_C_
                 }
                 ConfigurarEventosDoPar(_painelPares[i]);
             }
-            // Força a atualização inicial dos botões
             AtualizarBotoes();
         }
 
@@ -97,20 +97,30 @@ namespace Interface_e_sistema_em_C_
             int indice = ObterIndice(panel.Name);
             TextBox xi = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Xi{indice}");
             TextBox fi = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Fi{indice}");
-            if (xi != null && fi != null)
+
+            if (xi != null)
             {
+                xi.TextChanged += Xi_TextChanged;
+                xi.KeyPress += ValidarEntradaXi_KeyPress;
+
                 xi.TextChanged += Par_TextChanged;
-                fi.TextChanged += Par_TextChanged;
-                ConfigurarValidacao(xi, false);
-                ConfigurarValidacao(fi, true);
             }
-            // Configura o botão de remover se existir (exceto para o primeiro painel)
+
+            if (fi != null)
+            {
+                fi.TextChanged += Fi_TextChanged;
+                fi.KeyPress += ValidarEntradaFi_KeyPress;
+
+                fi.TextChanged += Par_TextChanged;
+            }
+
+            // Configura o botão de remover (exceto para o primeiro painel)
             if (indice > 0)
             {
                 var btn = GetRemoveButton(panel);
                 if (btn != null)
                 {
-                    btn.Click -= BtnRmvPar_Click; // Evita duplicação
+                    btn.Click -= BtnRmvPar_Click;
                     btn.Click += BtnRmvPar_Click;
                 }
             }
@@ -119,10 +129,10 @@ namespace Interface_e_sistema_em_C_
         private ReaLTaiizor.Controls.Button GetRemoveButton(Panel par)
         {
             int indice = ObterIndice(par.Name);
-            // Para o primeiro painel, não existe botão de remover
+
             if (indice == 0)
                 return null;
-            // Procura o botão pelo nome
+
             return par.Controls.OfType<ReaLTaiizor.Controls.Button>()
                 .FirstOrDefault(b => b.Name == $"btnRmvPar{indice}");
         }
@@ -142,7 +152,7 @@ namespace Interface_e_sistema_em_C_
             Panel panel = _painelPares[indice];
             panel.Visible = true;
             panel.Enabled = true;
-            // Garante que o botão de remover esteja oculto inicialmente
+
             var btn = GetRemoveButton(panel);
             if (btn != null)
             {
@@ -150,7 +160,7 @@ namespace Interface_e_sistema_em_C_
                 btn.Enabled = false;
             }
             flowLayoutPanelPares.ScrollControlIntoView(panel);
-            // Força a atualização dos botões após mostrar o painel
+
             AtualizarBotoes();
         }
 
@@ -161,7 +171,7 @@ namespace Interface_e_sistema_em_C_
                 .Where(p => p.Visible)
                 .OrderBy(p => ObterIndice(p.Name))
                 .ToList();
-            // Se não há painéis visíveis, esconde todos os botões
+
             if (!paineisVisiveis.Any())
             {
                 foreach (var panel in _painelPares)
@@ -176,14 +186,16 @@ namespace Interface_e_sistema_em_C_
                 btnAdicionarNovoPar.Visible = false;
                 return;
             }
-            // Obtém o último painel visível
+
             var ultimoPar = paineisVisiveis.Last();
             int indiceUltimo = ObterIndice(ultimoPar.Name);
+
             // Atualiza todos os botões de remover
             foreach (var panel in _painelPares)
             {
                 var btn = GetRemoveButton(panel);
                 if (btn == null) continue;
+
                 // Só mostra o botão se:
                 // 1. For o último painel visível
                 // 2. Houver mais de um painel visível
@@ -194,7 +206,6 @@ namespace Interface_e_sistema_em_C_
                 btn.Visible = deveMostrar;
                 btn.Enabled = deveMostrar;
             }
-            // Atualiza botão de adição
             bool podeAdicionar = !chkParesAuto.Checked && indiceUltimo < _painelPares.Count - 1;
             btnAdicionarNovoPar.Visible = podeAdicionar;
             btnAdicionarNovoPar.Enabled = podeAdicionar;
@@ -222,6 +233,7 @@ namespace Interface_e_sistema_em_C_
         {
             Panel ultimoPar = _painelPares.LastOrDefault(p => p.Visible);
             if (ultimoPar == null) return;
+
             // Limpa os campos antes de esconder
             var textBoxes = ultimoPar.Controls.OfType<TextBox>();
             foreach (var tb in textBoxes)
@@ -230,17 +242,18 @@ namespace Interface_e_sistema_em_C_
             }
             ultimoPar.Visible = false;
             ultimoPar.Enabled = false;
-            // Força a atualização dos botões após remover
+
             AtualizarBotoes();
         }
 
         private void btnAdicionarNovoPar_Click(object sender, EventArgs e)
         {
-            // Procuramos o primeiro par oculto que pode ser ativado
+            // Procura-se o primeiro par oculto que pode ser ativado
             for (int i = 0; i < _painelPares.Count - 1; i++)
             {
                 Panel parAtual = _painelPares[i];
                 Panel proximoPar = _painelPares[i + 1];
+
                 // Verifica:
                 // 1. O par atual está visível
                 // 2. Está preenchido (Xi e Fi não vazios)
@@ -253,7 +266,7 @@ namespace Interface_e_sistema_em_C_
                     return;
                 }
             }
-            // Se chegou aqui, não há par para adicionar
+
             MessageBox.Show(
                 "Todos os pares já foram adicionados ou o par anterior não está completo.",
                 "Aviso",
@@ -269,50 +282,121 @@ namespace Interface_e_sistema_em_C_
         #endregion
 
         #region Validação e Eventos de Entrada (Teclado, TextChanged)
-        private void ConfigurarValidacao(TextBox tb, bool ehFi)
+
+        private void ValidarEntradaXi_KeyPress(object sender, KeyPressEventArgs e)
         {
-            tb.KeyPress += (s, e) =>
+            char tecla = e.KeyChar;
+            if (char.IsControl(tecla))
+                return;
+
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Permite dígitos e vírgula
+            if (char.IsDigit(tecla) || tecla == ',')
             {
-                char tecla = e.KeyChar;
-                if (char.IsControl(tecla)) return;
-                if (ehFi)
+                if (tecla == ',')
                 {
-                    if (!char.IsDigit(tecla))
+                    if (textBox.Text.Contains(',') || textBox.SelectionStart == 0)
                     {
                         e.Handled = true;
-                        return;
                     }
-                    string textoFinal = tb.Text.Insert(tb.SelectionStart, tecla.ToString());
-                    if (textoFinal.StartsWith("0") && textoFinal.Length > 1)
-                        e.Handled = true;
                 }
-                else
-                {
-                    if (char.IsDigit(tecla))
-                    {
-                        string textoFinal = tb.Text.Insert(tb.SelectionStart, tecla.ToString());
-                        if (textoFinal.StartsWith("0") && !textoFinal.StartsWith("0,") && textoFinal.Length == 1)
-                            e.Handled = true;
-                        return;
-                    }
-                    if (tecla == ',')
-                    {
-                        if (tb.Text.Contains(',') || tb.SelectionStart == 0)
-                            e.Handled = true;
-                        return;
-                    }
-                    e.Handled = true;
-                }
-            };
-            tb.KeyDown += (s, e) =>
-            {
-                if ((e.Control && e.KeyCode == Keys.V) || (e.Shift && e.KeyCode == Keys.Insert))
-                {
-                    e.SuppressKeyPress = true;
-                    e.Handled = true;
-                }
-            };
+                return;
+            }
+
+            e.Handled = true;
         }
+
+
+        private void ValidarEntradaFi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char tecla = e.KeyChar;
+            if (char.IsControl(tecla))
+                return;
+
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Permite apenas dígitos
+            if (!char.IsDigit(tecla))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Bloqueia '0' como primeiro caractere
+            string textoFinal = textBox.Text.Insert(textBox.SelectionStart, tecla.ToString());
+            if (textoFinal.StartsWith("0") && textoFinal.Length == 1)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+
+        private void Xi_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            string texto = textBox.Text;
+
+            // Remove caracteres inválidos
+            string textoLimpo = "";
+            bool virgulaEncontrada = false;
+
+            foreach (char c in texto)
+            {
+                if (char.IsDigit(c))
+                {
+                    textoLimpo += c;
+                }
+                else if (c == ',' && !virgulaEncontrada)
+                {
+                    textoLimpo += c;
+                    virgulaEncontrada = true;
+                }
+            }
+
+            // Valida formato "0," vs "0X"
+            if (textoLimpo.StartsWith("0") && textoLimpo.Length > 1 && textoLimpo[1] != ',')
+            {
+                textoLimpo = "0," + textoLimpo.Substring(1);
+            }
+
+            // Atualiza o texto se necessário
+            if (texto != textoLimpo)
+            {
+                int posicao = textBox.SelectionStart;
+                textBox.Text = textoLimpo;
+                textBox.SelectionStart = Math.Min(posicao, textoLimpo.Length);
+            }
+        }
+
+
+        private void Fi_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Remove não dígitos
+            string textoLimpo = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+            // Bloqueia "0" sozinho
+            if (textoLimpo == "0")
+            {
+                textoLimpo = "";
+            }
+
+            if (textBox.Text != textoLimpo)
+            {
+                int posicao = textBox.SelectionStart;
+                textBox.Text = textoLimpo;
+                textBox.SelectionStart = Math.Min(posicao, textoLimpo.Length);
+            }
+        }
+
 
         private void DesativarMenuContexto(Control controle)
         {
@@ -330,8 +414,9 @@ namespace Interface_e_sistema_em_C_
         public (double media, double variancia, double desvio, double cv, double somaFi, string passosMedia, string passosVariancia, string passosDesvio, string passosCv) CalcularEstatisticas()
         {
             var dados = new List<double>(); // Lista de valores considerando Fi ou lista em TextBox
+            var listaFi = new List<int>();
             double somaFi = 0;
-            if (!TglBtnListaOuFila.Checked) // Padrão: calcular pelos pares Xi/Fi
+            if (!TglBtnListaOuFila.Checked)
             {
                 foreach (Panel panel in _painelPares)
                 {
@@ -341,16 +426,16 @@ namespace Interface_e_sistema_em_C_
                     TextBox fiTxt = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Fi{indice}");
                     if (xiTxt == null || fiTxt == null) continue;
                     if (string.IsNullOrWhiteSpace(xiTxt.Text) || string.IsNullOrWhiteSpace(fiTxt.Text)) continue;
-                    if (double.TryParse(xiTxt.Text, NumberStyles.Any, new CultureInfo("pt-BR"), out double xi) &&
-                        int.TryParse(fiTxt.Text, out int fi) && fi > 0)
+                    if (double.TryParse(xiTxt.Text, NumberStyles.Any, new CultureInfo("pt-BR"), out double xi) && int.TryParse(fiTxt.Text, out int fi) && fi > 0)
                     {
                         for (int i = 0; i < fi; i++)
                             dados.Add(xi); // Repete Xi Fi vezes
+                        listaFi.Add(fi);
                         somaFi += fi;
                     }
                 }
             }
-            else // Toggle marcado: calcular baseado na TextBox com valores separados
+            else // Toggle marcado (Fila Expandida)
             {
                 string texto = txtboxFilaExp.Text.Trim();
                 if (string.IsNullOrEmpty(texto))
@@ -368,49 +453,106 @@ namespace Interface_e_sistema_em_C_
                 }
                 somaFi = dados.Count;
             }
-            // Verifica se há dados
+
             if (somaFi == 0)
             {
                 return (0, 0, 0, 0, 0,
                     "Nenhum dado válido encontrado. Preencha pelo menos um valor!",
                     "", "", "");
             }
-            // Cálculos
+
             double media = dados.Average();
             double somaQuadrados = dados.Sum(x => Math.Pow(x - media, 2));
-            double variancia = somaQuadrados / somaFi;
+            double variancia = somaQuadrados / (somaFi - 1);
             double desvio = Math.Sqrt(variancia);
             double cv = (media != 0)
                 ? (desvio / media) * 100
                 : 0;
-            // Passos
-            string passosMedia = $@"
-📌 **Passo 1: Lista de Valores**
-→ {string.Join(" ; ", dados.Select(d => d.ToString("F2")))}
-📌 **Passo 2: Calcular Média**
-→ x̄ = ΣXi / n
-→ x̄ = {string.Join(" + ", dados.Select(d => d.ToString("F2")))} / {somaFi} = {media:F2}
-".Trim();
-            string passosVariancia = $@"
-📌 **Passo 1: Média (x̄)**
-→ x̄ = {media:F2}
-📌 **Passo 2: Calcular Σ(Xi - x̄)²**
-→ Para cada valor:
-{string.Join("\n", dados.Select(d => $"→ ({d:F2} - {media:F2})² = {Math.Pow(d - media, 2):F2}"))}
-→ Soma = {somaQuadrados:F2}
-📌 **Passo 3: Variância**
-→ σ² = Σ(Xi - x̄)² / n
-→ σ² = {somaQuadrados:F2} / {somaFi} = {variancia:F2}
-".Trim();
-            string passosDesvio = $@"
-📌 **Passo 1: Variância (σ²)**
-→ σ² = {variancia:F2}
-📌 **Passo 2: Desvio Padrão**
-→ σ = √σ²
-→ σ = √{variancia:F2} = {desvio:F2}
-".Trim();
+
+            string passosMedia = GerarPassosMedia(dados, listaFi, media, somaFi);
+            string passosVariancia = GerarPassosVariancia(dados, media, somaQuadrados, somaFi, variancia);
+            string passosDesvio = GerarPassosDesvio(variancia, desvio);
             string passosCv = GerarPassosCV(desvio, media, cv);
             return (media, variancia, desvio, cv, somaFi, passosMedia, passosVariancia, passosDesvio, passosCv);
+        }
+
+        private string GerarPassosMedia(List<double> dados, List<int> listaFi, double media, double somaFi)
+        {
+            var valoresComFrequencia = dados.GroupBy(d => d)
+                .Select(g => new
+                {
+                    Valor = g.Key,
+                    Frequencia = g.Count(),
+                    Produto = g.Key * g.Count()
+                })
+                .ToList();
+
+            var passosMultiplicacao = valoresComFrequencia.Select(v => $"{v.Valor:F2} × {v.Frequencia} = {(v.Valor * v.Frequencia):F2}");
+
+            double somaProdutos = valoresComFrequencia.Sum(v => v.Valor * v.Frequencia);
+
+            var somaProdutosStr = string.Join(" + ", valoresComFrequencia.Select(v => v.Produto.ToString("F2")));
+
+            string somaFiStr = string.Join(" + ", listaFi.Select(f => f.ToString()));
+
+            return $@"
+→  Passo 1: Realizar a multiplicação Xi × Fi
+{string.Join("\n", passosMultiplicacao)}
+
+
+→ Passo 2: Somar o produto dos cálculos para obter o resultado de ΣXiFi
+{somaProdutosStr} = {somaProdutos:F2}
+
+
+→ Passo 3: Realizar a soma dos valores de Fi para obter o resultado de ΣFi (ou N)
+{somaFiStr} = {somaFi:F0}
+
+
+→ Passo 4: Substituir os valores na fórmula e calcular a Média: x̄ = Σ(XiFi) / ΣFi
+x̄ = {somaProdutos:F2} / {somaFi:F0} = {media:F2}
+".Trim();
+        }
+
+        private string GerarPassosVariancia(List<double> dados, double media, double somaQuadrados, double somaFi, double variancia)
+        {
+            var grupos = dados.GroupBy(d => d)
+                             .Select(g => new
+                             {
+                                 Valor = g.Key,
+                                 Frequencia = g.Count(),
+                                 DesvioQuadrado = Math.Pow(g.Key - media, 2)
+                             })
+                             .OrderBy(g => g.Valor);
+
+            var desviosFormatados = new StringBuilder();
+            foreach (var grupo in grupos)
+            {
+                desviosFormatados.AppendLine($"({grupo.Valor:F2} - {media:F2})² = {grupo.DesvioQuadrado:F2} ({grupo.Frequencia}x) = {(grupo.DesvioQuadrado * grupo.Frequencia):F4}");
+            }
+
+            return $@"
+→ Passo 1: Tenha em mãos o valor da Média (x̄) e do Tamanho da Amostra (N)
+Média dos valores: x̄ = {media:F2}
+N = {somaFi}
+
+→ Passo 2: Calcular (Xi - x̄)² × Fi para cada valor (desvio quadrático multiplicado pela frequência)
+{desviosFormatados.ToString().Trim()}
+Soma dos quadrados: Σ(Xi - x̄)² = {somaQuadrados:F2}
+
+→ Passo 3: Substituir os valores da fórmula e calcular a Variância: s² = Σ(Xi - x̄)² / N - 1
+s² = {somaQuadrados:F2} / {somaFi} - 1 = {variancia:F2}
+".Trim();
+        }
+
+        private string GerarPassosDesvio(double variancia, double desvio)
+        {
+            return $@"
+→ Passo 1: Tenha em mãos o valor da Variância (s²)
+s² = {variancia:F2}
+
+→ Passo 2: Substituir os valores da fórmula e calcular o Desvio Padrão: s = √s²
+s = √{variancia:F2} = {desvio:F2}
+".Trim();
         }
 
         private string GerarPassosCV(double desvio, double media, double cv)
@@ -419,11 +561,12 @@ namespace Interface_e_sistema_em_C_
             {
                 return @"
 📌 **Coeficiente de Variação (CV)**
-→ CV = (σ / x̄) × 100%
+→ CV = (s / x̄) × 100%
 → Como a média é zero, o CV não pode ser calculado.
 → O CV é indefinido quando a média é zero.
 ".Trim();
             }
+
             string interpretacao = cv switch
             {
                 < 15 => "Baixa dispersão (CV < 15%): Os dados são homogêneos.",
@@ -431,27 +574,25 @@ namespace Interface_e_sistema_em_C_
                 < 50 => "Alta dispersão (30% ≤ CV < 50%): Os dados são heterogêneos.",
                 _ => "Muito alta dispersão (CV ≥ 50%): Grande variabilidade nos dados."
             };
+
             return $@"
-📌 **Passo 1: Desvio Padrão (σ)**
-→ σ = {desvio:F2}
-📌 **Passo 2: Média (x̄)**
-→ x̄ = {media:F2}
-📌 **Passo 3: Coeficiente de Variação (CV)**
-→ CV = (σ / x̄) × 100%
-→ CV = ({desvio:F2} / {media:F2}) × 100%
-→ CV = {cv:F2}%
-📌 **Interpretação do CV:**
+→ Passo 1: Desvio Padrão (s)
+s = {desvio:F2}
+
+→ Passo 2: Média (x̄)
+x̄ = {media:F2}
+
+→ Passo 3: Coeficiente de Variação (CV)
+CV = (s / x̄) × 100%
+CV = ({desvio:F2} / {media:F2}) × 100%
+CV = {cv:F2}%
+
+📌 Interpretação do CV:
 → {interpretacao}
 ".Trim();
         }
-
-
-
-
-
-
-
         #endregion
+
 
         #region Exibição de Resultados e Navegação
         private void AdicionarFila_Click(object sender, EventArgs e)
@@ -527,9 +668,9 @@ namespace Interface_e_sistema_em_C_
             titulosSequenciais = new List<string>
             {
                 "Média: x̄ = (ΣXi·Fi) / ΣFi",
-                "Variância: s² = ΣFi·(Xi - x̄)² / ΣFi",
+                "Variância: s² = (Xi - x̄)² / ΣFi",
                 "Desvio Padrão: s = √s²",
-                "Coeficiente de Variação: CV = (σ / x̄) × 100%"
+                "Coeficiente de Variação: CV = (s / x̄) × 100%"
             };
             indiceAtualGeral = 0;
             AtualizarExibicaoResultado();
@@ -594,6 +735,7 @@ namespace Interface_e_sistema_em_C_
         }
         #endregion
 
+
         #region Navegação entre Telas
         private void BotaoProximoPassoVAC_Click(object sender, EventArgs e)
         {
@@ -604,8 +746,6 @@ namespace Interface_e_sistema_em_C_
         #region Eventos de Interface (Não Funcionais / Em Teste)
         private void TglBtnListaOuFila_CheckedChanged(object sender, EventArgs e)
         {
-            // TODO: Implementar alternância entre visualização de lista e fila
-            // Atualmente não está funcionando corretamente
             if (TglBtnListaOuFila.Checked)
             {
                 flowLayoutPanelPares.Enabled = false;
@@ -631,27 +771,33 @@ namespace Interface_e_sistema_em_C_
         #endregion
 
         #region Validação de Dados
+
         private string ValidarItemNumero(string item)
         {
             if (string.IsNullOrWhiteSpace(item))
                 return "Item vazio ou com espaços.";
+
             if (item == ",")
                 return "Vírgula sozinha (use um número como '0,5').";
+
             if (item.EndsWith(","))
                 return $"Número incompleto: '{item}' (falta o decimal).";
+
             if (item.Count(c => c == ',') > 1)
                 return $"Múltiplas vírgulas: '{item}' (use apenas uma vírgula por número).";
+
             if (item.Contains(" ") && item.Contains(","))
                 return $"Espaço dentro do número: '{item}' (não use espaço antes ou depois da vírgula).";
+
             if (item.Length > 1 && item.StartsWith("0") && char.IsDigit(item[1]) && !item.StartsWith("0,"))
                 return $"Zero à esquerda não permitido: '{item}' (use '1' em vez de '01').";
-            if (!double.TryParse(item, NumberStyles.AllowDecimalPoint, new CultureInfo("pt-BR"), out _))
-                return $"Não é um número válido: '{item}' (use formato brasileiro: 2,5).";
+
             if (double.TryParse(item, NumberStyles.Any, new CultureInfo("pt-BR"), out _))
                 return null;
-            // Tenta converter com ponto (en-US)
+
             if (double.TryParse(item, NumberStyles.Any, new CultureInfo("en-US"), out _))
                 return null;
+
             return $"Formato inválido: '{item}'. Use vírgula (1,5) ou ponto (1.5).";
         }
 
@@ -659,9 +805,9 @@ namespace Interface_e_sistema_em_C_
         {
             sugestao = null;
             string erro = ValidarItemNumero(item);
+
             if (erro != null)
             {
-                // Gera sugestão baseada no erro
                 if (item == ",")
                     sugestao = "0,0";
                 else if (item.EndsWith(","))
@@ -674,11 +820,15 @@ namespace Interface_e_sistema_em_C_
                     sugestao = item.TrimStart('0');
                 else if (item.Contains("."))
                     sugestao = item.Replace(".", ",");
+                else if (double.TryParse(item, NumberStyles.Any, CultureInfo.InvariantCulture, out _))
+                    sugestao = item.Replace(".", ",");
                 else
-                    sugestao = "0";
+                    sugestao = "0"; // Sugestão genérica como último recurso
             }
+
             return erro;
         }
+        #endregion
 
         private bool ValidarLista(string texto, out string listaFormatada, out string erros, char separador = '-', int? minItens = null, int? maxItens = null)
         {
@@ -728,7 +878,7 @@ namespace Interface_e_sistema_em_C_
                 errosList.Add($"Mínimo de {minItens} itens necessário(s). Encontrados: {numeros.Count}");
             if (maxItens.HasValue && numeros.Count > maxItens)
                 errosList.Add($"Máximo de {maxItens} itens permitido(s). Encontrados: {numeros.Count}");
-            // Se houver erros de quantidade, retorna false
+
             if (errosList.Count > 0)
             {
                 erros = string.Join("\n→ ", errosList);
@@ -758,7 +908,7 @@ namespace Interface_e_sistema_em_C_
                 }
             }
             txtboxFilaExp.Text = string.Join(" - ", corrigidos);
-            // Revalida após correções
+
             if (ValidarLista(txtboxFilaExp.Text, out string listaFormatada, out _))
             {
                 txtboxFilaExp.Text = listaFormatada;
@@ -772,8 +922,8 @@ namespace Interface_e_sistema_em_C_
             if (ValidarLista(txtboxFilaExp.Text, out string listaFormatada, out string erros,
                 separador: '-', minItens: 2, maxItens: 10))
             {
-                txtboxFilaExp.Text = listaFormatada; // força padronização
-                MessageBox.Show("✅ Lista válida e padronizada!", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtboxFilaExp.Text = listaFormatada;
+                MessageBox.Show("Lista válida e padronizada!", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -797,7 +947,6 @@ namespace Interface_e_sistema_em_C_
                     MessageBoxIcon.Warning);
             }
         }
-        #endregion
 
         private void hopeBtnMetodoReverso_Click(object sender, EventArgs e)
         {
@@ -821,13 +970,13 @@ namespace Interface_e_sistema_em_C_
 
             try
             {
-                double cvReverso = double.Parse(txtBoxCvReverso.Text.Replace(",","."));
+                double cvReverso = double.Parse(txtBoxCvReverso.Text.Replace(",", "."));
 
                 double? mediaReversa = string.IsNullOrEmpty(txtBoxMediaReverso.Text)
                     ? null
                     : double.Parse(txtBoxMediaReverso.Text.Replace(",", "."));
 
-                double? varianciaReversa = string.IsNullOrEmpty(txtBoxDesvioReverso.Text)
+                double? varianciaReversa = string.IsNullOrEmpty(txtBoxVarianciaReverso.Text)
                     ? null
                     : double.Parse(txtBoxDesvioReverso.Text.Replace(",", "."));
 
@@ -835,9 +984,10 @@ namespace Interface_e_sistema_em_C_
                     ? null
                     : double.Parse(txtBoxDesvioReverso.Text.Replace(",", "."));
 
-                if (cvReverso <= 0 || (mediaReversa.HasValue && mediaReversa.Value <= 0))
+                if (cvReverso <= 0)
                 {
-                    MessageBox.Show("O valor do Coeficiente de Variação e Média devem ser maior que zero!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("O valor do Coeficiente de Variação deve ser maior que zero!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 double mediaCalculadaReversa, desvioCalculadoReverso, varianciaCalculadaReversa;
@@ -848,27 +998,26 @@ namespace Interface_e_sistema_em_C_
                     desvioCalculadoReverso = (cvReverso * mediaCalculadaReversa) / 100;
                     varianciaCalculadaReversa = Math.Pow(desvioCalculadoReverso, 2);
                 }
-                else if (varianciaReversa.HasValue)
-                {
-                    varianciaCalculadaReversa = varianciaReversa.Value;
-                    desvioCalculadoReverso = Math.Sqrt(varianciaCalculadaReversa);
-                    mediaCalculadaReversa = (desvioCalculadoReverso * 100) / cvReverso;
-                }
                 else if (desvioReverso.HasValue)
                 {
                     desvioCalculadoReverso = desvioReverso.Value;
                     mediaCalculadaReversa = (desvioCalculadoReverso * 100) / cvReverso;
                     varianciaCalculadaReversa = Math.Pow(desvioCalculadoReverso, 2);
                 }
+                else if (varianciaReversa.HasValue)
+                {
+                    varianciaCalculadaReversa = varianciaReversa.Value;
+                    desvioCalculadoReverso = Math.Sqrt(varianciaCalculadaReversa);
+                    mediaCalculadaReversa = (desvioCalculadoReverso * 100) / cvReverso;
+                }
                 else
                 {
-                    MessageBox.Show("Você deve fornecer pelo menos mais um parâmetro além do CV e Média", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Você deve fornecer pelo menos mais um parâmetro além do CV (Média, Desvio ou Variância)!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 string passosReverso = GerarPassosReverso(cvReverso, mediaReversa, desvioReverso, varianciaReversa, mediaCalculadaReversa, desvioCalculadoReverso, varianciaCalculadaReversa);
 
-                // Exibir resultados
                 lbPassosGeral.Text = $@"
 Média: {mediaCalculadaReversa:F2}
 Desvio Padrão: {desvioCalculadoReverso:F2}
@@ -884,8 +1033,7 @@ CV: {cvReverso:F2}%
             }
         }
 
-        private string GerarPassosReverso(double cvReverso, double? mediaReversa, double? desvioReverso, double? varianciaReversa,
-                                         double mediaCalculadaReversa, double desvioCalculadoReverso, double varianciaCalculadaReversa)
+        private string GerarPassosReverso(double cvReverso, double? mediaReversa, double? desvioReverso, double? varianciaReversa, double mediaCalculadaReversa, double desvioCalculadoReverso, double varianciaCalculadaReversa)
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("\n📌 **Passos do Cálculo Reverso:**");
