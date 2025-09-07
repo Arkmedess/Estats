@@ -134,7 +134,7 @@ namespace Interface_e_sistema_em_C_
                 else
                 {
                     MessageBox.Show("Falha na conexão com a API Groq. Verifique sua conexão com a internet e a chave inserida e tente novamente.", "Erro",
-                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
