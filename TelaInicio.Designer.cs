@@ -46,7 +46,6 @@
             btnVAC = new Button();
             pnSair = new Panel();
             btnSair = new Button();
-            Rodape_Barra_Lateral = new Panel();
             EstatsIMG = new PictureBox();
             link1 = new LinkLabel();
             panel6 = new Panel();
@@ -78,9 +77,7 @@
             Barra_lateral_menu.Controls.Add(pnConfig);
             Barra_lateral_menu.Controls.Add(MenuFerramentas);
             Barra_lateral_menu.Controls.Add(pnSair);
-            Barra_lateral_menu.Controls.Add(Rodape_Barra_Lateral);
             Barra_lateral_menu.Name = "Barra_lateral_menu";
-            Barra_lateral_menu.Paint += Barra_lateral_menu_Paint;
             // 
             // pnInicio
             // 
@@ -211,12 +208,6 @@
             btnSair.UseVisualStyleBackColor = false;
             btnSair.Click += BotaoSair_Click;
             // 
-            // Rodape_Barra_Lateral
-            // 
-            resources.ApplyResources(Rodape_Barra_Lateral, "Rodape_Barra_Lateral");
-            Rodape_Barra_Lateral.Name = "Rodape_Barra_Lateral";
-            Rodape_Barra_Lateral.Paint += Rodape_Barra_Lateral_Paint;
-            // 
             // EstatsIMG
             // 
             resources.ApplyResources(EstatsIMG, "EstatsIMG");
@@ -313,7 +304,6 @@
 
         #endregion
         private Panel Barra_lateral_menu;
-        private Panel Rodape_Barra_Lateral;
         private PictureBox EstatsIMG;
         private LinkLabel link1;
         private Panel panel6;

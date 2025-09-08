@@ -9,54 +9,72 @@
             AddControles();
         }
 
-        public void AddControles()
-        {
-            // AdicionarControlesBasicos.AddBarraLateral(this, Barra_lateral_menu); CORRIGIR DEPOIS
-        }
+        public void AddControles() { }
 
-        // Este método é chamado quando a tela é carregada para exibição
+
         public void OnCarregar()
         {
             this.Visible = true;
             this.BringToFront();
 
-            // Adicione aqui a lógica de inicialização específica
+
             CarregarDadosAjuda();
         }
 
-        // Este método é chamado quando a tela é descarregada para ocultação
+
         public void OnDescarregar()
         {
             this.Visible = false;
 
-            // Adicione aqui a lógica de limpeza
+
             LimparRecursos();
         }
 
-        // Implementação explícita de GetView
         public UserControl GetView()
         {
             return this;
         }
 
-        private void CarregarDadosAjuda()
+        private void CarregarDadosAjuda() { }
+
+        private void LimparRecursos() { }
+
+        private void linkLblGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Sua lógica para carregar dados
+            string urlGithub = "https://github.com/Arkmedess/Estats";
+            try
+            {
+                var psi4 = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = urlGithub,
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi4);
+                linkLblGitHub.LinkVisited = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Não foi possível abrir o link: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void LimparRecursos()
+        private void linkLblLinkedIn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Sua lógica para liberar recursos
-        }
-
-        private void TelaAjuda_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TelaAjuda_Load_1(object sender, EventArgs e)
-        {
-
+            string urlLinkedIn = "https://linkedin.com/in/arthur-victor-/";
+            try
+            {
+                var psi5 = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = urlLinkedIn,
+                    UseShellExecute = true
+                };
+                System.Diagnostics.Process.Start(psi5);
+                linkLblLinkedIn.LinkVisited = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Não foi possível abrir o link: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

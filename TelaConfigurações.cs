@@ -10,47 +10,30 @@ namespace Interface_e_sistema_em_C_
         public TelaConfig()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill; // Preenche o espaço disponível
+            this.Dock = DockStyle.Fill;
         }
 
-        // Este método é chamado quando a tela é carregada para exibição
         public void OnCarregar()
         {
             this.Visible = true;
             this.BringToFront();
-            // Adicione aqui a lógica de inicialização específica
             CarregarDadosConfig();
         }
 
-        // Este método é chamado quando a tela é descarregada para ocultação
         public void OnDescarregar()
         {
             this.Visible = false;
 
-            // Adicione aqui a lógica de limpeza
             LimparRecursos();
         }
 
-        // Implementação explícita de GetView
-        public UserControl GetView()
-        {
-            return this;
-        }
+        public UserControl GetView() { return this; }
 
-        private void CarregarDadosConfig()
-        {
-            // Sua lógica para carregar dados
-        }
+        private void CarregarDadosConfig() { }
 
-        private void LimparRecursos()
-        {
-            // Sua lógica para liberar recursos
-        }
+        private void LimparRecursos() { }
 
-        private void TelaConfig_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void TelaConfig_Load(object sender, EventArgs e) { }
 
         private void btnSalvarAPI_Click(object sender, EventArgs e)
         {

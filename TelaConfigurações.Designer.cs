@@ -51,7 +51,7 @@
             // 
             lblTituloConfig.Font = new Font("Berlin Sans FB Demi", 25F, FontStyle.Bold);
             lblTituloConfig.ForeColor = Color.White;
-            lblTituloConfig.Location = new Point(436, 59);
+            lblTituloConfig.Location = new Point(80, 53);
             lblTituloConfig.Margin = new Padding(0);
             lblTituloConfig.Name = "lblTituloConfig";
             lblTituloConfig.Size = new Size(232, 45);
@@ -63,7 +63,7 @@
             // 
             lblTituloAPI.Font = new Font("Berlin Sans FB Demi", 17F, FontStyle.Bold);
             lblTituloAPI.ForeColor = Color.White;
-            lblTituloAPI.Location = new Point(80, 116);
+            lblTituloAPI.Location = new Point(80, 122);
             lblTituloAPI.Margin = new Padding(0);
             lblTituloAPI.Name = "lblTituloAPI";
             lblTituloAPI.Size = new Size(55, 43);

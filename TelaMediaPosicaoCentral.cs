@@ -74,7 +74,6 @@ namespace Interface_e_sistema_em_C_
 
             _painelPares = new List<Panel> { Par0, Par1, Par2, Par3, Par4 };
 
-            // Garante que apenas o primeiro painel esteja visível já no início.
             for (int i = 0; i < _painelPares.Count; i++)
             {
                 _painelPares[i].Visible = (i == 0);
@@ -167,7 +166,6 @@ namespace Interface_e_sistema_em_C_
 
         private void AtualizarBotoes()
         {
-            // Obtém todos os painéis visíveis em ordem
             var paineisVisiveis = _painelPares
                 .Where(p => p.Visible)
                 .OrderBy(p => ObterIndice(p.Name))
@@ -763,21 +761,19 @@ CV = {cv:F2}%
         {
             foreach (Control c in parent.Controls)
             {
-                // TextBox normal ou RichTextBox
                 if (c is TextBox || c is RichTextBox)
                 {
                     c.Text = string.Empty;
                 }
                 else
                 {
-                    // Verifica se o controle possui a propriedade "Text" (para controles customizados)
                     var prop = c.GetType().GetProperty("Text");
                     if (prop != null && prop.CanWrite)
                     {
                         prop.SetValue(c, string.Empty);
                     }
                 }
-                // Se tiver controles filhos, aplica recursivamente
+
                 if (c.HasChildren)
                 {
                     LimparCamposDeTexto(c);
@@ -840,7 +836,7 @@ CV = {cv:F2}%
                 else if (double.TryParse(item, NumberStyles.Any, CultureInfo.InvariantCulture, out _))
                     sugestao = item.Replace(".", ",");
                 else
-                    sugestao = "0"; // Sugestão genérica como último recurso
+                    sugestao = "0";
             }
 
             return erro;
@@ -866,7 +862,6 @@ CV = {cv:F2}%
                 string erroItem = ValidarItemNumero(item, out string sugestao);
                 if (erroItem != null)
                 {
-                    // Adiciona a sugestão à mensagem de erro se disponível
                     string mensagemErro = erroItem;
                     if (!string.IsNullOrEmpty(sugestao))
                         mensagemErro += $" Sugerido: '{sugestao}'";
@@ -877,20 +872,17 @@ CV = {cv:F2}%
                     numeros.Add(item);
                 }
             }
-            // Se houver erros, retorna false com todos os detalhes
             if (errosList.Count > 0)
             {
                 erros = string.Join("\n→ ", errosList);
                 return false;
             }
-            // Se não houver números válidos
             if (numeros.Count == 0)
             {
                 errosList.Add("Nenhum número válido foi encontrado.");
                 erros = string.Join("\n→ ", errosList);
                 return false;
             }
-            // Validação de quantidade de itens
             if (minItens.HasValue && numeros.Count < minItens)
                 errosList.Add($"Mínimo de {minItens} itens necessário(s). Encontrados: {numeros.Count}");
             if (maxItens.HasValue && numeros.Count > maxItens)

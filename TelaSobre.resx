@@ -120,8 +120,8 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Estats - Sistema Didático de Estatística
 
-Versão: 0.6.4
-Desenvolvido por: [Seu nome ou equipe]
+Versão: 0.x.x
+Desenvolvido por: Arthur Victor
 Instituição: FATEC Jundiaí
 Curso: Gestão da Tecnologia da Informação
 
@@ -129,12 +129,12 @@ Descrição:
 O Estats é um software educacional criado com o objetivo de facilitar o ensino e a aprendizagem da Estatística. Ele permite explorar conceitos fundamentais como média, variância, distribuição normal e muito mais, de forma prática e intuitiva.
 
 Licença:
-Uso educacional e não comercial. Código disponível somente via GIthub.
+Uso educacional e não comercial. Código disponível somente via Github.
 
 Contato:
-arthurvictor3434@gmail.com | Github: https://github.com/
+E-mail: arthurvictor3434@gmail.com | Github: https://github.com/Arkmedess/Estats | LinkedIn: linkedin.com/in/arthur-victor-/
 
 Agradecimentos:
-Professores e colegas da FATEC que contribuíram com sugestões e testes.</value>
+Professor João Carlos, Professor Claudio Schuster e aos colegas da FATEC que contribuíram com sugestões e testes.</value>
   </data>
 </root>

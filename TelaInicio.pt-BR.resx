@@ -429,18 +429,6 @@
   <data name="pnSair.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 69</value>
   </data>
-  <data name="Rodape_Barra_Lateral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-86, 657</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Rodape_Barra_Lateral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 93</value>
-  </data>
   <data name="Barra_lateral_menu.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 34</value>
   </data>
@@ -514,7 +502,7 @@
     <value>Bottom</value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>878, 3574</value>
+    <value>894, 3652</value>
   </data>
   <data name="panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
