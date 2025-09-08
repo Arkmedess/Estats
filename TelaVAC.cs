@@ -103,7 +103,7 @@ namespace Interface_e_sistema_em_C_
 
             if (TelaMedia != null)
             {
-                var (media, _, _, _, _, _, _) = TelaMedia.CalcularEstatisticas();
+                var (media, _, _, _, _, _, _, _, _) = TelaMedia.CalcularEstatisticas();
 
                 if (media == 0 || double.IsNaN(media))
                 {
@@ -122,7 +122,7 @@ namespace Interface_e_sistema_em_C_
 
             if (TelaMedia != null)
             {
-                var (_, desvio, _, _, _, _, _) = TelaMedia.CalcularEstatisticas();
+                var (_, desvio, _, _, _, _, _, _, _) = TelaMedia.CalcularEstatisticas();
 
                 if (desvio == 0 || double.IsNaN(desvio))
                 {
@@ -140,7 +140,7 @@ namespace Interface_e_sistema_em_C_
 
             if (TelaMedia != null)
             {
-                var (_, _, _, somaFi, _, _, _) = TelaMedia.CalcularEstatisticas();
+                var (_, _, _, _, somaFi, _, _, _, _) = TelaMedia.CalcularEstatisticas();
 
                 if (somaFi == 0 || double.IsNaN(somaFi))
                 {

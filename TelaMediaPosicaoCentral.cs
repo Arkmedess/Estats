@@ -1,32 +1,27 @@
 ﻿#region Usings
-
 using System.Globalization;
+using System.Text;
+using System.Text.RegularExpressions;
 #endregion
 
+#region Namespace e Declaração de Classe
 namespace Interface_e_sistema_em_C_
-
 {
-
     public partial class TelaMediaPosicaoCentral : UserControl, ITela
     {
-        #region Campos
-        private int proximoXiFiY = 40;
-        private int XiX, FiX;
-        private List<TextBox> listaXi = new List<TextBox>();
-        private List<TextBox> listaFi = new List<TextBox>();
-        private List<(TextBox Xi, TextBox Fi, Button BotaoRemover)> listaXiFi = new List<(TextBox, TextBox, Button)>();
+        #endregion
+
+        #region Campos e Propriedades
         private GerenciadorTelas _gerenciadorTelas;
-        private bool DeveAdicionarNovoPar = false;
-        private bool podeAdicionar = true;
         private Panel _panelContainer;
-        private List<string> listaPassos;
+        private List<Panel> _painelPares;
         private int indiceAtualGeral = 0;
         private List<string> textosSequenciais;
         private List<string> resultadosSequenciais;
         private List<string> titulosSequenciais;
         #endregion
 
-        #region Construtor
+        #region Inicialização e Ciclo de Vida
         public TelaMediaPosicaoCentral(Panel panelContainer, GerenciadorTelas gerenciadorTelas)
         {
             InitializeComponent();
@@ -34,473 +29,27 @@ namespace Interface_e_sistema_em_C_
             this.Dock = DockStyle.Fill;
             _gerenciadorTelas = gerenciadorTelas;
             _panelContainer = panelContainer;
-
-            XiX = Xi1.Location.X;
-            FiX = Fi1.Location.X;
-
-            listaXi.Add(Xi1);
-            listaFi.Add(Fi1);
-
-            proximoXiFiY = 40;
         }
-        #endregion
 
-        #region Adição e Remoção de Pares Xi/Fi
-        private void AdicionarNovoPar()
+        private void TelaMediaPosicaoCentral_Load(object sender, EventArgs e)
         {
-            if (listaXiFi.Count > 1)
+            InicializarPares();
+            DesativarMenuContexto(this);
+            // Configura o botão manual
+            chkParesAuto.CheckedChanged += (s, e) => AtualizarBotoes();
+            AtualizarBotoes(); // Primeira atualização
+            txtboxFilaExp.KeyPress += (s, e) =>
             {
-                var ultimoPar = listaXiFi.Last();
-                if (ultimoPar.Xi.Text == "" || ultimoPar.Fi.Text == "")
-                {
-                    MessageBox.Show("Preencha todos os campos antes de adicionar um novo par.");
+                char tecla = e.KeyChar;
+                if (char.IsControl(tecla))
                     return;
-                }
-            }
-
-            TextBox novoXi = CopiarConfiguracao(Xi1);
-            novoXi.Location = new Point(XiX, proximoXiFiY);
-            novoXi.TextChanged += VerificacaoNovoPar;
-            novoXi.KeyPress += XiFi_KeyPress;
-            novoXi.KeyDown += NovoXi_KeyDown;
-
-            TextBox novoFi = CopiarConfiguracao(Fi1);
-            novoFi.Location = new Point(FiX, proximoXiFiY);
-            novoFi.TextChanged += VerificacaoNovoPar;
-            novoFi.KeyPress += XiFi_KeyPress;
-            novoFi.KeyDown += XiFi_KeyDown;
-
-            foreach (Control control in PanelListaXiFi.Controls)
-            {
-                if (control is Button btn)
-                {
-                    btn.Visible = false;
-                }
-            }
-
-            Button botaoRemover = new Button();
-
-            botaoRemover.Font = new Font("Arial", 10, FontStyle.Bold);
-            botaoRemover.ForeColor = Color.White;
-            botaoRemover.Size = new Size(30, 30);
-            botaoRemover.Location = new Point((PanelListaXiFi.Width - botaoRemover.Width) / 2, proximoXiFiY);
-            botaoRemover.BackColor = Color.Red;
-            botaoRemover.Image = Properties.Resources.Lixeira;
-
-            botaoRemover.Click += (sender, e) => RemoverPar(novoXi, novoFi, botaoRemover);
-            botaoRemover.Visible = true;
-
-            if (listaXiFi.Count < 5)
-            {
-
-                PanelListaXiFi.Controls.Add(novoXi);
-                PanelListaXiFi.Controls.Add(novoFi);
-                PanelListaXiFi.Controls.Add(botaoRemover);
-
-                listaXi.Add(novoXi);
-                listaFi.Add(novoFi);
-                listaXiFi.Add((novoXi, novoFi, botaoRemover));
-
-                proximoXiFiY += 30;
-                PanelListaXiFi.ScrollControlIntoView(novoXi);
-            }
-            else
-            {
-                MessageBox.Show("Limite de pares Xi-Fi atingido.");
-            }
-        }
-
-        private void RemoverPar(TextBox xi, TextBox fi, Button botao)
-        {
-            if (!PanelListaXiFi.Controls.Contains(botao))
-            {
-                MessageBox.Show("O botão não foi encontrado no painel.");
-                return;
-            }
-
-            PanelListaXiFi.Controls.Remove(xi);
-            PanelListaXiFi.Controls.Remove(fi);
-            PanelListaXiFi.Controls.Remove(botao);
-
-            listaXi.Remove(xi);
-            listaFi.Remove(fi);
-            listaXiFi.RemoveAll(par => par.Xi == xi && par.Fi == fi && par.BotaoRemover == botao);
-
-            if (listaXiFi.Count > 0)
-            {
-                var parAnterior = listaXiFi.Last();
-                parAnterior.BotaoRemover.Visible = true;
-            }
-
-            proximoXiFiY -= 30;
-        }
-
-        private TextBox CopiarConfiguracao(TextBox modelo)
-        {
-            return new TextBox
-            {
-                Width = modelo.Width,
-                Height = modelo.Height,
-                Size = modelo.Size,
-                Font = modelo.Font,
-                TextAlign = modelo.TextAlign
+                if (char.IsDigit(tecla) || tecla == ',' || tecla == ';' || tecla == '-')
+                    return;
+                // Bloqueia tudo que não for permitido
+                e.Handled = true;
             };
         }
-        #endregion
 
-        #region Eventos de Tecla e Scroll
-        private void NovoXi_KeyDown(object? sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.V)
-            {
-                e.SuppressKeyPress = true;
-            }
-        }
-
-        private void NovoXi_KeyPress(object? sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void XiFi_KeyDown(object sender, KeyEventArgs e)
-        {
-            // Bloqueia Ctrl+V e Shift+Insert
-            if ((e.Control && e.KeyCode == Keys.V) || (e.Shift && e.KeyCode == Keys.Insert))
-            {
-                e.SuppressKeyPress = true;
-                e.Handled = true;
-            }
-
-        }
-
-        private void XiFi_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char tecla = e.KeyChar;
-
-            if (char.IsControl(tecla))
-                return;
-
-            TextBox textBox = sender as TextBox;
-            if (textBox == null) return;
-
-            bool ValidarFi = textBox.Name.StartsWith("Fi");
-
-            // ----------- CAMPO Fi: só números inteiros > 0 -----------
-            if (ValidarFi)
-            {
-                if (!char.IsDigit(tecla))
-                {
-                    e.Handled = true;
-                    return;
-                }
-
-                // Simula o texto final com a nova tecla inserida
-                string textofinal = textBox.Text.Insert(textBox.SelectionStart, tecla.ToString());
-
-                // Bloqueia '0' como primeiro caractere
-                if (textofinal.StartsWith("0") && textofinal.Length == 1)
-                {
-                    e.Handled = true;
-                    return;
-                }
-
-                return;
-            }
-
-            // ----------- CAMPO Xi: números com vírgula decimal -----------
-
-            // Permite números
-            if (char.IsDigit(tecla))
-            {
-                // Bloqueia se primeiro caractere for '0' sozinho (sem vírgula)
-                string textofinal = textBox.Text.Insert(textBox.SelectionStart, tecla.ToString());
-                if (textofinal.StartsWith("0") && !textofinal.StartsWith("0,") && textofinal.Length == 1)
-                {
-                    e.Handled = true;
-                }
-
-                return;
-            }
-
-            // Permite apenas uma vírgula e não como primeiro caractere
-            if (tecla == ',')
-            {
-                if (textBox.Text.Contains(',') || textBox.SelectionStart == 0)
-                {
-                    e.Handled = true;
-                }
-
-                return;
-            }
-
-            // Qualquer outro caractere é bloqueado
-            e.Handled = true;
-        }
-
-        private void BotaoProximoPassoVAC_Click(object sender, EventArgs e)
-        {
-            _gerenciadorTelas.MostrarTela("Variação Aleatória Contínua");
-        }
-
-        #endregion
-
-        #region Verificações
-        private void VerificacaoNovoPar(Object sender, EventArgs e)
-        {
-            var ultimoXi = listaXi[listaXi.Count - 1];
-            var ultimoFi = listaFi[listaFi.Count - 1];
-
-            bool podeAdicionar = false;
-
-            var cultura = new CultureInfo("pt-BR");
-
-            if (double.TryParse(ultimoXi.Text, NumberStyles.Any, cultura, out double valorXi) && int.TryParse(ultimoFi.Text, out int valorFi))
-            {
-                if (valorXi > 0 && valorFi > 0)
-                {
-                    podeAdicionar = true;
-                }
-
-                if (podeAdicionar && !DeveAdicionarNovoPar)
-                {
-                    podeAdicionar = false;
-
-                    if (listaXiFi.Count + 1 < 5)
-                    {
-                        AdicionarNovoPar();
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("Limite de inserção de pares Xi e Fi alcançados."); // Corrigir para não aparecer a cada modificação
-                    }
-                }
-            }
-        }
-
-        private void DesativarMenuContexto(Control controle)
-        {
-            foreach (Control c in controle.Controls)
-            {
-                if (c is TextBox)
-                    c.ContextMenuStrip = new ContextMenuStrip();
-
-                if (c.HasChildren)
-                    DesativarMenuContexto(c);
-            }
-        }
-
-        #endregion
-
-        #region Backend: Estatísticas, Fila, Cálculo
-        private void AdicionarFila_Click(object sender, EventArgs e)
-        {
-            var resultados = CalcularEstatisticas();
-
-
-            if (double.IsNaN(resultados.media) || double.IsNaN(resultados.variancia) || double.IsNaN(resultados.desvio))
-            {
-                MessageBox.Show("Não é possível calcular as estatísticas sem os dados fornecidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            InicializarSequenciaGeral(resultados.passosMedia, resultados.passosVariancia, resultados.passosDesvio, resultados.media.ToString("F2"), resultados.variancia.ToString("F2"), resultados.desvio.ToString("F2"));
-
-            try
-            {
-                List<(double Xi, int Fi)> valores = ObterValoresXiFi();
-                string fila = FilaExpandida(valores);
-                FilaExpandidaLabel.Text = fila;
-                RedimensaoFilaExpandida();
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            BotaoProximoPassoVAC.Visible = true;
-        }
-
-        public (double media, double variancia, double desvio, double somaFi, string passosMedia, string passosVariancia, string passosDesvio) CalcularEstatisticas()
-        {
-            List<double> xi = new List<double>();
-            List<int> fi = new List<int>();
-
-            double somaFi = 0;
-            double MultiplicacaoXiFi = 0;
-
-            for (int i = 0; i < listaXi.Count; i++) // este if tem a função 
-            {
-                if (double.TryParse(listaXi[i].Text, out double valorXi) && int.TryParse(listaFi[i].Text, out int valorFi)) // este if serve 
-                {
-                    xi.Add(valorXi);
-                    fi.Add(valorFi);
-                    somaFi += valorFi;
-                    MultiplicacaoXiFi += valorXi * valorFi;
-                }
-            }
-
-            double media = MultiplicacaoXiFi / somaFi;
-
-            double somaQuadrados = 0;
-
-            for (int i = 0; i < xi.Count; i++)
-            {
-                somaQuadrados += fi[i] * Math.Pow(xi[i] - media, 2);
-            }
-
-            double variancia = somaQuadrados / somaFi;
-            double desvio = Math.Sqrt(variancia);
-
-            string passosMedia =
-              $"📌 Passo 1: Calcular a soma de Xi · Fi\n" +
-              $"→ Para cada linha, multiplique o valor de Xi pela sua frequência Fi.\n" +
-              $"→ Depois, some esses produtos. Isso é a soma de todos os valores.\n" +
-              $"→ Soma (Xi · Fi) = {MultiplicacaoXiFi}\n\n" +
-
-              $"📌 Passo 2: Calcular a soma das frequências Fi\n" +
-              $"→ Some todas as frequências (Fi) da sua tabela. Isso representa o número total de elementos (ou observações) no seu conjunto de dados (N).\n" +
-              $"→ Soma Fi = {somaFi}\n\n" +
-
-              $"📌 Passo 3: Aplicar a fórmula da média ponderada\n" +
-              $"→ A média (x̄) é obtida dividindo-se a soma dos produtos (Xi · Fi) pelo número total de frequências (ΣFi).\n" +
-              $"→ Exemplo: x̄ = {MultiplicacaoXiFi} / {somaFi} = {media:F2}";
-
-            string passosVar =
-                $"📌 Passo 1: Calcular a média\n" +
-                $"→ Primeiro, você precisa da média (x̄) do seu conjunto de dados. Ela serve como o ponto de referência para medir a dispersão.\n" +
-                $"→ Média (x̄) = {media:F2}\n\n" +
-
-                $"📌 Passo 2: Calcular a soma de Fi · (Xi - x̄)²\n" +
-                $"→ Para cada linha da sua tabela:\n" +
-                $"  a. Subtraia a média (x̄) de cada valor (Xi): (Xi - x̄).\n" +
-                $"  b. Eleve esse resultado ao quadrado para eliminar valores negativos e dar maior peso a desvios maiores: (Xi - x̄)².\n" +
-                $"  c. Multiplique esse quadrado pela frequência correspondente (Fi): Fi · (Xi - x̄)².\n" +
-                $"→ Por fim, some todos esses resultados. Essa soma é a soma dos desvios quadrados ponderados pela frequência.\n" +
-                $"→ Soma = {somaQuadrados:F2}\n\n" +
-
-                $"📌 Passo 3: Aplicar a fórmula da variância\n" +
-                $"→ A variância é calculada dividindo a soma obtida no Passo 2 pelo número total de frequências (N = ΣFi).\n" +
-                $"→ Fórmula: Variância = (ΣFi · (Xi - x̄)²) / (ΣFi)\n" +
-                $"→ Exemplo: Variância = {somaQuadrados:F2} / {somaFi} = {variancia:F2}";
-
-            string passosDesvio =
-                $"📌 Passo 1: Calcular a variância\n" +
-                $"→ O desvio padrão é diretamente derivado da variância, então você precisa ter a variância (σ²) calculada primeiro.\n" +
-                $"→ Variância = {variancia:F2}\n\n" +
-
-                $"📌 Passo 2: Aplicar a fórmula do desvio padrão\n" +
-                $"→ Calcule a raiz quadrada da variância.\n" +
-                $"→ Fórmula: Desvio Padrão = √Variância\n" +
-                $"→ Exemplo: Desvio Padrão = √{variancia:F2} = {Math.Sqrt(variancia):F2}";
-
-            return (media, variancia, desvio, somaFi, passosMedia, passosVar, passosDesvio);
-        }
-
-        private void NavegarGeral(bool proximo)
-        {
-            if (textosSequenciais == null || titulosSequenciais == null) return;
-
-            int total = Math.Min(textosSequenciais.Count, titulosSequenciais.Count);
-
-            if (proximo)
-                indiceAtualGeral = (indiceAtualGeral + 1) % total;
-            else
-                indiceAtualGeral = (indiceAtualGeral - 1 + total) % total;
-
-            lbPassosGeral.Text = textosSequenciais[indiceAtualGeral];
-            lbTituloGeral.Text = titulosSequenciais[indiceAtualGeral];
-            lbResultadoGeral.Text = resultadosSequenciais[indiceAtualGeral];
-        }
-
-        private void InicializarSequenciaGeral(string passosMedia, string passosVariancia, string passosDesvio, string resultadoMedia, string resultadoVariancia, string resultadoDesvio)
-        {
-            textosSequenciais = new List<string> { passosMedia, passosVariancia, passosDesvio };
-
-            resultadosSequenciais = new List<string> { resultadoMedia, resultadoVariancia, resultadoDesvio };
-
-            titulosSequenciais = new List<string>
-            {
-                "Média: x̄ = (ΣXi·Fi) / ΣFi",
-                "Variância: σ² = ΣFi·(Xi - x̄)² / ΣFi",
-                "Desvio Padrão: σ = √σ²"
-            };
-
-            indiceAtualGeral = 0;
-
-            lbPassosGeral.Text = textosSequenciais[indiceAtualGeral];
-            lbTituloGeral.Text = titulosSequenciais[indiceAtualGeral];
-            lbResultadoGeral.Text = resultadosSequenciais[indiceAtualGeral];  // Só se você quiser exibir isso
-        }
-
-
-
-        private List<(double Xi, int Fi)> ObterValoresXiFi()
-        {
-            var valores = new List<(double Xi, int Fi)>();
-
-            foreach (var (Xi, Fi, _) in listaXiFi.Prepend((Xi1, Fi1, null)))
-            {
-                bool XiVazio = string.IsNullOrWhiteSpace(Xi.Text);
-                bool FiVazio = string.IsNullOrWhiteSpace(Fi.Text);
-
-                if (XiVazio && FiVazio)
-                    break;
-
-                if (XiVazio || FiVazio)
-                    continue;
-
-                if (double.TryParse(Xi.Text, out double valorXi) && int.TryParse(Fi.Text, out int valorFi))
-                {
-                    valores.Add((valorXi, valorFi));
-                }
-                else
-                {
-                    throw new FormatException("Os valores de Xi e Fi devem ser preenchidos com números válidos!");
-                }
-            }
-            return valores;
-        }
-
-        private void RedimensaoFilaExpandida()
-        {
-            FilaExpandidaLabel.Width = PanelFilaExpandida.ClientSize.Width - 20;
-            FilaExpandidaLabel.Height = FilaExpandidaLabel.PreferredHeight + 10;
-            FilaExpandidaLabel.Padding = new Padding(5);
-            FilaExpandidaLabel.MaximumSize = new Size(PanelFilaExpandida.ClientSize.Width - 20, 0);
-
-            if (FilaExpandidaLabel.Height > PanelFilaExpandida.ClientSize.Height)
-            {
-                PanelFilaExpandida.AutoScroll = true;
-            }
-
-            else
-            {
-                PanelFilaExpandida.AutoScroll = false;
-            }
-
-            FilaExpandidaLabel.TextAlign = ContentAlignment.TopLeft;
-        }
-
-        private string FilaExpandida(List<(double Xi, int Fi)> pares)
-        {
-            List<string> Resultado = new List<string>();
-
-            foreach (var par in pares)
-            {
-                for (int i = 0; i < par.Fi; i++)
-                {
-                    Resultado.Add(par.Xi.ToString());
-                }
-            }
-            return string.Join(" - ", Resultado);
-        }
-        #endregion
-
-        #region Ciclo de Vida da Tela
         public void OnCarregar()
         {
             this.Visible = true;
@@ -515,46 +64,1014 @@ namespace Interface_e_sistema_em_C_
 
         private void LimparRecursos() { }
 
-        public UserControl GetView() { return this; }
-
-        private void TelaMediaPosicaoCentral_Load(object sender, EventArgs e)
-        {
-            RedimensaoFilaExpandida();
-            DesativarMenuContexto(this);
-        }
-
+        public UserControl GetView() => this;
         #endregion
 
-        private void btnProxTxt_Click(object sender, EventArgs e)
+        #region Gerenciamento de Pares Xi/Fi (Adição e Remoção)
+        private void InicializarPares()
         {
-            NavegarGeral(true);
-        }
 
-        private void btnAntTxt_Click(object sender, EventArgs e)
-        {
-            NavegarGeral(false);
-        }
+            _painelPares = new List<Panel> { Par0, Par1, Par2, Par3, Par4 };
 
-        private void btnListaOuFila_CheckedChanged(object sender, EventArgs e) // não funciona, veriricar o por que isso ocore
-        {
-            if (btnListaOuFila.Checked)
+            // Garante que apenas o primeiro painel esteja visível já no início.
+            for (int i = 0; i < _painelPares.Count; i++)
             {
-                Panel pnlBlock = new Panel();
-                pnlBlock.Location = new Point(73, 168);
-                pnlBlock.Size = new Size(169, 172);
-                pnlBlock.BackColor = Color.FromArgb(60, 128, 128, 128);
+                _painelPares[i].Visible = (i == 0);
+                _painelPares[i].Enabled = (i == 0);
 
-                this.Controls.Add(pnlBlock);
+                if (i > 0)
+                {
+                    var textBoxes = _painelPares[i].Controls.OfType<TextBox>();
+                    foreach (var tb in textBoxes)
+                    {
+                        tb.Clear();
+                    }
+                }
+                ConfigurarEventosDoPar(_painelPares[i]);
+            }
+            AtualizarBotoes();
+        }
+
+        private void ConfigurarEventosDoPar(Panel panel)
+        {
+            int indice = ObterIndice(panel.Name);
+            TextBox xi = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Xi{indice}");
+            TextBox fi = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Fi{indice}");
+
+            if (xi != null)
+            {
+                xi.TextChanged += Xi_TextChanged;
+                xi.KeyPress += ValidarEntradaXi_KeyPress;
+
+                xi.TextChanged += Par_TextChanged;
+            }
+
+            if (fi != null)
+            {
+                fi.TextChanged += Fi_TextChanged;
+                fi.KeyPress += ValidarEntradaFi_KeyPress;
+
+                fi.TextChanged += Par_TextChanged;
+            }
+
+            // Configura o botão de remover (exceto para o primeiro painel)
+            if (indice > 0)
+            {
+                var btn = GetRemoveButton(panel);
+                if (btn != null)
+                {
+                    btn.Click -= BtnRmvPar_Click;
+                    btn.Click += BtnRmvPar_Click;
+                }
+            }
+        }
+
+        private ReaLTaiizor.Controls.Button GetRemoveButton(Panel par)
+        {
+            int indice = ObterIndice(par.Name);
+
+            if (indice == 0)
+                return null;
+
+            return par.Controls.OfType<ReaLTaiizor.Controls.Button>()
+                .FirstOrDefault(b => b.Name == $"btnRmvPar{indice}");
+        }
+
+        private bool ParPreenchido(Panel panel)
+        {
+            string indice = ObterIndice(panel.Name).ToString();
+            TextBox xi = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Xi{indice}");
+            TextBox fi = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Fi{indice}");
+            return !string.IsNullOrWhiteSpace(xi?.Text) &&
+                   !string.IsNullOrWhiteSpace(fi?.Text);
+        }
+
+        private void MostrarPar(int indice)
+        {
+            if (indice < 0 || indice >= _painelPares.Count) return;
+            Panel panel = _painelPares[indice];
+            panel.Visible = true;
+            panel.Enabled = true;
+
+            var btn = GetRemoveButton(panel);
+            if (btn != null)
+            {
+                btn.Visible = false;
+                btn.Enabled = false;
+            }
+            flowLayoutPanelPares.ScrollControlIntoView(panel);
+
+            AtualizarBotoes();
+        }
+
+        private void AtualizarBotoes()
+        {
+            // Obtém todos os painéis visíveis em ordem
+            var paineisVisiveis = _painelPares
+                .Where(p => p.Visible)
+                .OrderBy(p => ObterIndice(p.Name))
+                .ToList();
+
+            if (!paineisVisiveis.Any())
+            {
+                foreach (var panel in _painelPares)
+                {
+                    var btn = GetRemoveButton(panel);
+                    if (btn != null)
+                    {
+                        btn.Visible = false;
+                        btn.Enabled = false;
+                    }
+                }
+                btnAdicionarNovoPar.Visible = false;
+                return;
+            }
+
+            var ultimoPar = paineisVisiveis.Last();
+            int indiceUltimo = ObterIndice(ultimoPar.Name);
+
+            // Atualiza todos os botões de remover
+            foreach (var panel in _painelPares)
+            {
+                var btn = GetRemoveButton(panel);
+                if (btn == null) continue;
+
+                // Só mostra o botão se:
+                // 1. For o último painel visível
+                // 2. Houver mais de um painel visível
+                // 3. O painel estiver visível
+                bool deveMostrar = (panel == ultimoPar) &&
+                                  (paineisVisiveis.Count > 1) &&
+                                  panel.Visible;
+                btn.Visible = deveMostrar;
+                btn.Enabled = deveMostrar;
+            }
+            bool podeAdicionar = !chkParesAuto.Checked && indiceUltimo < _painelPares.Count - 1;
+            btnAdicionarNovoPar.Visible = podeAdicionar;
+            btnAdicionarNovoPar.Enabled = podeAdicionar;
+        }
+
+        private void Par_TextChanged(object sender, EventArgs e)
+        {
+            if (chkParesAuto.Checked)
+            {
+                for (int i = 0; i < _painelPares.Count - 1; i++)
+                {
+                    if (_painelPares[i].Visible &&
+                        ParPreenchido(_painelPares[i]) &&
+                        !_painelPares[i + 1].Visible)
+                    {
+                        MostrarPar(i + 1);
+                        break;
+                    }
+                }
+            }
+            AtualizarBotoes();
+        }
+
+        private void RemoverUltimoPar()
+        {
+            Panel ultimoPar = _painelPares.LastOrDefault(p => p.Visible);
+            if (ultimoPar == null) return;
+
+            // Limpa os campos antes de esconder
+            var textBoxes = ultimoPar.Controls.OfType<TextBox>();
+            foreach (var tb in textBoxes)
+            {
+                tb.Clear();
+            }
+            ultimoPar.Visible = false;
+            ultimoPar.Enabled = false;
+
+            AtualizarBotoes();
+        }
+
+        private void btnAdicionarNovoPar_Click(object sender, EventArgs e)
+        {
+            // Procura-se o primeiro par oculto que pode ser ativado
+            for (int i = 0; i < _painelPares.Count - 1; i++)
+            {
+                Panel parAtual = _painelPares[i];
+                Panel proximoPar = _painelPares[i + 1];
+
+                // Verifica:
+                // 1. O par atual está visível
+                // 2. Está preenchido (Xi e Fi não vazios)
+                // 3. O próximo par ainda está oculto
+                if (parAtual.Visible &&
+                    ParPreenchido(parAtual) &&
+                    !proximoPar.Visible)
+                {
+                    MostrarPar(i + 1);
+                    return;
+                }
+            }
+
+            MessageBox.Show(
+                "Todos os pares já foram adicionados ou o par anterior não está completo.",
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+        private void BtnRmvPar_Click(object sender, EventArgs e)
+        {
+            RemoverUltimoPar();
+        }
+        #endregion
+
+        #region Validação e Eventos de Entrada (Teclado, TextChanged)
+
+        private void ValidarEntradaXi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char tecla = e.KeyChar;
+            if (char.IsControl(tecla))
+                return;
+
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Permite dígitos e vírgula
+            if (char.IsDigit(tecla) || tecla == ',')
+            {
+                if (tecla == ',')
+                {
+                    if (textBox.Text.Contains(',') || textBox.SelectionStart == 0)
+                    {
+                        e.Handled = true;
+                    }
+                }
+                return;
+            }
+
+            e.Handled = true;
+        }
+
+
+        private void ValidarEntradaFi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char tecla = e.KeyChar;
+            if (char.IsControl(tecla))
+                return;
+
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Permite apenas dígitos
+            if (!char.IsDigit(tecla))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Bloqueia '0' como primeiro caractere
+            string textoFinal = textBox.Text.Insert(textBox.SelectionStart, tecla.ToString());
+            if (textoFinal.StartsWith("0") && textoFinal.Length == 1)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+
+        private void Xi_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            string texto = textBox.Text;
+
+            // Remove caracteres inválidos
+            string textoLimpo = "";
+            bool virgulaEncontrada = false;
+
+            foreach (char c in texto)
+            {
+                if (char.IsDigit(c))
+                {
+                    textoLimpo += c;
+                }
+                else if (c == ',' && !virgulaEncontrada)
+                {
+                    textoLimpo += c;
+                    virgulaEncontrada = true;
+                }
+            }
+
+            // Valida formato "0," vs "0X"
+            if (textoLimpo.StartsWith("0") && textoLimpo.Length > 1 && textoLimpo[1] != ',')
+            {
+                textoLimpo = "0," + textoLimpo.Substring(1);
+            }
+
+            // Atualiza o texto se necessário
+            if (texto != textoLimpo)
+            {
+                int posicao = textBox.SelectionStart;
+                textBox.Text = textoLimpo;
+                textBox.SelectionStart = Math.Min(posicao, textoLimpo.Length);
+            }
+        }
+
+
+        private void Fi_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null) return;
+
+            // Remove não dígitos
+            string textoLimpo = new string(textBox.Text.Where(char.IsDigit).ToArray());
+
+            // Bloqueia "0" sozinho
+            if (textoLimpo == "0")
+            {
+                textoLimpo = "";
+            }
+
+            if (textBox.Text != textoLimpo)
+            {
+                int posicao = textBox.SelectionStart;
+                textBox.Text = textoLimpo;
+                textBox.SelectionStart = Math.Min(posicao, textoLimpo.Length);
+            }
+        }
+
+
+        private void DesativarMenuContexto(Control controle)
+        {
+            foreach (Control c in controle.Controls)
+            {
+                if (c is TextBox)
+                    c.ContextMenuStrip = new ContextMenuStrip();
+                if (c.HasChildren)
+                    DesativarMenuContexto(c);
+            }
+        }
+        #endregion
+
+        #region Cálculos Estatísticos
+        public (double media, double variancia, double desvio, double cv, double somaFi, string passosMedia, string passosVariancia, string passosDesvio, string passosCv) CalcularEstatisticas()
+        {
+            var dados = new List<double>(); // Lista de valores considerando Fi ou lista em TextBox
+            var listaFi = new List<int>();
+            double somaFi = 0;
+            if (!TglBtnListaOuFila.Checked)
+            {
+                foreach (Panel panel in _painelPares)
+                {
+                    if (!panel.Visible) continue;
+                    string indice = ObterIndice(panel.Name).ToString();
+                    TextBox xiTxt = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Xi{indice}");
+                    TextBox fiTxt = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Fi{indice}");
+                    if (xiTxt == null || fiTxt == null) continue;
+                    if (string.IsNullOrWhiteSpace(xiTxt.Text) || string.IsNullOrWhiteSpace(fiTxt.Text)) continue;
+                    if (double.TryParse(xiTxt.Text, NumberStyles.Any, new CultureInfo("pt-BR"), out double xi) && int.TryParse(fiTxt.Text, out int fi) && fi > 0)
+                    {
+                        for (int i = 0; i < fi; i++)
+                            dados.Add(xi); // Repete Xi Fi vezes
+                        listaFi.Add(fi);
+                        somaFi += fi;
+                    }
+                }
+            }
+            else // Toggle marcado (Fila Expandida)
+            {
+                string texto = txtboxFilaExp.Text.Trim();
+                if (string.IsNullOrEmpty(texto))
+                    return (0, 0, 0, 0, 0, "Nenhum dado válido encontrado. Preencha pelo menos um par!", "", "", "");
+                // Substitui tabs e espaços por ';'
+                texto = texto.Replace("\t", ";").Replace(" ", ";");
+                // Permite tanto ';' quanto '-' como separadores
+                string[] tokens = texto.Split(new[] { ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string t in tokens)
+                {
+                    if (double.TryParse(t.Trim(), NumberStyles.Any, new CultureInfo("pt-BR"), out double valor))
+                    {
+                        dados.Add(valor);
+                    }
+                }
+                somaFi = dados.Count;
+            }
+
+            if (somaFi == 0)
+            {
+                return (0, 0, 0, 0, 0,
+                    "Nenhum dado válido encontrado. Preencha pelo menos um valor!",
+                    "", "", "");
+            }
+
+            double media = dados.Average();
+            double somaQuadrados = dados.Sum(x => Math.Pow(x - media, 2));
+            double variancia = somaQuadrados / (somaFi - 1);
+            double desvio = Math.Sqrt(variancia);
+            double cv = (media != 0)
+                ? (desvio / media) * 100
+                : 0;
+
+            string passosMedia = GerarPassosMedia(dados, listaFi, media, somaFi);
+            string passosVariancia = GerarPassosVariancia(dados, media, somaQuadrados, somaFi, variancia);
+            string passosDesvio = GerarPassosDesvio(variancia, desvio);
+            string passosCv = GerarPassosCV(desvio, media, cv);
+            return (media, variancia, desvio, cv, somaFi, passosMedia, passosVariancia, passosDesvio, passosCv);
+        }
+
+        private string GerarPassosMedia(List<double> dados, List<int> listaFi, double media, double somaFi)
+        {
+            var valoresComFrequencia = dados.GroupBy(d => d)
+                .Select(g => new
+                {
+                    Valor = g.Key,
+                    Frequencia = g.Count(),
+                    Produto = g.Key * g.Count()
+                })
+                .ToList();
+
+            var passosMultiplicacao = valoresComFrequencia.Select(v => $"{v.Valor:F2} × {v.Frequencia} = {(v.Valor * v.Frequencia):F2}");
+
+            double somaProdutos = valoresComFrequencia.Sum(v => v.Valor * v.Frequencia);
+
+            var somaProdutosStr = string.Join(" + ", valoresComFrequencia.Select(v => v.Produto.ToString("F2")));
+
+            string somaFiStr = string.Join(" + ", listaFi.Select(f => f.ToString()));
+
+            return $@"
+→  Passo 1: Realizar a multiplicação Xi × Fi
+{string.Join("\n", passosMultiplicacao)}
+
+
+→ Passo 2: Somar o produto dos cálculos para obter o resultado de ΣXiFi
+{somaProdutosStr} = {somaProdutos:F2}
+
+
+→ Passo 3: Realizar a soma dos valores de Fi para obter o resultado de ΣFi (ou N)
+{somaFiStr} = {somaFi:F0}
+
+
+→ Passo 4: Substituir os valores na fórmula e calcular a Média: x̄ = Σ(XiFi) / ΣFi
+x̄ = {somaProdutos:F2} / {somaFi:F0} = {media:F2}
+".Trim();
+        }
+
+        private string GerarPassosVariancia(List<double> dados, double media, double somaQuadrados, double somaFi, double variancia)
+        {
+            var grupos = dados.GroupBy(d => d)
+                             .Select(g => new
+                             {
+                                 Valor = g.Key,
+                                 Frequencia = g.Count(),
+                                 DesvioQuadrado = Math.Pow(g.Key - media, 2)
+                             })
+                             .OrderBy(g => g.Valor);
+
+            var desviosFormatados = new StringBuilder();
+            foreach (var grupo in grupos)
+            {
+                desviosFormatados.AppendLine($"({grupo.Valor:F2} - {media:F2})² = {grupo.DesvioQuadrado:F2} ({grupo.Frequencia}x) = {(grupo.DesvioQuadrado * grupo.Frequencia):F4}");
+            }
+
+            return $@"
+→ Passo 1: Tenha em mãos o valor da Média (x̄) e do Tamanho da Amostra (N)
+Média dos valores: x̄ = {media:F2}
+N = {somaFi}
+
+→ Passo 2: Calcular (Xi - x̄)² × Fi para cada valor (desvio quadrático multiplicado pela frequência)
+{desviosFormatados.ToString().Trim()}
+Soma dos quadrados: Σ(Xi - x̄)² = {somaQuadrados:F2}
+
+→ Passo 3: Substituir os valores da fórmula e calcular a Variância: s² = Σ(Xi - x̄)² / N - 1
+s² = {somaQuadrados:F2} / {somaFi} - 1 = {variancia:F2}
+".Trim();
+        }
+
+        private string GerarPassosDesvio(double variancia, double desvio)
+        {
+            return $@"
+→ Passo 1: Tenha em mãos o valor da Variância (s²)
+s² = {variancia:F2}
+
+→ Passo 2: Substituir os valores da fórmula e calcular o Desvio Padrão: s = √s²
+s = √{variancia:F2} = {desvio:F2}
+".Trim();
+        }
+
+        private string GerarPassosCV(double desvio, double media, double cv)
+        {
+            if (media == 0)
+            {
+                return @"
+📌 **Coeficiente de Variação (CV)**
+→ CV = (s / x̄) × 100%
+→ Como a média é zero, o CV não pode ser calculado.
+→ O CV é indefinido quando a média é zero.
+".Trim();
+            }
+
+            string interpretacao = cv switch
+            {
+                < 15 => "Baixa dispersão (CV < 15%): Os dados são homogêneos.",
+                < 30 => "Média dispersão (15% ≤ CV < 30%): Dispersão moderada.",
+                < 50 => "Alta dispersão (30% ≤ CV < 50%): Os dados são heterogêneos.",
+                _ => "Muito alta dispersão (CV ≥ 50%): Grande variabilidade nos dados."
+            };
+
+            return $@"
+→ Passo 1: Desvio Padrão (s)
+s = {desvio:F2}
+
+→ Passo 2: Média (x̄)
+x̄ = {media:F2}
+
+→ Passo 3: Coeficiente de Variação (CV)
+CV = (s / x̄) × 100%
+CV = ({desvio:F2} / {media:F2}) × 100%
+CV = {cv:F2}%
+
+📌 Interpretação do CV:
+→ {interpretacao}
+".Trim();
+        }
+        #endregion
+
+
+        #region Exibição de Resultados e Navegação
+        private void AdicionarFila_Click(object sender, EventArgs e)
+        {
+            var resultados = CalcularEstatisticas();
+            if (double.IsNaN(resultados.media) || double.IsNaN(resultados.variancia) || double.IsNaN(resultados.desvio) || double.IsNaN(resultados.cv))
+            {
+                MessageBox.Show("Não é possível calcular as estatísticas sem os dados fornecidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            InicializarSequenciaGeral(
+                resultados.passosMedia,
+                resultados.passosVariancia,
+                resultados.passosDesvio,
+                resultados.passosCv,
+                resultados.media.ToString("F2"),
+                resultados.variancia.ToString("F2"),
+                resultados.desvio.ToString("F2"),
+                resultados.cv.ToString("F2")
+            );
+            try
+            {
+                string fila;
+                if (TglBtnListaOuFila.Checked)
+                {
+                    // Já usa o que o usuário digitou no txtboxFilaExp
+                    fila = txtboxFilaExp.Text;
+                }
+                else
+                {
+                    // Constrói a lista expandida a partir de Xi/Fi
+                    List<(double Xi, int Fi)> valores = ObterValoresXiFi();
+                    fila = FilaExpandida(valores);
+                    txtboxFilaExp.Text = fila; // mantém sincronizado
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            BotaoProximoPassoVAC.Visible = true;
+        }
+
+        private List<(double Xi, int Fi)> ObterValoresXiFi()
+        {
+            var valores = new List<(double Xi, int Fi)>();
+            foreach (Panel panel in _painelPares)
+            {
+                if (!panel.Visible) continue;
+                string indice = ObterIndice(panel.Name).ToString();
+                TextBox xiTxt = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Xi{indice}");
+                TextBox fiTxt = panel.Controls.OfType<TextBox>().FirstOrDefault(tb => tb.Name == $"Fi{indice}");
+                if (xiTxt == null || fiTxt == null) continue;
+                if (string.IsNullOrWhiteSpace(xiTxt.Text) || string.IsNullOrWhiteSpace(fiTxt.Text)) continue;
+                if (double.TryParse(xiTxt.Text, NumberStyles.Any, new CultureInfo("pt-BR"), out double xi) &&
+                    int.TryParse(fiTxt.Text, out int fi) && fi > 0)
+                {
+                    valores.Add((xi, fi));
+                }
+                else
+                {
+                    throw new FormatException("Os valores de Xi e Fi devem ser números válidos!");
+                }
+            }
+            return valores;
+        }
+
+        private void InicializarSequenciaGeral(string passosMedia, string passosVariancia, string passosDesvio, string passosCv, string resultadoMedia, string resultadoVariancia, string resultadoDesvio, string resultadoCv)
+        {
+            textosSequenciais = new List<string> { passosMedia, passosVariancia, passosDesvio, passosCv };
+            resultadosSequenciais = new List<string> { resultadoMedia, resultadoVariancia, resultadoDesvio, resultadoCv };
+            titulosSequenciais = new List<string>
+            {
+                "Média: x̄ = (ΣXi·Fi) / ΣFi",
+                "Variância: s² = (Xi - x̄)² / ΣFi",
+                "Desvio Padrão: s = √s²",
+                "Coeficiente de Variação: CV = (s / x̄) × 100%"
+            };
+            indiceAtualGeral = 0;
+            AtualizarExibicaoResultado();
+        }
+
+        private void AtualizarExibicaoResultado()
+        {
+            if (textosSequenciais == null || titulosSequenciais == null || resultadosSequenciais == null)
+                return;
+            lbPassosGeral.Text = textosSequenciais[indiceAtualGeral];
+            lbTituloGeral.Text = titulosSequenciais[indiceAtualGeral];
+            lbResultadoGeral.Text = resultadosSequenciais[indiceAtualGeral];
+        }
+
+        private void NavegarGeral(bool proximo)
+        {
+            if (textosSequenciais == null || titulosSequenciais == null) return;
+            int total = Math.Min(textosSequenciais.Count, titulosSequenciais.Count);
+            indiceAtualGeral = proximo
+                ? (indiceAtualGeral + 1) % total
+                : (indiceAtualGeral - 1 + total) % total;
+            AtualizarExibicaoResultado();
+        }
+
+        private void LimparCamposDeTexto(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                // TextBox normal ou RichTextBox
+                if (c is TextBox || c is RichTextBox)
+                {
+                    c.Text = string.Empty;
+                }
+                else
+                {
+                    // Verifica se o controle possui a propriedade "Text" (para controles customizados)
+                    var prop = c.GetType().GetProperty("Text");
+                    if (prop != null && prop.CanWrite)
+                    {
+                        prop.SetValue(c, string.Empty);
+                    }
+                }
+                // Se tiver controles filhos, aplica recursivamente
+                if (c.HasChildren)
+                {
+                    LimparCamposDeTexto(c);
+                }
+            }
+        }
+
+        private void btnProxTxt_Click(object sender, EventArgs e) => NavegarGeral(true);
+        private void btnAntTxt_Click(object sender, EventArgs e) => NavegarGeral(false);
+        #endregion
+
+        #region Manipulação de Dados (Fila Expandida)
+        private string FilaExpandida(List<(double Xi, int Fi)> pares)
+        {
+            var resultado = new List<string>();
+            foreach (var par in pares)
+                resultado.AddRange(Enumerable.Repeat(par.Xi.ToString(), par.Fi));
+            return string.Join(" - ", resultado);
+        }
+        #endregion
+
+
+        #region Navegação entre Telas
+        private void BotaoProximoPassoVAC_Click(object sender, EventArgs e)
+        {
+            _gerenciadorTelas.MostrarTela("Variação Aleatória Contínua");
+        }
+        #endregion
+
+        #region Eventos de Interface (Não Funcionais / Em Teste)
+        private void TglBtnListaOuFila_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TglBtnListaOuFila.Checked)
+            {
+                flowLayoutPanelPares.Enabled = false;
+                txtboxFilaExp.Enabled = true;
+                btnValidarFilaExp.Enabled = TglBtnListaOuFila.Checked;
+                LimparCamposDeTexto(flowLayoutPanelPares);
             }
             else
             {
-                RichTextBox txtFilaExpandida = new RichTextBox();
-                txtFilaExpandida.Location = new Point(307, 168);
-                txtFilaExpandida.Size = new Size(300, 160);
-
-                this.Controls.Add(txtFilaExpandida);
+                flowLayoutPanelPares.Enabled = true;
+                txtboxFilaExp.Enabled = false;
+                btnValidarFilaExp.Enabled = TglBtnListaOuFila.Checked;
+                txtboxFilaExp.Text = string.Empty;
             }
+        }
+        #endregion
+
+        #region Métodos Auxiliares
+        private int ObterIndice(string nome)
+        {
+            return int.Parse(new string(nome.Where(char.IsDigit).ToArray()));
+        }
+        #endregion
+
+        #region Validação de Dados
+
+        private string ValidarItemNumero(string item)
+        {
+            if (string.IsNullOrWhiteSpace(item))
+                return "Item vazio ou com espaços.";
+
+            if (item == ",")
+                return "Vírgula sozinha (use um número como '0,5').";
+
+            if (item.EndsWith(","))
+                return $"Número incompleto: '{item}' (falta o decimal).";
+
+            if (item.Count(c => c == ',') > 1)
+                return $"Múltiplas vírgulas: '{item}' (use apenas uma vírgula por número).";
+
+            if (item.Contains(" ") && item.Contains(","))
+                return $"Espaço dentro do número: '{item}' (não use espaço antes ou depois da vírgula).";
+
+            if (item.Length > 1 && item.StartsWith("0") && char.IsDigit(item[1]) && !item.StartsWith("0,"))
+                return $"Zero à esquerda não permitido: '{item}' (use '1' em vez de '01').";
+
+            if (double.TryParse(item, NumberStyles.Any, new CultureInfo("pt-BR"), out _))
+                return null;
+
+            if (double.TryParse(item, NumberStyles.Any, new CultureInfo("en-US"), out _))
+                return null;
+
+            return $"Formato inválido: '{item}'. Use vírgula (1,5) ou ponto (1.5).";
+        }
+
+        private string ValidarItemNumero(string item, out string sugestao)
+        {
+            sugestao = null;
+            string erro = ValidarItemNumero(item);
+
+            if (erro != null)
+            {
+                if (item == ",")
+                    sugestao = "0,0";
+                else if (item.EndsWith(","))
+                    sugestao = item + "0";
+                else if (item.Count(c => c == ',') > 1)
+                    sugestao = Regex.Replace(item, ",", (match) => match.Index == item.IndexOf(',') ? "," : "");
+                else if (item.Contains(" ") && item.Contains(","))
+                    sugestao = item.Replace(" ", "");
+                else if (item.Length > 1 && item.StartsWith("0") && char.IsDigit(item[1]) && !item.StartsWith("0,"))
+                    sugestao = item.TrimStart('0');
+                else if (item.Contains("."))
+                    sugestao = item.Replace(".", ",");
+                else if (double.TryParse(item, NumberStyles.Any, CultureInfo.InvariantCulture, out _))
+                    sugestao = item.Replace(".", ",");
+                else
+                    sugestao = "0"; // Sugestão genérica como último recurso
+            }
+
+            return erro;
+        }
+        #endregion
+
+        private bool ValidarLista(string texto, out string listaFormatada, out string erros, char separador = '-', int? minItens = null, int? maxItens = null)
+        {
+            listaFormatada = string.Empty;
+            erros = string.Empty;
+            var errosList = new List<string>();
+            if (string.IsNullOrWhiteSpace(texto))
+            {
+                errosList.Add("O campo está vazio.");
+                erros = string.Join("\n→ ", errosList);
+                return false;
+            }
+            string[] valores = texto.Split(new[] { ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            var numeros = new List<string>();
+            foreach (string v in valores)
+            {
+                string item = v.Trim();
+                string erroItem = ValidarItemNumero(item, out string sugestao);
+                if (erroItem != null)
+                {
+                    // Adiciona a sugestão à mensagem de erro se disponível
+                    string mensagemErro = erroItem;
+                    if (!string.IsNullOrEmpty(sugestao))
+                        mensagemErro += $" Sugerido: '{sugestao}'";
+                    errosList.Add(mensagemErro);
+                }
+                else
+                {
+                    numeros.Add(item);
+                }
+            }
+            // Se houver erros, retorna false com todos os detalhes
+            if (errosList.Count > 0)
+            {
+                erros = string.Join("\n→ ", errosList);
+                return false;
+            }
+            // Se não houver números válidos
+            if (numeros.Count == 0)
+            {
+                errosList.Add("Nenhum número válido foi encontrado.");
+                erros = string.Join("\n→ ", errosList);
+                return false;
+            }
+            // Validação de quantidade de itens
+            if (minItens.HasValue && numeros.Count < minItens)
+                errosList.Add($"Mínimo de {minItens} itens necessário(s). Encontrados: {numeros.Count}");
+            if (maxItens.HasValue && numeros.Count > maxItens)
+                errosList.Add($"Máximo de {maxItens} itens permitido(s). Encontrados: {numeros.Count}");
+
+            if (errosList.Count > 0)
+            {
+                erros = string.Join("\n→ ", errosList);
+                return false;
+            }
+            // Recria no formato padronizado: NÚMERO - NÚMERO - NÚMERO
+            listaFormatada = string.Join($" {separador} ", numeros);
+            erros = string.Empty;
+            return true;
+        }
+
+        private void AplicarCorrecoesAutomaticas(string texto)
+        {
+            string[] valores = texto.Split(new[] { ';', '-' }, StringSplitOptions.RemoveEmptyEntries);
+            var corrigidos = new List<string>();
+            foreach (string v in valores)
+            {
+                string item = v.Trim();
+                ValidarItemNumero(item, out string sugestao);
+                if (sugestao != null)
+                {
+                    corrigidos.Add(sugestao);
+                }
+                else
+                {
+                    corrigidos.Add(item);
+                }
+            }
+            txtboxFilaExp.Text = string.Join(" - ", corrigidos);
+
+            if (ValidarLista(txtboxFilaExp.Text, out string listaFormatada, out _))
+            {
+                txtboxFilaExp.Text = listaFormatada;
+                MessageBox.Show("✅ Correções aplicadas com sucesso!", "Sucesso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnValidarFilaExp_Click(object sender, EventArgs e)
+        {
+            if (ValidarLista(txtboxFilaExp.Text, out string listaFormatada, out string erros,
+                separador: '-', minItens: 2, maxItens: 10))
+            {
+                txtboxFilaExp.Text = listaFormatada;
+                MessageBox.Show("Lista válida e padronizada!", "Validação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Verifica se há sugestões para oferecer correção automática
+                if (erros.Contains("Sugerido:"))
+                {
+                    var resultado = MessageBox.Show(
+                        $"Corrija os seguintes erros:\n→ {erros}\n\nDeseja aplicar as sugestões automáticas?",
+                        "Erros na lista",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        AplicarCorrecoesAutomaticas(txtboxFilaExp.Text);
+                        return;
+                    }
+                }
+                MessageBox.Show($"Corrija os seguintes erros:\n→ {erros}",
+                    "Erro na lista",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+        private void hopeBtnMetodoReverso_Click(object sender, EventArgs e)
+        {
+            pnModoReverso.Visible = true;
+            pnModoPadrao.Visible = false;
+        }
+
+        private void hopeBtnMetodoPadrao_Click(object sender, EventArgs e)
+        {
+            pnModoReverso.Visible = false;
+            pnModoPadrao.Visible = true;
+        }
+
+        private void btnCalcReverso_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtBoxCvReverso.Text) || string.IsNullOrWhiteSpace(txtBoxMediaReverso.Text))
+            {
+                MessageBox.Show("É necessário inserir valores para o Coeficiente de Variação e a Média!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try
+            {
+                double cvReverso = double.Parse(txtBoxCvReverso.Text.Replace(",", "."));
+
+                double? mediaReversa = string.IsNullOrEmpty(txtBoxMediaReverso.Text)
+                    ? null
+                    : double.Parse(txtBoxMediaReverso.Text.Replace(",", "."));
+
+                double? varianciaReversa = string.IsNullOrEmpty(txtBoxVarianciaReverso.Text)
+                    ? null
+                    : double.Parse(txtBoxDesvioReverso.Text.Replace(",", "."));
+
+                double? desvioReverso = string.IsNullOrEmpty(txtBoxDesvioReverso.Text)
+                    ? null
+                    : double.Parse(txtBoxDesvioReverso.Text.Replace(",", "."));
+
+                if (cvReverso <= 0)
+                {
+                    MessageBox.Show("O valor do Coeficiente de Variação deve ser maior que zero!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                double mediaCalculadaReversa, desvioCalculadoReverso, varianciaCalculadaReversa;
+
+                if (mediaReversa.HasValue)
+                {
+                    mediaCalculadaReversa = mediaReversa.Value;
+                    desvioCalculadoReverso = (cvReverso * mediaCalculadaReversa) / 100;
+                    varianciaCalculadaReversa = Math.Pow(desvioCalculadoReverso, 2);
+                }
+                else if (desvioReverso.HasValue)
+                {
+                    desvioCalculadoReverso = desvioReverso.Value;
+                    mediaCalculadaReversa = (desvioCalculadoReverso * 100) / cvReverso;
+                    varianciaCalculadaReversa = Math.Pow(desvioCalculadoReverso, 2);
+                }
+                else if (varianciaReversa.HasValue)
+                {
+                    varianciaCalculadaReversa = varianciaReversa.Value;
+                    desvioCalculadoReverso = Math.Sqrt(varianciaCalculadaReversa);
+                    mediaCalculadaReversa = (desvioCalculadoReverso * 100) / cvReverso;
+                }
+                else
+                {
+                    MessageBox.Show("Você deve fornecer pelo menos mais um parâmetro além do CV (Média, Desvio ou Variância)!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string passosReverso = GerarPassosReverso(cvReverso, mediaReversa, desvioReverso, varianciaReversa, mediaCalculadaReversa, desvioCalculadoReverso, varianciaCalculadaReversa);
+
+                lbPassosGeral.Text = $@"
+Média: {mediaCalculadaReversa:F2}
+Desvio Padrão: {desvioCalculadoReverso:F2}
+Variância: {varianciaCalculadaReversa:F2}
+CV: {cvReverso:F2}%
+
+{passosReverso}
+";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro: {ex.Message}", "Erro de Cálculo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GerarPassosReverso(double cvReverso, double? mediaReversa, double? desvioReverso, double? varianciaReversa, double mediaCalculadaReversa, double desvioCalculadoReverso, double varianciaCalculadaReversa)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("\n📌 **Passos do Cálculo Reverso:**");
+
+            if (mediaReversa.HasValue)
+            {
+                sb.AppendLine($"1. Dados conhecidos: CV = {cvReverso:F2}%, Média = {mediaReversa:F2}");
+                sb.AppendLine($"2. Cálculo do Desvio Padrão:");
+                sb.AppendLine($"   σ = (CV × x̄) / 100");
+                sb.AppendLine($"   σ = ({cvReverso:F2} × {mediaReversa:F2}) / 100 = {desvioCalculadoReverso:F2}");
+                sb.AppendLine($"3. Cálculo da Variância:");
+                sb.AppendLine($"   σ² = σ² = {desvioCalculadoReverso:F2}² = {varianciaCalculadaReversa:F2}");
+            }
+            else if (desvioReverso.HasValue)
+            {
+                sb.AppendLine($"1. Dados conhecidos: CV = {cvReverso:F2}%, Desvio = {desvioReverso:F2}");
+                sb.AppendLine($"2. Cálculo da Média:");
+                sb.AppendLine($"   x̄ = (σ × 100) / CV");
+                sb.AppendLine($"   x̄ = ({desvioReverso:F2} × 100) / {cvReverso:F2} = {mediaCalculadaReversa:F2}");
+                sb.AppendLine($"3. Cálculo da Variância:");
+                sb.AppendLine($"   σ² = σ² = {desvioReverso:F2}² = {varianciaCalculadaReversa:F2}");
+            }
+            else if (varianciaReversa.HasValue)
+            {
+                sb.AppendLine($"1. Dados conhecidos: CV = {cvReverso:F2}%, Variância = {varianciaReversa:F2}");
+                sb.AppendLine($"2. Cálculo do Desvio Padrão:");
+                sb.AppendLine($"   σ = √σ² = √{varianciaReversa:F2} = {desvioCalculadoReverso:F2}");
+                sb.AppendLine($"3. Cálculo da Média:");
+                sb.AppendLine($"   x̄ = (σ × 100) / CV");
+                sb.AppendLine($"   x̄ = ({desvioCalculadoReverso:F2} × 100) / {cvReverso:F2} = {mediaCalculadaReversa:F2}");
+            }
+
+            sb.AppendLine("\n📌 **Fórmulas Utilizadas:**");
+            sb.AppendLine("CV = (σ / x̄) × 100%");
+            sb.AppendLine("σ = √σ²");
+            sb.AppendLine("x̄ = (σ × 100) / CV");
+
+            return sb.ToString();
         }
     }
 }
-

@@ -148,4 +148,71 @@
         zDwW93fTtnD6lulP8AR0vfPhhzlYNgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnRmvPar1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAFlJREFUOE9jYEAC399/V/jy7vv9z2+//0fGIDGQHLJaBnRFxGLyNVIE0E0jhEc1
+        4sGjGvFgamj89h5dEhf+9Pb7fbjGT2++J4AE0BWh409vv73/8uZXPEgPADAoCyUr16wGAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnRmvPar2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAFlJREFUOE9jYEAC399/V/jy7vv9z2+//0fGIDGQHLJaBnRFxGLyNVIE0E0jhEc1
+        4sGjGvFgamj89h5dEhf+9Pb7fbjGT2++J4AE0BWh409vv73/8uZXPEgPADAoCyUr16wGAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnRmvPar3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAFlJREFUOE9jYEAC399/V/jy7vv9z2+//0fGIDGQHLJaBnRFxGLyNVIE0E0jhEc1
+        4sGjGvFgamj89h5dEhf+9Pb7fbjGT2++J4AE0BWh409vv73/8uZXPEgPADAoCyUr16wGAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnRmvPar4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA4AAAASCAYAAABrXO8xAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAFlJREFUOE9jYEAC399/V/jy7vv9z2+//0fGIDGQHLJaBnRFxGLyNVIE0E0jhEc1
+        4sGjGvFgamj89h5dEhf+9Pb7fbjGT2++J4AE0BWh409vv73/8uZXPEgPADAoCyUr16wGAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="btnAdicionarNovoPar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAKxJREFUSEvt
+        lFkKg0AQRD2KR80N9GZ6owoFip2yN5OP+OEDYRiqt+rBYXi4PQBGABOABQc8825U/SUAzCZpxKRxLQCs
+        milh0fiUZufKrHlcNs8jXkXxeidZAqOJqKfIvDeaiHoXGkFbVLPjTauaExqQPcNvC/xi0fqZzcHrasdo
+        IlpLzp4pfw/8IupnSrIpEuruLdkuHGrvPZqTXOtc2XbCQnYinnnX8/zhr7wB2iz5UWChVYoAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>1. MODO DE ENTRADA:
+   • Botão de alternar entre:
+        [ ] Pares Xi/Fi  &amp;  [ ] Fila Expandida
+
+2. MODO PARES (Xi/Fi):
+   • Adicione valores:
+        - Automático: ao preencher, novo par aparece
+        - Manual: clique em "+"
+
+3. MODO FILA EXPANDIDA:
+   • Digite valores separados por ; ou -
+   • Ex: 5;10;15 ou 5-10-15
+   • Validação: clique em "Validar Fila"</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>1. ATIVE O MODO REVERSO:
+   • Clique em "Modo Reverso" (ao lado de "Modo Padrão")
+
+2. INSIRA OS DADOS:
+   • Campo OBRIGATÓRIO: CV (%)
+   • Campo OPCIONAL (escolha PELO MENOS UM):
+        - Média (x̄) ou
+        - Desvio Padrão (s) ou
+        - Variância (s²)</value>
+  </data>
 </root>
