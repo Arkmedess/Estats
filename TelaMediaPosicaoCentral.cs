@@ -19,6 +19,7 @@ namespace Interface_e_sistema_em_C_
         private List<string> textosSequenciais;
         private List<string> resultadosSequenciais;
         private List<string> titulosSequenciais;
+        private List<PictureBox> bolinhasSequenciais;
         #endregion
 
         #region Inicialização e Ciclo de Vida
@@ -501,11 +502,11 @@ namespace Interface_e_sistema_em_C_
 
 
 → Passo 2: Somar o produto dos cálculos para obter o resultado de ΣXiFi
-{somaProdutosStr} = {somaProdutos:F2}
+ΣXiFi = {somaProdutosStr} = {somaProdutos:F2}
 
 
 → Passo 3: Realizar a soma dos valores de Fi para obter o resultado de ΣFi (ou N)
-{somaFiStr} = {somaFi:F0}
+ΣFi = {somaFiStr} = {somaFi:F0}
 
 
 → Passo 4: Substituir os valores na fórmula e calcular a Média: x̄ = Σ(XiFi) / ΣFi
@@ -527,7 +528,7 @@ x̄ = {somaProdutos:F2} / {somaFi:F0} = {media:F2}
             var desviosFormatados = new StringBuilder();
             foreach (var grupo in grupos)
             {
-                desviosFormatados.AppendLine($"({grupo.Valor:F2} - {media:F2})² = {grupo.DesvioQuadrado:F2} ({grupo.Frequencia}x) = {(grupo.DesvioQuadrado * grupo.Frequencia):F4}");
+                desviosFormatados.AppendLine($"(Xi - x̄)² × Fi = ({grupo.Valor:F2} - {media:F2})² = {grupo.DesvioQuadrado:F2} x {grupo.Frequencia} = {(grupo.DesvioQuadrado * grupo.Frequencia):F4}");
             }
 
             return $@"
@@ -535,9 +536,9 @@ x̄ = {somaProdutos:F2} / {somaFi:F0} = {media:F2}
 Média dos valores: x̄ = {media:F2}
 N = {somaFi}
 
-→ Passo 2: Calcular (Xi - x̄)² × Fi para cada valor (desvio quadrático multiplicado pela frequência)
+→ Passo 2: Calcular cada (Xi - x̄)² × Fi para obter o valor de Σ(Xi - x̄)²
 {desviosFormatados.ToString().Trim()}
-Soma dos quadrados: Σ(Xi - x̄)² = {somaQuadrados:F2}
+Σ(Xi - x̄)² = {somaQuadrados:F2}
 
 → Passo 3: Substituir os valores da fórmula e calcular a Variância: s² = Σ(Xi - x̄)² / N - 1
 s² = {somaQuadrados:F2} / {somaFi} - 1 = {variancia:F2}
@@ -550,7 +551,7 @@ s² = {somaQuadrados:F2} / {somaFi} - 1 = {variancia:F2}
 → Passo 1: Tenha em mãos o valor da Variância (s²)
 s² = {variancia:F2}
 
-→ Passo 2: Substituir os valores da fórmula e calcular o Desvio Padrão: s = √s²
+→ Passo 2: Substitua os valores da fórmula e calcular o Desvio Padrão: s = √s²
 s = √{variancia:F2} = {desvio:F2}
 ".Trim();
         }
@@ -560,7 +561,7 @@ s = √{variancia:F2} = {desvio:F2}
             if (media == 0)
             {
                 return @"
-📌 **Coeficiente de Variação (CV)**
+📌 Coeficiente de Variação (CV)
 → CV = (s / x̄) × 100%
 → Como a média é zero, o CV não pode ser calculado.
 → O CV é indefinido quando a média é zero.
@@ -576,13 +577,11 @@ s = √{variancia:F2} = {desvio:F2}
             };
 
             return $@"
-→ Passo 1: Desvio Padrão (s)
+→ Passo 1: Tenha em mãos o valor do Desvio Padrão (s) e da Média (x̄)
 s = {desvio:F2}
-
-→ Passo 2: Média (x̄)
 x̄ = {media:F2}
 
-→ Passo 3: Coeficiente de Variação (CV)
+→ Passo 2: Substitua os valores da fórmula e calcular o Coeficiente de Variação (CV)
 CV = (s / x̄) × 100%
 CV = ({desvio:F2} / {media:F2}) × 100%
 CV = {cv:F2}%
@@ -595,7 +594,7 @@ CV = {cv:F2}%
 
 
         #region Exibição de Resultados e Navegação
-        private void AdicionarFila_Click(object sender, EventArgs e)
+        private void hopeBtnCalcPadrao_Click(object sender, EventArgs e)
         {
             var resultados = CalcularEstatisticas();
             if (double.IsNaN(resultados.media) || double.IsNaN(resultados.variancia) || double.IsNaN(resultados.desvio) || double.IsNaN(resultados.cv))
@@ -611,7 +610,11 @@ CV = {cv:F2}%
                 resultados.media.ToString("F2"),
                 resultados.variancia.ToString("F2"),
                 resultados.desvio.ToString("F2"),
-                resultados.cv.ToString("F2")
+                resultados.cv.ToString("F2"),
+                picPaginaMedia,
+                picPaginaVariancia,
+                picPaginaDesvio,
+                picPaginaCV
             );
             try
             {
@@ -634,7 +637,7 @@ CV = {cv:F2}%
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            BotaoProximoPassoVAC.Visible = true;
+            hopeBtnIrTelaVAC.Visible = true;
         }
 
         private List<(double Xi, int Fi)> ObterValoresXiFi()
@@ -661,7 +664,8 @@ CV = {cv:F2}%
             return valores;
         }
 
-        private void InicializarSequenciaGeral(string passosMedia, string passosVariancia, string passosDesvio, string passosCv, string resultadoMedia, string resultadoVariancia, string resultadoDesvio, string resultadoCv)
+        private void InicializarSequenciaGeral(string passosMedia, string passosVariancia, string passosDesvio, string passosCv, string resultadoMedia, string resultadoVariancia, string resultadoDesvio, string resultadoCv,
+            PictureBox picPaginaMedia, PictureBox picPaginaVariancia, PictureBox picPaginaDesvio, PictureBox picPaginaCV)
         {
             textosSequenciais = new List<string> { passosMedia, passosVariancia, passosDesvio, passosCv };
             resultadosSequenciais = new List<string> { resultadoMedia, resultadoVariancia, resultadoDesvio, resultadoCv };
@@ -672,6 +676,9 @@ CV = {cv:F2}%
                 "Desvio Padrão: s = √s²",
                 "Coeficiente de Variação: CV = (s / x̄) × 100%"
             };
+
+            bolinhasSequenciais = new List<PictureBox> { picPaginaMedia, picPaginaVariancia, picPaginaDesvio, picPaginaCV };
+
             indiceAtualGeral = 0;
             AtualizarExibicaoResultado();
         }
@@ -680,9 +687,18 @@ CV = {cv:F2}%
         {
             if (textosSequenciais == null || titulosSequenciais == null || resultadosSequenciais == null)
                 return;
+
             lbPassosGeral.Text = textosSequenciais[indiceAtualGeral];
             lbTituloGeral.Text = titulosSequenciais[indiceAtualGeral];
             lbResultadoGeral.Text = resultadosSequenciais[indiceAtualGeral];
+
+            for (int i = 0; i < bolinhasSequenciais.Count; i++)
+            {
+                bolinhasSequenciais[i].Image = (i == indiceAtualGeral)
+                ? Properties.Resources.Pagina_Atual
+                : Properties.Resources.Outra_Pagina___Copia;
+            }
+
         }
 
         private void NavegarGeral(bool proximo)
@@ -693,32 +709,6 @@ CV = {cv:F2}%
                 ? (indiceAtualGeral + 1) % total
                 : (indiceAtualGeral - 1 + total) % total;
             AtualizarExibicaoResultado();
-        }
-
-        private void LimparCamposDeTexto(Control parent)
-        {
-            foreach (Control c in parent.Controls)
-            {
-                // TextBox normal ou RichTextBox
-                if (c is TextBox || c is RichTextBox)
-                {
-                    c.Text = string.Empty;
-                }
-                else
-                {
-                    // Verifica se o controle possui a propriedade "Text" (para controles customizados)
-                    var prop = c.GetType().GetProperty("Text");
-                    if (prop != null && prop.CanWrite)
-                    {
-                        prop.SetValue(c, string.Empty);
-                    }
-                }
-                // Se tiver controles filhos, aplica recursivamente
-                if (c.HasChildren)
-                {
-                    LimparCamposDeTexto(c);
-                }
-            }
         }
 
         private void btnProxTxt_Click(object sender, EventArgs e) => NavegarGeral(true);
@@ -768,6 +758,33 @@ CV = {cv:F2}%
         {
             return int.Parse(new string(nome.Where(char.IsDigit).ToArray()));
         }
+
+        private void LimparCamposDeTexto(Control parent)
+        {
+            foreach (Control c in parent.Controls)
+            {
+                // TextBox normal ou RichTextBox
+                if (c is TextBox || c is RichTextBox)
+                {
+                    c.Text = string.Empty;
+                }
+                else
+                {
+                    // Verifica se o controle possui a propriedade "Text" (para controles customizados)
+                    var prop = c.GetType().GetProperty("Text");
+                    if (prop != null && prop.CanWrite)
+                    {
+                        prop.SetValue(c, string.Empty);
+                    }
+                }
+                // Se tiver controles filhos, aplica recursivamente
+                if (c.HasChildren)
+                {
+                    LimparCamposDeTexto(c);
+                }
+            }
+        }
+
         #endregion
 
         #region Validação de Dados
@@ -1072,6 +1089,11 @@ CV: {cvReverso:F2}%
             sb.AppendLine("x̄ = (σ × 100) / CV");
 
             return sb.ToString();
+        }
+
+        private void hopeBtnIrTelaVAC_Click(object sender, EventArgs e)
+        {
+            _gerenciadorTelas.MostrarTela("Variação Aleatória Contínua");
         }
     }
 }
