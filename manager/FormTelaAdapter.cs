@@ -1,6 +1,6 @@
-﻿namespace Interface_e_sistema_em_C_
+﻿namespace Estats
 {
-
+    using Estats.manager;
     public class FormTelaAdapter : ITela
     {
         private readonly Form _form;

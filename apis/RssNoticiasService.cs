@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using static System.Net.WebRequestMethods;
 
-namespace Interface_e_sistema_em_C_
+namespace Estats.apis
 {
     internal class Noticia
     {

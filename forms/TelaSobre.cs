@@ -1,4 +1,6 @@
-﻿namespace Interface_e_sistema_em_C_
+﻿using Estats.manager;
+
+namespace Estats
 {
     public partial class TelaSobre : UserControl, ITela
     {

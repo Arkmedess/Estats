@@ -1,5 +1,7 @@
-namespace Interface_e_sistema_em_C_
+namespace Estats
 {
+    using Estats.apis;
+    using Estats.manager;
     using System.Diagnostics;
     using System.Drawing;
     using System.Windows.Forms;

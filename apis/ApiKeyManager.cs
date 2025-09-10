@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace Interface_e_sistema_em_C_
+namespace Estats.apis
 {
     public static class ApiKeyManager
     {

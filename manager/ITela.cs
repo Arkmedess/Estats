@@ -1,5 +1,6 @@
-﻿namespace Interface_e_sistema_em_C_
+﻿namespace Estats.manager
 {
+
     public interface ITela
     {
         void OnCarregar();

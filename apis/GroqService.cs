@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Text.Json;
 
-namespace Interface_e_sistema_em_C_
+namespace Estats.apis
 {
     public class GroqService
     {
         private readonly string _apiKey;
         private readonly HttpClient _client;
 
-        public GroqService(String apiKey)
+        public GroqService(string apiKey)
         {
             // 
             _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));

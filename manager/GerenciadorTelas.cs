@@ -1,7 +1,8 @@
-﻿namespace Interface_e_sistema_em_C_
+﻿namespace Estats
 {
     using System.Collections.Generic;
     using System.Windows.Forms;
+    using Estats.manager;
 
     public class GerenciadorTelas
     {

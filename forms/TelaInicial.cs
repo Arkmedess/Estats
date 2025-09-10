@@ -1,4 +1,7 @@
-﻿namespace Interface_e_sistema_em_C_
+﻿using Estats.apis;
+using Estats.manager;
+
+namespace Estats
 {
     public partial class TelaInicial : UserControl, ITela
     {

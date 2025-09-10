@@ -2,10 +2,11 @@
 using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using Estats.manager;
 #endregion
 
 #region Namespace e Declaração de Classe
-namespace Interface_e_sistema_em_C_
+namespace Estats
 {
     public partial class TelaMediaPosicaoCentral : UserControl, ITela
     {

@@ -1,7 +1,7 @@
-﻿using MathNet.Numerics.Distributions;
+﻿using Estats.manager;
+using MathNet.Numerics.Distributions;
 
-
-namespace Interface_e_sistema_em_C_
+namespace Estats
 {
     public partial class TelaVAC : UserControl, ITela
     {

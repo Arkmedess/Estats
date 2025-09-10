@@ -1,7 +1,9 @@
-﻿using System.Diagnostics;
+﻿using Estats.apis;
+using Estats.manager;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Interface_e_sistema_em_C_
+namespace Estats
 {
     public partial class TelaConfig : UserControl, ITela
     {
