@@ -63,6 +63,26 @@ namespace Interface_e_sistema_em_C_.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Arrow_Down {
+            get {
+                object obj = ResourceManager.GetObject("Arrow Down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Arrow_Down1 {
+            get {
+                object obj = ResourceManager.GetObject("Arrow Down1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gemini_User {
             get {
                 object obj = ResourceManager.GetObject("Gemini_User", resourceCulture);
@@ -73,9 +93,39 @@ namespace Interface_e_sistema_em_C_.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GitHub {
+            get {
+                object obj = ResourceManager.GetObject("GitHub", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GitHub1 {
+            get {
+                object obj = ResourceManager.GetObject("GitHub1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Lixeira {
             get {
                 object obj = ResourceManager.GetObject("Lixeira", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap News {
+            get {
+                object obj = ResourceManager.GetObject("News", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +146,56 @@ namespace Interface_e_sistema_em_C_.Properties {
         internal static System.Drawing.Bitmap Pagina_Atual {
             get {
                 object obj = ResourceManager.GetObject("Pagina Atual", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sigma {
+            get {
+                object obj = ResourceManager.GetObject("Sigma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sigma1 {
+            get {
+                object obj = ResourceManager.GetObject("Sigma1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Website {
+            get {
+                object obj = ResourceManager.GetObject("Website", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YouTube {
+            get {
+                object obj = ResourceManager.GetObject("YouTube", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YouTube1 {
+            get {
+                object obj = ResourceManager.GetObject("YouTube1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -13,10 +13,10 @@ namespace Interface_e_sistema_em_C_
         public Panel panelContainer;
         private bool _menuAberto = false;
         private GerenciadorTelas _gerenciadorTelas;
-        private bool _menuAlvoAberto;  // True aberto, false fechado
-
+        private bool _menuAlvoAberto;
 
         #endregion
+
 
         #region Construtor e Inicialização
 
@@ -53,14 +53,13 @@ namespace Interface_e_sistema_em_C_
             {
                 _gerenciadorTelas.MostrarTela("Configurações");
 
-                // Verifica novamente após mostrar configurações (caso o usuário já tenha colocado)
+
                 chaveAPI = ApiKeyManager.CarregarChaveAPI();
 
                 if (string.IsNullOrEmpty(chaveAPI))
                 {
                     var resultado = MessageBox.Show(
                         "Parece que você ainda não configurou sua chave de API do Groq.\n\n" +
-                        "Com ela, você terá acesso a recursos avançados como geração de texto, visão, áudio e muito mais.\n\n" +
                         "Você pode adicionar a chave agora na tela de Configurações ou clicar em 'Obter chave gratuita' para criar uma conta no Groq.",
                         "Chave de API recomendada",
                         MessageBoxButtons.YesNo,
@@ -86,23 +85,14 @@ namespace Interface_e_sistema_em_C_
                                 MessageBoxIcon.Information);
                         }
                     }
-                    // Se o usuário clicar em "Não, obrigado", o app continua normalmente (sem bloqueio)
                 }
             }
-
-            // Aqui o app continua carregando — talvez desative certos recursos se não houver API
-            //AtualizarEstadoFuncionalidades(chaveAPI);
         }
 
 
         #endregion
 
         #region Barra Lateral
-
-        private void Barra_lateral_menu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void Botao_Tres_Barras_Click(object sender, EventArgs e)
         {
@@ -117,7 +107,6 @@ namespace Interface_e_sistema_em_C_
 
             int posicaoY = MenuFerramentas.Bottom;
 
-            // Botão Configurações
             if (pnConfig != null)
             {
                 pnConfig.Visible = true;
@@ -125,7 +114,6 @@ namespace Interface_e_sistema_em_C_
                 posicaoY = pnConfig.Bottom - 1;
             }
 
-            // Botão Sobre
             if (pnSobre != null)
             {
                 pnSobre.Visible = true;
@@ -133,7 +121,6 @@ namespace Interface_e_sistema_em_C_
                 posicaoY = pnSobre.Bottom - 1;
             }
 
-            // Botão Sair
             if (pnSair != null)
             {
                 pnSair.Visible = true;
@@ -148,35 +135,17 @@ namespace Interface_e_sistema_em_C_
 
         #region Botões do Menu
 
-        private void BotaoInicio_MouseClick(object sender, MouseEventArgs e)
-        {
-            _gerenciadorTelas.MostrarTela("Inicial");
-        }
+        private void BotaoInicio_MouseClick(object sender, MouseEventArgs e) { _gerenciadorTelas.MostrarTela("Inicial"); }
 
-        private void BotaoFerramentas_Click(object sender, EventArgs e)
-        {
-            MenuTransicao.Start();
-        }
+        private void BotaoFerramentas_Click(object sender, EventArgs e) { MenuTransicao.Start(); }
 
-        private void BotaoEstatParametrica_Click(object sender, EventArgs e)
-        {
-            _gerenciadorTelas.MostrarTela("Média de Posição Central");
-        }
+        private void BotaoEstatParametrica_Click(object sender, EventArgs e) { _gerenciadorTelas.MostrarTela("Média de Posição Central"); }
 
-        private void BotaoVAC_Click(object sender, EventArgs e)
-        {
-            _gerenciadorTelas.MostrarTela("Variação Aleatória Contínua");
-        }
+        private void BotaoVAC_Click(object sender, EventArgs e) { _gerenciadorTelas.MostrarTela("Variação Aleatória Contínua"); }
 
-        private void BotaoConfiguracoes_Click(object sender, EventArgs e)
-        {
-            _gerenciadorTelas.MostrarTela("Configurações");
-        }
+        private void BotaoConfiguracoes_Click(object sender, EventArgs e) { _gerenciadorTelas.MostrarTela("Configurações"); }
 
-        private void BotaoSobre_Click(object sender, EventArgs e)
-        {
-            _gerenciadorTelas.MostrarTela("Sobre");
-        }
+        private void BotaoSobre_Click(object sender, EventArgs e) { _gerenciadorTelas.MostrarTela("Sobre"); }
 
         private void BotaoSair_Click(object sender, EventArgs e)
         {
@@ -186,13 +155,6 @@ namespace Interface_e_sistema_em_C_
 
         #endregion
 
-        private void Rodape_Barra_Lateral_Paint(object sender, PaintEventArgs e)
-        {
-            using (Pen pen = new Pen(Color.FromArgb(100, 79, 55, 139), 5))
-            {
-                e.Graphics.DrawLine(pen, 0, 0, Rodape_Barra_Lateral.Width, 0);
-            }
-        }
 
         private bool MenuExpansao = false;
         private void MenuTransicao_Tick(object sender, EventArgs e)
@@ -222,7 +184,6 @@ namespace Interface_e_sistema_em_C_
         {
             if (_menuAlvoAberto)
             {
-                // Abrindo o menu
                 Barra_lateral_menu.Width += 20;
                 if (Barra_lateral_menu.Width >= 255)
                 {
@@ -235,7 +196,6 @@ namespace Interface_e_sistema_em_C_
             }
             else
             {
-                // Fechando o menu
                 Barra_lateral_menu.Width -= 20;
                 if (Barra_lateral_menu.Width <= 61)
                 {
@@ -245,7 +205,6 @@ namespace Interface_e_sistema_em_C_
                     RemoverBordasBotoes();
                     btnFerramentas.Enabled = false;
 
-                    // Fecha expansão também
                     MenuExpansao = false;
                     MenuFerramentas.Height = 71;
                     MenuTransicao.Stop();
@@ -291,7 +250,7 @@ namespace Interface_e_sistema_em_C_
                     botao.FlatAppearance.BorderSize = 0;
                     botao.TabStop = false;
                     botao.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 15, 15);
-                    botao.MouseDown += (s, e) => { /* Faz nada */ };
+                    botao.MouseDown += (s, e) => { };
                 }
                 else if (ctrl is Panel painel)
                 {
@@ -303,7 +262,7 @@ namespace Interface_e_sistema_em_C_
                             botaoInner.FlatAppearance.BorderSize = 0;
                             botaoInner.TabStop = false;
                             botaoInner.FlatAppearance.MouseDownBackColor = Color.FromArgb(15, 15, 15);
-                            botaoInner.MouseDown += (s, e) => { /* Faz nada */ };
+                            botaoInner.MouseDown += (s, e) => { };
                         }
                     }
                 }

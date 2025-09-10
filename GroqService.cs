@@ -42,11 +42,11 @@ namespace Interface_e_sistema_em_C_
             {
                 var resposta = await _client.PostAsync("https://api.groq.com/openai/v1/chat/completions", corpo);
 
-                return resposta.IsSuccessStatusCode; // True se 200-299
+                return resposta.IsSuccessStatusCode; // True 200-299
             }
             catch
             {
-                return false; // Erro retorna false
+                return false;
             }
             finally
             {

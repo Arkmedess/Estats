@@ -71,8 +71,8 @@
             txtboxFilaExp = new ReaLTaiizor.Controls.DungeonRichTextBox();
             btnValidarFilaExp = new Button();
             txtBoxCvReverso = new TextBox();
-            lblChaveAPI = new Label();
-            label1 = new Label();
+            lblCoeficienteDeVariacao = new Label();
+            lblCamposOpcionais = new Label();
             txtBoxMediaReverso = new TextBox();
             lblMediaReverso = new Label();
             txtBoxDesvioReverso = new TextBox();
@@ -85,7 +85,7 @@
             pnModoReverso = new ReaLTaiizor.Controls.Panel();
             pnSubModoReverso = new ReaLTaiizor.Controls.Panel();
             lblCampoObrigatorio = new Label();
-            label4 = new Label();
+            lblSubCamposOpcionais = new Label();
             pnModoPadrao = new ReaLTaiizor.Controls.Panel();
             pnSubModoPadrao = new ReaLTaiizor.Controls.Panel();
             hopeBtnCalcPadrao = new ReaLTaiizor.Controls.HopeRoundButton();
@@ -685,29 +685,29 @@
             txtBoxCvReverso.TabIndex = 999;
             txtBoxCvReverso.TabStop = false;
             // 
-            // lblChaveAPI
+            // lblCoeficienteDeVariacao
             // 
-            lblChaveAPI.Font = new Font("Berlin Sans FB", 12F);
-            lblChaveAPI.ForeColor = Color.White;
-            lblChaveAPI.Location = new Point(26, 29);
-            lblChaveAPI.Margin = new Padding(0);
-            lblChaveAPI.Name = "lblChaveAPI";
-            lblChaveAPI.Size = new Size(109, 36);
-            lblChaveAPI.TabIndex = 999;
-            lblChaveAPI.Text = "Coeficiente de Variação:";
-            lblChaveAPI.TextAlign = ContentAlignment.MiddleLeft;
+            lblCoeficienteDeVariacao.Font = new Font("Berlin Sans FB", 12F);
+            lblCoeficienteDeVariacao.ForeColor = Color.White;
+            lblCoeficienteDeVariacao.Location = new Point(26, 29);
+            lblCoeficienteDeVariacao.Margin = new Padding(0);
+            lblCoeficienteDeVariacao.Name = "lblCoeficienteDeVariacao";
+            lblCoeficienteDeVariacao.Size = new Size(109, 36);
+            lblCoeficienteDeVariacao.TabIndex = 999;
+            lblCoeficienteDeVariacao.Text = "Coeficiente de Variação:";
+            lblCoeficienteDeVariacao.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblCamposOpcionais
             // 
-            label1.Font = new Font("Berlin Sans FB", 12.5F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(11, 84);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(150, 21);
-            label1.TabIndex = 999;
-            label1.Text = "Campos Opcionais:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lblCamposOpcionais.Font = new Font("Berlin Sans FB", 12.5F);
+            lblCamposOpcionais.ForeColor = Color.White;
+            lblCamposOpcionais.Location = new Point(11, 84);
+            lblCamposOpcionais.Margin = new Padding(0);
+            lblCamposOpcionais.Name = "lblCamposOpcionais";
+            lblCamposOpcionais.Size = new Size(150, 21);
+            lblCamposOpcionais.TabIndex = 999;
+            lblCamposOpcionais.Text = "Campos Opcionais:";
+            lblCamposOpcionais.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtBoxMediaReverso
             // 
@@ -858,12 +858,12 @@
             pnSubModoReverso.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnSubModoReverso.BackColor = Color.FromArgb(26, 31, 52);
             pnSubModoReverso.Controls.Add(lblCampoObrigatorio);
-            pnSubModoReverso.Controls.Add(label4);
-            pnSubModoReverso.Controls.Add(lblChaveAPI);
+            pnSubModoReverso.Controls.Add(lblSubCamposOpcionais);
+            pnSubModoReverso.Controls.Add(lblCoeficienteDeVariacao);
             pnSubModoReverso.Controls.Add(txtBoxDesvioReverso);
             pnSubModoReverso.Controls.Add(txtBoxCvReverso);
             pnSubModoReverso.Controls.Add(lblDesvioReverso);
-            pnSubModoReverso.Controls.Add(label1);
+            pnSubModoReverso.Controls.Add(lblCamposOpcionais);
             pnSubModoReverso.Controls.Add(lblVarianciaReverso);
             pnSubModoReverso.Controls.Add(btnCalcReverso);
             pnSubModoReverso.Controls.Add(txtBoxMediaReverso);
@@ -890,17 +890,17 @@
             lblCampoObrigatorio.Text = "Campo Obrigatório:";
             lblCampoObrigatorio.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label4
+            // lblSubCamposOpcionais
             // 
-            label4.Font = new Font("Berlin Sans FB", 9F);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(13, 105);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(123, 30);
-            label4.TabIndex = 999;
-            label4.Text = "Informe ao menos um dos parâmetros:";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
+            lblSubCamposOpcionais.Font = new Font("Berlin Sans FB", 9F);
+            lblSubCamposOpcionais.ForeColor = Color.White;
+            lblSubCamposOpcionais.Location = new Point(13, 105);
+            lblSubCamposOpcionais.Margin = new Padding(0);
+            lblSubCamposOpcionais.Name = "lblSubCamposOpcionais";
+            lblSubCamposOpcionais.Size = new Size(123, 30);
+            lblSubCamposOpcionais.TabIndex = 999;
+            lblSubCamposOpcionais.Text = "Informe ao menos um dos parâmetros:";
+            lblSubCamposOpcionais.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnModoPadrao
             // 
@@ -962,7 +962,7 @@
             // 
             label2.Font = new Font("Berlin Sans FB", 9.5F);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(74, 200);
+            label2.Location = new Point(78, 200);
             label2.Name = "label2";
             label2.Size = new Size(205, 228);
             label2.TabIndex = 999;
@@ -972,7 +972,7 @@
             // 
             label3.Font = new Font("Berlin Sans FB", 9.5F);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(74, 527);
+            label3.Location = new Point(78, 527);
             label3.Name = "label3";
             label3.Size = new Size(205, 184);
             label3.TabIndex = 999;
@@ -1084,8 +1084,8 @@
         private ReaLTaiizor.Controls.DungeonRichTextBox txtboxFilaExp;
         private Button btnValidarFilaExp;
         private TextBox txtBoxCvReverso;
-        private Label lblChaveAPI;
-        private Label label1;
+        private Label lblCoeficienteDeVariacao;
+        private Label lblCamposOpcionais;
         private TextBox txtBoxMediaReverso;
         private Label lblMediaReverso;
         private TextBox txtBoxDesvioReverso;
@@ -1101,7 +1101,7 @@
         private ReaLTaiizor.Controls.Panel pnSubModoPadrao;
         private Label label2;
         private Label label3;
-        private Label label4;
+        private Label lblSubCamposOpcionais;
         private Label lblCampoObrigatorio;
         private ReaLTaiizor.Controls.Panel pnSubResultadosEstatisticos;
         private PictureBox picPaginaDesvio;

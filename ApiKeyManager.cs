@@ -64,7 +64,7 @@ namespace Interface_e_sistema_em_C_
             }
             catch
             {
-                return null; // Arquivo corrompido ou inválido
+                return null;
             }
         }
 
