@@ -109,7 +109,7 @@ O projeto nasceu da vontade de transformar o estudo da estatística em algo meno
 
 ## 📄 Licença
 
-O código-fonte deste projeto é **open source** e distribuído sob a **GPLv3**, permitindo usar, modificar e redistribuir o software, desde que todas as alterações permaneçam abertas e licenciadas sob a GPLv3.
+O código-fonte deste projeto é **open source** e distribuído sob a **GPLv3**, permitindo a qualquer um usar, modificar e redistribuir o software de forma **totalmente gratuita**, desde que todas as alterações permaneçam abertas e licenciadas sob a GPLv3.
 
 - O nome **Estats** é uma marca registrada de Arthur Victor. Apenas o autor pode criar versões comerciais ou fechadas usando este nome.
 - O código-fonte do Estats **não pode ser usado para criar versões comerciais ou proprietárias por terceiros sem autorização do autor**.
