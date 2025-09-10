@@ -2,6 +2,8 @@ Estats - Licença Comercial
 
 Copyright (C) 2025 Arthur Victor
 
-Esta licença concede ao detentor o direito de usar e distribuir o software Estats em versões comerciais/proprietárias.
+1. O nome "Estats" é uma marca registrada. Nenhum indivíduo ou entidade pode criar, distribuir ou vender software com este nome sem autorização expressa do autor.
 
-Nenhum outro indivíduo ou entidade pode distribuir o software como fechado sob o nome "Estats" sem autorização expressa do autor.
+2. O código-fonte deste software não pode ser usado para criar versões fechadas, comerciais ou proprietárias por terceiros sem permissão do autor. Qualquer uso fora do repositório público GPLv3 requer licença comercial do autor.
+
+3. Esta licença garante que apenas o autor original pode lançar versões comerciais ou fechadas do software.
