@@ -51,7 +51,13 @@ O projeto nasceu da vontade de transformar o estudo da estatística em algo meno
 
 ## 🖼️ Conteúdos e Screenshots
 
-> *Esta área será atualizada em breve com imagens ilustrativas do funcionamento da aplicação, exemplos de uso e vídeos curtos para facilitar ainda mais a compreensão.*
+> **Tela Inicial do Sistema**
+<img width="1279" height="797" alt="image" src="https://github.com/user-attachments/assets/c316eda5-9595-4ca0-a969-a3ede51c558f" />
+
+
+> **Tela de Cálculos (Média, Variância, Desvio Padrão e Coefieciente de Variação):**
+<img width="1277" height="799" alt="image" src="https://github.com/user-attachments/assets/6a57efbe-5aa9-471b-99e5-ea24eb765657" />
+
 
 ---
 
