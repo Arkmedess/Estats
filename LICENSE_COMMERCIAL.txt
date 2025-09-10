@@ -1,0 +1,7 @@
+Estats - Licença Comercial
+
+Copyright (C) 2025 Arthur Victor
+
+Esta licença concede ao detentor o direito de usar e distribuir o software Estats em versões comerciais/proprietárias.
+
+Nenhum outro indivíduo ou entidade pode distribuir o software como fechado sob o nome "Estats" sem autorização expressa do autor.
