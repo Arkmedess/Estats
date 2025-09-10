@@ -35,15 +35,15 @@
             pnBoasVindas = new ReaLTaiizor.Controls.Panel();
             picUser = new PictureBox();
             pnTelaInicial = new Panel();
-            panel8 = new ReaLTaiizor.Controls.Panel();
-            panel9 = new ReaLTaiizor.Controls.Panel();
-            label5 = new Label();
-            label6 = new Label();
-            panel6 = new ReaLTaiizor.Controls.Panel();
+            pnChangelog = new ReaLTaiizor.Controls.Panel();
+            subPnChangelog = new ReaLTaiizor.Controls.Panel();
+            lvlDev1 = new Label();
+            lblTitleChangelog = new Label();
+            pnNoticias = new ReaLTaiizor.Controls.Panel();
             pnFiltrosChkLBox = new ReaLTaiizor.Controls.Panel();
             chkLBoxFiltro = new CheckedListBox();
             btnFiltro = new Button();
-            panel7 = new ReaLTaiizor.Controls.Panel();
+            subPnNoticias = new ReaLTaiizor.Controls.Panel();
             pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -53,49 +53,49 @@
             linkLblNoticia2 = new LinkLabel();
             linkLblNoticia3 = new LinkLabel();
             linkLblNoticia4 = new LinkLabel();
-            label4 = new Label();
-            panel4 = new ReaLTaiizor.Controls.Panel();
-            panel5 = new ReaLTaiizor.Controls.Panel();
-            label1 = new Label();
-            label3 = new Label();
-            panel3 = new ReaLTaiizor.Controls.Panel();
-            panel2 = new ReaLTaiizor.Controls.Panel();
-            button3 = new Button();
+            lblTitleNoticias = new Label();
+            pnHistorico = new ReaLTaiizor.Controls.Panel();
+            subPnHistorico = new ReaLTaiizor.Controls.Panel();
+            lvlDev2 = new Label();
+            lblTitleHistorico = new Label();
+            pnAcessoRapido = new ReaLTaiizor.Controls.Panel();
+            subPnAcessoRapido = new ReaLTaiizor.Controls.Panel();
+            btnAcssRapido3 = new Button();
             btnAcssRapido1 = new Button();
             btnAcssRapido2 = new Button();
-            label2 = new Label();
+            lblTitleAcessoRapido = new Label();
             pnLinks = new ReaLTaiizor.Controls.Panel();
-            panel1 = new ReaLTaiizor.Controls.Panel();
+            subPnLinks = new ReaLTaiizor.Controls.Panel();
             linkFatec = new LinkLabel();
             picYoutube = new PictureBox();
-            pictureBox2 = new PictureBox();
+            picWeb = new PictureBox();
             linkGithub = new LinkLabel();
             linkYoutube = new LinkLabel();
-            pictureBox1 = new PictureBox();
-            lblLinks = new Label();
+            picGithub = new PictureBox();
+            lblTitleLinks = new Label();
             chkLBoxFiltroTransicao = new System.Windows.Forms.Timer(components);
             pnBoasVindas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUser).BeginInit();
             pnTelaInicial.SuspendLayout();
-            panel8.SuspendLayout();
-            panel9.SuspendLayout();
-            panel6.SuspendLayout();
+            pnChangelog.SuspendLayout();
+            subPnChangelog.SuspendLayout();
+            pnNoticias.SuspendLayout();
             pnFiltrosChkLBox.SuspendLayout();
-            panel7.SuspendLayout();
+            subPnNoticias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             flowLayoutPanelNoticias.SuspendLayout();
-            panel4.SuspendLayout();
-            panel5.SuspendLayout();
-            panel3.SuspendLayout();
-            panel2.SuspendLayout();
+            pnHistorico.SuspendLayout();
+            subPnHistorico.SuspendLayout();
+            pnAcessoRapido.SuspendLayout();
+            subPnAcessoRapido.SuspendLayout();
             pnLinks.SuspendLayout();
-            panel1.SuspendLayout();
+            subPnLinks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picYoutube).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picWeb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picGithub).BeginInit();
             SuspendLayout();
             // 
             // lblSubTitulo
@@ -148,10 +148,10 @@
             // 
             // pnTelaInicial
             // 
-            pnTelaInicial.Controls.Add(panel8);
-            pnTelaInicial.Controls.Add(panel6);
-            pnTelaInicial.Controls.Add(panel4);
-            pnTelaInicial.Controls.Add(panel3);
+            pnTelaInicial.Controls.Add(pnChangelog);
+            pnTelaInicial.Controls.Add(pnNoticias);
+            pnTelaInicial.Controls.Add(pnHistorico);
+            pnTelaInicial.Controls.Add(pnAcessoRapido);
             pnTelaInicial.Controls.Add(pnLinks);
             pnTelaInicial.Controls.Add(pnBoasVindas);
             pnTelaInicial.Location = new Point(66, 48);
@@ -159,74 +159,74 @@
             pnTelaInicial.Size = new Size(1190, 730);
             pnTelaInicial.TabIndex = 10;
             // 
-            // panel8
+            // pnChangelog
             // 
-            panel8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel8.BackColor = Color.FromArgb(57, 45, 120);
-            panel8.Controls.Add(panel9);
-            panel8.Controls.Add(label6);
-            panel8.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel8.Location = new Point(771, 256);
-            panel8.Name = "panel8";
-            panel8.Padding = new Padding(5);
-            panel8.Size = new Size(389, 207);
-            panel8.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel8.TabIndex = 20;
-            panel8.Text = "-+";
+            pnChangelog.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnChangelog.BackColor = Color.FromArgb(57, 45, 120);
+            pnChangelog.Controls.Add(subPnChangelog);
+            pnChangelog.Controls.Add(lblTitleChangelog);
+            pnChangelog.EdgeColor = Color.FromArgb(32, 41, 50);
+            pnChangelog.Location = new Point(771, 256);
+            pnChangelog.Name = "pnChangelog";
+            pnChangelog.Padding = new Padding(5);
+            pnChangelog.Size = new Size(389, 207);
+            pnChangelog.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            pnChangelog.TabIndex = 20;
+            pnChangelog.Text = "-+";
             // 
-            // panel9
+            // subPnChangelog
             // 
-            panel9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel9.BackColor = Color.FromArgb(26, 31, 52);
-            panel9.Controls.Add(label5);
-            panel9.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel9.Location = new Point(9, 47);
-            panel9.Name = "panel9";
-            panel9.Padding = new Padding(5);
-            panel9.Size = new Size(371, 151);
-            panel9.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel9.TabIndex = 19;
-            panel9.Text = "panel9";
+            subPnChangelog.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            subPnChangelog.BackColor = Color.FromArgb(26, 31, 52);
+            subPnChangelog.Controls.Add(lvlDev1);
+            subPnChangelog.EdgeColor = Color.FromArgb(32, 41, 50);
+            subPnChangelog.Location = new Point(9, 47);
+            subPnChangelog.Name = "subPnChangelog";
+            subPnChangelog.Padding = new Padding(5);
+            subPnChangelog.Size = new Size(371, 151);
+            subPnChangelog.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            subPnChangelog.TabIndex = 19;
+            subPnChangelog.Text = "panel9";
             // 
-            // label5
+            // lvlDev1
             // 
-            label5.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(67, 55);
-            label5.Margin = new Padding(0);
-            label5.Name = "label5";
-            label5.Size = new Size(241, 35);
-            label5.TabIndex = 18;
-            label5.Text = "Em desenvolvimento";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
+            lvlDev1.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lvlDev1.ForeColor = Color.White;
+            lvlDev1.Location = new Point(67, 55);
+            lvlDev1.Margin = new Padding(0);
+            lvlDev1.Name = "lvlDev1";
+            lvlDev1.Size = new Size(241, 35);
+            lvlDev1.TabIndex = 18;
+            lvlDev1.Text = "Em desenvolvimento";
+            lvlDev1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // lblTitleChangelog
             // 
-            label6.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(11, 8);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(260, 30);
-            label6.TabIndex = 12;
-            label6.Text = "Changelog";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitleChangelog.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
+            lblTitleChangelog.ForeColor = Color.White;
+            lblTitleChangelog.Location = new Point(11, 8);
+            lblTitleChangelog.Margin = new Padding(0);
+            lblTitleChangelog.Name = "lblTitleChangelog";
+            lblTitleChangelog.Size = new Size(260, 30);
+            lblTitleChangelog.TabIndex = 12;
+            lblTitleChangelog.Text = "Changelog";
+            lblTitleChangelog.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel6
+            // pnNoticias
             // 
-            panel6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel6.BackColor = Color.FromArgb(57, 45, 120);
-            panel6.Controls.Add(pnFiltrosChkLBox);
-            panel6.Controls.Add(btnFiltro);
-            panel6.Controls.Add(panel7);
-            panel6.Controls.Add(label4);
-            panel6.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel6.Location = new Point(46, 256);
-            panel6.Name = "panel6";
-            panel6.Padding = new Padding(5);
-            panel6.Size = new Size(550, 207);
-            panel6.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel6.TabIndex = 19;
+            pnNoticias.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnNoticias.BackColor = Color.FromArgb(57, 45, 120);
+            pnNoticias.Controls.Add(pnFiltrosChkLBox);
+            pnNoticias.Controls.Add(btnFiltro);
+            pnNoticias.Controls.Add(subPnNoticias);
+            pnNoticias.Controls.Add(lblTitleNoticias);
+            pnNoticias.EdgeColor = Color.FromArgb(32, 41, 50);
+            pnNoticias.Location = new Point(46, 256);
+            pnNoticias.Name = "pnNoticias";
+            pnNoticias.Padding = new Padding(5);
+            pnNoticias.Size = new Size(550, 207);
+            pnNoticias.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            pnNoticias.TabIndex = 19;
             // 
             // pnFiltrosChkLBox
             // 
@@ -275,23 +275,23 @@
             btnFiltro.UseVisualStyleBackColor = false;
             btnFiltro.Click += btnFiltro_Click;
             // 
-            // panel7
+            // subPnNoticias
             // 
-            panel7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel7.BackColor = Color.FromArgb(26, 31, 52);
-            panel7.Controls.Add(pictureBox6);
-            panel7.Controls.Add(pictureBox5);
-            panel7.Controls.Add(pictureBox4);
-            panel7.Controls.Add(pictureBox3);
-            panel7.Controls.Add(flowLayoutPanelNoticias);
-            panel7.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel7.Location = new Point(8, 47);
-            panel7.Name = "panel7";
-            panel7.Padding = new Padding(5);
-            panel7.Size = new Size(534, 152);
-            panel7.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel7.TabIndex = 20;
-            panel7.Text = "panel7";
+            subPnNoticias.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            subPnNoticias.BackColor = Color.FromArgb(26, 31, 52);
+            subPnNoticias.Controls.Add(pictureBox6);
+            subPnNoticias.Controls.Add(pictureBox5);
+            subPnNoticias.Controls.Add(pictureBox4);
+            subPnNoticias.Controls.Add(pictureBox3);
+            subPnNoticias.Controls.Add(flowLayoutPanelNoticias);
+            subPnNoticias.EdgeColor = Color.FromArgb(32, 41, 50);
+            subPnNoticias.Location = new Point(8, 47);
+            subPnNoticias.Name = "subPnNoticias";
+            subPnNoticias.Padding = new Padding(5);
+            subPnNoticias.Size = new Size(534, 152);
+            subPnNoticias.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            subPnNoticias.TabIndex = 20;
+            subPnNoticias.Text = "panel7";
             // 
             // pictureBox6
             // 
@@ -406,114 +406,114 @@
             linkLblNoticia4.TextAlign = ContentAlignment.MiddleLeft;
             linkLblNoticia4.LinkClicked += linkLblNoticia_LinkClicked;
             // 
-            // label4
+            // lblTitleNoticias
             // 
-            label4.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(11, 8);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(247, 30);
-            label4.TabIndex = 12;
-            label4.Text = "Notícias de Estatística";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitleNoticias.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
+            lblTitleNoticias.ForeColor = Color.White;
+            lblTitleNoticias.Location = new Point(11, 8);
+            lblTitleNoticias.Margin = new Padding(0);
+            lblTitleNoticias.Name = "lblTitleNoticias";
+            lblTitleNoticias.Size = new Size(247, 30);
+            lblTitleNoticias.TabIndex = 12;
+            lblTitleNoticias.Text = "Notícias de Estatística";
+            lblTitleNoticias.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel4
+            // pnHistorico
             // 
-            panel4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel4.BackColor = Color.FromArgb(57, 45, 120);
-            panel4.Controls.Add(panel5);
-            panel4.Controls.Add(label3);
-            panel4.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel4.Location = new Point(628, 480);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(5);
-            panel4.Size = new Size(530, 207);
-            panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel4.TabIndex = 15;
-            panel4.Text = "-+";
+            pnHistorico.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnHistorico.BackColor = Color.FromArgb(57, 45, 120);
+            pnHistorico.Controls.Add(subPnHistorico);
+            pnHistorico.Controls.Add(lblTitleHistorico);
+            pnHistorico.EdgeColor = Color.FromArgb(32, 41, 50);
+            pnHistorico.Location = new Point(628, 480);
+            pnHistorico.Name = "pnHistorico";
+            pnHistorico.Padding = new Padding(5);
+            pnHistorico.Size = new Size(530, 207);
+            pnHistorico.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            pnHistorico.TabIndex = 15;
+            pnHistorico.Text = "-+";
             // 
-            // panel5
+            // subPnHistorico
             // 
-            panel5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel5.BackColor = Color.FromArgb(26, 31, 52);
-            panel5.Controls.Add(label1);
-            panel5.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel5.Location = new Point(8, 45);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(5);
-            panel5.Size = new Size(515, 154);
-            panel5.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel5.TabIndex = 19;
-            panel5.Text = "panel5";
+            subPnHistorico.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            subPnHistorico.BackColor = Color.FromArgb(26, 31, 52);
+            subPnHistorico.Controls.Add(lvlDev2);
+            subPnHistorico.EdgeColor = Color.FromArgb(32, 41, 50);
+            subPnHistorico.Location = new Point(8, 45);
+            subPnHistorico.Name = "subPnHistorico";
+            subPnHistorico.Padding = new Padding(5);
+            subPnHistorico.Size = new Size(515, 154);
+            subPnHistorico.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            subPnHistorico.TabIndex = 19;
+            subPnHistorico.Text = "panel5";
             // 
-            // label1
+            // lvlDev2
             // 
-            label1.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(137, 56);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(241, 35);
-            label1.TabIndex = 18;
-            label1.Text = "Em desenvolvimento";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lvlDev2.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lvlDev2.ForeColor = Color.White;
+            lvlDev2.Location = new Point(137, 56);
+            lvlDev2.Margin = new Padding(0);
+            lvlDev2.Name = "lvlDev2";
+            lvlDev2.Size = new Size(241, 35);
+            lvlDev2.TabIndex = 18;
+            lvlDev2.Text = "Em desenvolvimento";
+            lvlDev2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lblTitleHistorico
             // 
-            label3.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(11, 8);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(260, 30);
-            label3.TabIndex = 12;
-            label3.Text = "Histórico de Cálculos";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitleHistorico.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
+            lblTitleHistorico.ForeColor = Color.White;
+            lblTitleHistorico.Location = new Point(11, 8);
+            lblTitleHistorico.Margin = new Padding(0);
+            lblTitleHistorico.Name = "lblTitleHistorico";
+            lblTitleHistorico.Size = new Size(260, 30);
+            lblTitleHistorico.TabIndex = 12;
+            lblTitleHistorico.Text = "Histórico de Cálculos";
+            lblTitleHistorico.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel3
+            // pnAcessoRapido
             // 
-            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel3.BackColor = Color.FromArgb(57, 45, 120);
-            panel3.Controls.Add(panel2);
-            panel3.Controls.Add(label2);
-            panel3.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel3.Location = new Point(46, 480);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(5);
-            panel3.Size = new Size(550, 207);
-            panel3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel3.TabIndex = 12;
+            pnAcessoRapido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnAcessoRapido.BackColor = Color.FromArgb(57, 45, 120);
+            pnAcessoRapido.Controls.Add(subPnAcessoRapido);
+            pnAcessoRapido.Controls.Add(lblTitleAcessoRapido);
+            pnAcessoRapido.EdgeColor = Color.FromArgb(32, 41, 50);
+            pnAcessoRapido.Location = new Point(46, 480);
+            pnAcessoRapido.Name = "pnAcessoRapido";
+            pnAcessoRapido.Padding = new Padding(5);
+            pnAcessoRapido.Size = new Size(550, 207);
+            pnAcessoRapido.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            pnAcessoRapido.TabIndex = 12;
             // 
-            // panel2
+            // subPnAcessoRapido
             // 
-            panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel2.BackColor = Color.FromArgb(26, 31, 52);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(btnAcssRapido1);
-            panel2.Controls.Add(btnAcssRapido2);
-            panel2.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel2.Location = new Point(8, 45);
-            panel2.Name = "panel2";
-            panel2.Padding = new Padding(5);
-            panel2.Size = new Size(534, 152);
-            panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel2.TabIndex = 18;
-            panel2.Text = "panel2";
+            subPnAcessoRapido.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            subPnAcessoRapido.BackColor = Color.FromArgb(26, 31, 52);
+            subPnAcessoRapido.Controls.Add(btnAcssRapido3);
+            subPnAcessoRapido.Controls.Add(btnAcssRapido1);
+            subPnAcessoRapido.Controls.Add(btnAcssRapido2);
+            subPnAcessoRapido.EdgeColor = Color.FromArgb(32, 41, 50);
+            subPnAcessoRapido.Location = new Point(8, 45);
+            subPnAcessoRapido.Name = "subPnAcessoRapido";
+            subPnAcessoRapido.Padding = new Padding(5);
+            subPnAcessoRapido.Size = new Size(534, 152);
+            subPnAcessoRapido.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            subPnAcessoRapido.TabIndex = 18;
+            subPnAcessoRapido.Text = "panel2";
             // 
-            // button3
+            // btnAcssRapido3
             // 
-            button3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            button3.Cursor = Cursors.Hand;
-            button3.Enabled = false;
-            button3.Font = new Font("Berlin Sans FB", 12.1F);
-            button3.Location = new Point(372, 11);
-            button3.Name = "button3";
-            button3.Size = new Size(145, 130);
-            button3.TabIndex = 14;
-            button3.Text = "Em desenvolvimento";
-            button3.TextAlign = ContentAlignment.BottomCenter;
-            button3.UseVisualStyleBackColor = true;
+            btnAcssRapido3.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnAcssRapido3.Cursor = Cursors.Hand;
+            btnAcssRapido3.Enabled = false;
+            btnAcssRapido3.Font = new Font("Berlin Sans FB", 12.1F);
+            btnAcssRapido3.Location = new Point(372, 11);
+            btnAcssRapido3.Name = "btnAcssRapido3";
+            btnAcssRapido3.Size = new Size(145, 130);
+            btnAcssRapido3.TabIndex = 14;
+            btnAcssRapido3.Text = "Em desenvolvimento";
+            btnAcssRapido3.TextAlign = ContentAlignment.BottomCenter;
+            btnAcssRapido3.UseVisualStyleBackColor = true;
             // 
             // btnAcssRapido1
             // 
@@ -549,23 +549,23 @@
             btnAcssRapido2.UseVisualStyleBackColor = false;
             btnAcssRapido2.Click += btnAcssRapido2_Click;
             // 
-            // label2
+            // lblTitleAcessoRapido
             // 
-            label2.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(11, 8);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Size = new Size(179, 30);
-            label2.TabIndex = 12;
-            label2.Text = "Acesso rápido";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitleAcessoRapido.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold);
+            lblTitleAcessoRapido.ForeColor = Color.White;
+            lblTitleAcessoRapido.Location = new Point(11, 8);
+            lblTitleAcessoRapido.Margin = new Padding(0);
+            lblTitleAcessoRapido.Name = "lblTitleAcessoRapido";
+            lblTitleAcessoRapido.Size = new Size(179, 30);
+            lblTitleAcessoRapido.TabIndex = 12;
+            lblTitleAcessoRapido.Text = "Acesso rápido";
+            lblTitleAcessoRapido.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pnLinks
             // 
             pnLinks.BackColor = Color.FromArgb(57, 45, 120);
-            pnLinks.Controls.Add(panel1);
-            pnLinks.Controls.Add(lblLinks);
+            pnLinks.Controls.Add(subPnLinks);
+            pnLinks.Controls.Add(lblTitleLinks);
             pnLinks.EdgeColor = Color.FromArgb(32, 41, 50);
             pnLinks.Location = new Point(771, 48);
             pnLinks.Name = "pnLinks";
@@ -575,24 +575,24 @@
             pnLinks.TabIndex = 10;
             pnLinks.Text = "panel2";
             // 
-            // panel1
+            // subPnLinks
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            panel1.BackColor = Color.FromArgb(26, 31, 52);
-            panel1.Controls.Add(linkFatec);
-            panel1.Controls.Add(picYoutube);
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(linkGithub);
-            panel1.Controls.Add(linkYoutube);
-            panel1.Controls.Add(pictureBox1);
-            panel1.EdgeColor = Color.FromArgb(32, 41, 50);
-            panel1.Location = new Point(9, 41);
-            panel1.Name = "panel1";
-            panel1.Padding = new Padding(5);
-            panel1.Size = new Size(371, 143);
-            panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            panel1.TabIndex = 17;
-            panel1.Text = "panel1";
+            subPnLinks.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            subPnLinks.BackColor = Color.FromArgb(26, 31, 52);
+            subPnLinks.Controls.Add(linkFatec);
+            subPnLinks.Controls.Add(picYoutube);
+            subPnLinks.Controls.Add(picWeb);
+            subPnLinks.Controls.Add(linkGithub);
+            subPnLinks.Controls.Add(linkYoutube);
+            subPnLinks.Controls.Add(picGithub);
+            subPnLinks.EdgeColor = Color.FromArgb(32, 41, 50);
+            subPnLinks.Location = new Point(9, 41);
+            subPnLinks.Name = "subPnLinks";
+            subPnLinks.Padding = new Padding(5);
+            subPnLinks.Size = new Size(371, 143);
+            subPnLinks.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            subPnLinks.TabIndex = 17;
+            subPnLinks.Text = "panel1";
             // 
             // linkFatec
             // 
@@ -620,15 +620,15 @@
             picYoutube.TabIndex = 10;
             picYoutube.TabStop = false;
             // 
-            // pictureBox2
+            // picWeb
             // 
-            pictureBox2.Image = Properties.Resources.Website;
-            pictureBox2.Location = new Point(10, 95);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(40, 40);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 15;
-            pictureBox2.TabStop = false;
+            picWeb.Image = Properties.Resources.Website;
+            picWeb.Location = new Point(10, 95);
+            picWeb.Name = "picWeb";
+            picWeb.Size = new Size(40, 40);
+            picWeb.SizeMode = PictureBoxSizeMode.StretchImage;
+            picWeb.TabIndex = 15;
+            picWeb.TabStop = false;
             // 
             // linkGithub
             // 
@@ -658,27 +658,27 @@
             linkYoutube.TextAlign = ContentAlignment.MiddleLeft;
             linkYoutube.LinkClicked += linkYoutube_LinkClicked;
             // 
-            // pictureBox1
+            // picGithub
             // 
-            pictureBox1.Image = Properties.Resources.GitHub1;
-            pictureBox1.Location = new Point(10, 50);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 40);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 13;
-            pictureBox1.TabStop = false;
+            picGithub.Image = Properties.Resources.GitHub1;
+            picGithub.Location = new Point(10, 50);
+            picGithub.Name = "picGithub";
+            picGithub.Size = new Size(40, 40);
+            picGithub.SizeMode = PictureBoxSizeMode.StretchImage;
+            picGithub.TabIndex = 13;
+            picGithub.TabStop = false;
             // 
-            // lblLinks
+            // lblTitleLinks
             // 
-            lblLinks.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblLinks.ForeColor = Color.White;
-            lblLinks.Location = new Point(7, 3);
-            lblLinks.Margin = new Padding(0);
-            lblLinks.Name = "lblLinks";
-            lblLinks.Size = new Size(148, 35);
-            lblLinks.TabIndex = 9;
-            lblLinks.Text = "Links úteis:";
-            lblLinks.TextAlign = ContentAlignment.MiddleLeft;
+            lblTitleLinks.Font = new Font("Berlin Sans FB Demi", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitleLinks.ForeColor = Color.White;
+            lblTitleLinks.Location = new Point(7, 3);
+            lblTitleLinks.Margin = new Padding(0);
+            lblTitleLinks.Name = "lblTitleLinks";
+            lblTitleLinks.Size = new Size(148, 35);
+            lblTitleLinks.TabIndex = 9;
+            lblTitleLinks.Text = "Links úteis:";
+            lblTitleLinks.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // chkLBoxFiltroTransicao
             // 
@@ -696,25 +696,25 @@
             pnBoasVindas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picUser).EndInit();
             pnTelaInicial.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel6.ResumeLayout(false);
+            pnChangelog.ResumeLayout(false);
+            subPnChangelog.ResumeLayout(false);
+            pnNoticias.ResumeLayout(false);
             pnFiltrosChkLBox.ResumeLayout(false);
-            panel7.ResumeLayout(false);
+            subPnNoticias.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             flowLayoutPanelNoticias.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel2.ResumeLayout(false);
+            pnHistorico.ResumeLayout(false);
+            subPnHistorico.ResumeLayout(false);
+            pnAcessoRapido.ResumeLayout(false);
+            subPnAcessoRapido.ResumeLayout(false);
             pnLinks.ResumeLayout(false);
-            panel1.ResumeLayout(false);
+            subPnLinks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picYoutube).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picWeb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picGithub).EndInit();
             ResumeLayout(false);
         }
 
@@ -725,28 +725,28 @@
         private ReaLTaiizor.Controls.Panel pnBoasVindas;
         private Panel pnTelaInicial;
         private ReaLTaiizor.Controls.Panel pnLinks;
-        private Label lblLinks;
+        private Label lblTitleLinks;
         private LinkLabel linkYoutube;
         private PictureBox picYoutube;
-        private ReaLTaiizor.Controls.Panel panel3;
-        private Label label2;
+        private ReaLTaiizor.Controls.Panel pnAcessoRapido;
+        private Label lblTitleAcessoRapido;
         private Button btnAcssRapido2;
         private Button btnAcssRapido1;
-        private Button button3;
+        private Button btnAcssRapido3;
         private LinkLabel linkFatec;
-        private PictureBox pictureBox2;
+        private PictureBox picWeb;
         private LinkLabel linkGithub;
-        private PictureBox pictureBox1;
+        private PictureBox picGithub;
         private PictureBox picUser;
-        private ReaLTaiizor.Controls.Panel panel4;
-        private Label label3;
-        private ReaLTaiizor.Controls.Panel panel1;
-        private ReaLTaiizor.Controls.Panel panel2;
-        private ReaLTaiizor.Controls.Panel panel5;
-        private Label label1;
-        private ReaLTaiizor.Controls.Panel panel6;
-        private ReaLTaiizor.Controls.Panel panel7;
-        private Label label4;
+        private ReaLTaiizor.Controls.Panel pnHistorico;
+        private Label lblTitleHistorico;
+        private ReaLTaiizor.Controls.Panel subPnLinks;
+        private ReaLTaiizor.Controls.Panel subPnAcessoRapido;
+        private ReaLTaiizor.Controls.Panel subPnHistorico;
+        private Label lvlDev2;
+        private ReaLTaiizor.Controls.Panel pnNoticias;
+        private ReaLTaiizor.Controls.Panel subPnNoticias;
+        private Label lblTitleNoticias;
         private CheckedListBox chkLBoxFiltro;
         private Button btnFiltro;
         private System.Windows.Forms.Timer chkLBoxFiltroTransicao;
@@ -760,9 +760,9 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
         private PictureBox pictureBox3;
-        private ReaLTaiizor.Controls.Panel panel8;
-        private ReaLTaiizor.Controls.Panel panel9;
-        private Label label5;
-        private Label label6;
+        private ReaLTaiizor.Controls.Panel pnChangelog;
+        private ReaLTaiizor.Controls.Panel subPnChangelog;
+        private Label lvlDev1;
+        private Label lblTitleChangelog;
     }
 }
